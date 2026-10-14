@@ -258,6 +258,7 @@ footer{text-align:center;border-top:1px solid var(--line);background:#29372c;fon
 <div class="cf-field"><label for="cf-stage">Pflanzenstadium (für KI-Diagnose)</label><select id="cf-stage"><option value="Nicht angegeben">Nicht angegeben</option><option value="Keimling">Keimling</option><option value="Wachstum">Wachstum</option><option value="Vorblüte">Vorblüte</option><option value="Blüte">Blüte</option></select></div>
 <div class="cf-field"><label for="cf-substrate">Substrat / Anbaumethode (für KI-Diagnose)</label><select id="cf-substrate"><option value="Nicht angegeben">Nicht angegeben</option><option value="Erde">Erde</option><option value="Kokos">Kokos</option><option value="Hydroponik">Hydroponik</option><option value="DWC">DWC / Deep Water Culture</option><option value="Sonstiges">Sonstiges</option></select></div>
 <div class="cf-field"><label for="cf-photo">Pflanzenbild (optional, JPEG/PNG/WebP; max. 5 MB)</label><input id="cf-photo" type="file" accept="image/jpeg,image/png,image/webp"/><p class="cf-muted">Das Bild wird zur Analyse an den Keimwerk-Diagnosedienst gesendet. Entferne vor dem Upload persönliche oder identifizierende Bildinhalte.</p></div>
+<div class="cf-field"><label>Sicherheitsprüfung</label><div id="cf-turnstile-widget"></div><p class="cf-muted">Bitte bestätige die Sicherheitsprüfung, bevor du die KI-Diagnose startest.</p></div>
 <div class="cf-actions"><button class="primary" type="button" id="cf-ai-analyze">KI-Diagnose starten</button><span id="cf-ai-status" class="cf-muted" role="status" aria-live="polite"></span></div>
 <section id="cf-ai-results" class="cf-panel" hidden="" aria-live="polite"><h2>KI-Diagnose</h2><p id="cf-ai-summary"></p><p id="cf-ai-confidence"></p><div id="cf-ai-causes"></div><div><strong>Rückfragen</strong><ul id="cf-ai-questions"></ul></div><p id="cf-ai-safety" class="cf-muted"></p></section>
 
@@ -1392,9 +1393,24 @@ $('gd-profile').addEventListener('change',()=>{
 </script>
 
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&amp;onload=keimwerkTurnstileApiLoaded" async defer></script>
+<script>window.keimwerkTurnstileApiLoaded=()=>{if(window.keimwerkTurnstileReady)window.keimwerkTurnstileReady();};</script>
 <script>
 (()=> {
  const endpoint='https://keimwerk-ai-diagnose.chrisvoigt17.workers.dev/diagnose';
+ const turnstileSiteKey='0x4AAAAAAFWmKE7A6QR8afTG';
+ let turnstileWidgetId=null;
+ function renderTurnstile(){
+   const container=document.getElementById('cf-turnstile-widget');
+   const finder=document.getElementById('cannabis-finder');
+   if(!container||!finder||finder.hidden||!window.turnstile||turnstileWidgetId!==null)return;
+   turnstileWidgetId=window.turnstile.render(container,{sitekey:turnstileSiteKey,theme:'auto',callback:()=>{},'expired-callback':()=>{},'error-callback':()=>{}});
+ }
+ window.keimwerkTurnstileReady=()=>{renderTurnstile();};
+ const finder=document.getElementById('cannabis-finder');
+ if(finder&&'MutationObserver'in window){new MutationObserver(renderTurnstile).observe(finder,{attributes:true,attributeFilter:['hidden']});}
+ document.addEventListener('DOMContentLoaded',renderTurnstile);
+ setTimeout(renderTurnstile,500);
  const $=id=>document.getElementById(id);
  const escapeText=s=>String(s??'');
  function addText(parent,tag,text,cls){
@@ -1419,6 +1435,9 @@ $('gd-profile').addEventListener('change',()=>{
    const labels=checked.map(input=>input.closest('label')?.innerText.trim()||input.value);
    const notes=$('cf-notes').value.trim();
    if(!labels.length&&!notes){status.textContent='Bitte wähle mindestens ein Symptom aus oder beschreibe die Beobachtung.';return;}
+   const tokenField=document.querySelector('[name="cf-turnstile-response"]');
+   const turnstileToken=tokenField?.value||'';
+   if(!turnstileToken){status.textContent='Bitte schließe zuerst die Sicherheitsprüfung ab.';renderTurnstile();return;}
    const photo=$('cf-photo').files?.[0];
    if(photo && photo.size>5*1024*1024){status.textContent='Das Bild ist größer als 5 MB. Bitte wähle ein kleineres Bild.';return;}
    if(photo && !['image/jpeg','image/png','image/webp'].includes(photo.type)){status.textContent='Bitte nutze ein JPEG-, PNG- oder WebP-Bild.';return;}
@@ -1427,6 +1446,7 @@ $('gd-profile').addEventListener('change',()=>{
      const waterMap={unknown:'Keine Angabe',wet:'Substrat bleibt lange nass',dry:'Substrat trocknet sehr schnell aus',normal:'Gießen wirkt normal',hydro:'Hydroponik / Wasserreservoir'};
      const changeMap={unknown:'Keine Angabe',feed:'Dünger gewechselt / stärker gedüngt',repot:'Umtopfen / Wurzeln gestört',light:'Licht, Temperatur oder Standort verändert',none:'Keine bekannte Veränderung'};
      const body={
+       turnstileToken,
        symptoms:[...labels,notes?('Weitere Beobachtungen: '+notes):''].filter(Boolean).join('; '),
        plantStage:$('cf-stage').value,
        substrate:$('cf-substrate').value,
@@ -1463,7 +1483,7 @@ $('gd-profile').addEventListener('change',()=>{
      results.hidden=false; status.textContent='Analyse abgeschlossen.'; results.scrollIntoView({behavior:'smooth',block:'start'});
    }catch(error){
      status.textContent='KI-Diagnose fehlgeschlagen: '+(error?.message||'Unbekannter Fehler');
-   }finally{button.disabled=false;}
+   }finally{button.disabled=false;try{if(window.turnstile&&turnstileWidgetId!==null)window.turnstile.reset(turnstileWidgetId);}catch(_){}}
  });
 })();
 </script>
