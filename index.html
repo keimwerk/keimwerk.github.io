@@ -142,6 +142,22 @@ footer{text-align:center;border-top:1px solid var(--line);background:#29372c;fon
 .welcome-close{background:transparent;color:#e0e5dc;border:1px solid #60715e}
 .welcome-close-x{position:absolute;right:13px;top:13px;z-index:2;background:transparent;border:0;color:#e0e5dc;font-size:24px;line-height:1;padding:5px;cursor:pointer;pointer-events:auto}
 @media(max-width:480px){.welcome-dialog{padding:26px 20px}.welcome-actions button{width:100%}}
+
+/* Cannabis-Mängel-Finder – in die bestehende Keimwerk-Seite integriert */
+.cf-warning{background:#3b3425;border:1px solid #74613a;border-radius:9px;padding:13px 15px;margin:10px 0 18px;color:#f4e5bd;font-size:13px}
+.cf-grid{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:16px;align-items:start}
+.cf-panel{background:#29382d;border:1px solid #435246;border-radius:10px;padding:19px;margin-bottom:16px;min-width:0}
+.cf-panel h2{font-size:20px;margin:0 0 8px}.cf-panel h3{font-size:15px;margin:18px 0 5px}.cf-panel p,.cf-panel li{font-size:13px;color:#d8dfd4;line-height:1.7}
+.cf-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0 23px}
+.cf-checks label{display:flex;align-items:flex-start;gap:9px;border:1px solid #435246;border-radius:7px;padding:10px;background:#233127;font-weight:normal;font-size:12px;line-height:1.5;margin:0;cursor:pointer}
+.cf-checks input{accent-color:#a8b9a0;margin-top:3px;flex-shrink:0}
+.cf-checks label:has(input:checked){background:#344638;border-color:#91a58a}
+.cf-field{margin:13px 0}.cf-field label{margin-bottom:6px}.cf-field select,.cf-field input,.cf-field textarea{width:100%;border:1px solid #64735c;border-radius:7px;background:#1e2a21;color:#f0f1eb;padding:11px;font:inherit;font-size:13px}.cf-field select{height:auto;min-height:44px}.cf-field textarea{resize:vertical}
+.cf-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.cf-secondary{background:transparent;color:#dce6d5;border:1px solid #5f715a;border-radius:5px;padding:12px 15px;font-weight:bold;font-size:12px}
+.cf-results{margin-top:18px}.cf-result{background:#26352a;border:1px solid #435346;border-radius:9px;padding:15px;margin:12px 0}.cf-result h3{margin:5px 0;font-size:17px}.cf-result p,.cf-result li{font-size:13px}.cf-result .cf-label{display:inline-block;border:1px solid #5f715a;border-radius:4px;padding:2px 6px;font-size:10px;color:#dce6d5;margin:2px 4px 2px 0}.cf-result-images{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}.cf-result-images figure{margin:0;background:#1e2a21;border:1px solid #435246;border-radius:7px;overflow:hidden}.cf-result-images img{display:block;width:100%;height:180px;object-fit:contain;background:#17231b}.cf-result-images figcaption{font-size:11px;padding:7px;color:#c8d0c5}.cf-lex-result{margin:10px 0 14px;padding:10px;border:1px solid #435346;border-radius:7px;background:#1e2a21}.cf-pest-preview{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 9px}.cf-pest-preview img{height:105px;object-fit:cover}.cf-pest-preview figcaption{font-size:10px;padding:5px}.cf-link{background:transparent;border:1px solid #5f715a;color:#dce6d5;border-radius:5px;padding:9px 12px;cursor:pointer;font-weight:bold;font-size:12px}
+.cf-muted{color:#b9c9b1!important}
+@media(max-width:760px){.cf-grid{grid-template-columns:1fr}.cf-checks{grid-template-columns:1fr}.cf-result-images img{height:145px}.cf-pest-preview img{height:80px}.cf-pest-preview figcaption{font-size:9px}}
+@media print{body{background:white;color:#111}.cf-side,.cf-actions,header,footer{display:none!important}.cf-panel,.cf-result{background:white;color:#111;border:1px solid #aaa;box-shadow:none}.cf-panel p,.cf-result p,.cf-result li,.cf-result h3{color:#111}.cf-warning{background:#fff8e8;color:#111}}
 </style>
 <style>
 #diary-nav{border-color:#455748}
@@ -185,9 +201,9 @@ footer{text-align:center;border-top:1px solid var(--line);background:#29372c;fon
 </div><div class="plant-caption">Wachsen. Entfalten. Ernten.</div></div>
 </section>
 <section class="section" id="lexika"><div class="section-head"><div><div class="section-label">WISSEN ENTDECKEN</div><h2>Unsere Lexika</h2></div><p>Wähle einen Wissensbereich aus und entdecke hilfreiche Informationen, verständliche Erklärungen und übersichtliches Pflanzenwissen. Die verschiedenen Bereiche helfen dir dabei, Themen besser zu verstehen und Zusammenhänge zu erkennen.</p></div>
-<div class="chooser"><label for="lex-select">Welches Lexikon möchtest du ansehen?</label><select id="lex-select"><option disabled="" selected="" value="">Bitte ein Lexikon auswählen …</option><option value="pests">Schädlingslexikon</option><option value="beneficials">Nützlingslexikon</option><option value="nutrients">Über- und Unterdüngungslexikon</option></select>
+<div class="chooser"><label for="lex-select">Welches Lexikon möchtest du ansehen?</label><select id="lex-select"><option disabled="" selected="" value="">Bitte ein Lexikon auswählen …</option><option value="pests">Schädlingslexikon</option><option value="beneficials">Nützlingslexikon</option><option value="nutrients">Über- und Unterdüngungslexikon</option><option value="cannabis-finder">Cannabis-Mängel-Finder</option></select>
 <div class="lex-card" hidden="" id="pest-card"><div class="lex-icon">❧</div><div><div class="lex-title">Schädlingslexikon</div><p>Hier findest du eine Übersicht zu Schädlingen an Pflanzen. Der Bereich soll helfen, mögliche Schädlinge anhand von Aussehen, Symptomen und typischen Schadbildern zu erkennen. Zu den Einträgen gehören Informationen zur visuellen Erkennung und Hinweise zur genaueren Kontrolle. Die Inhalte sind so gegliedert, dass du einzelne Profile später leicht finden und vergleichen kannst.</p><span class="pill">12 Schädlingsprofile</span><br/><button class="primary" id="open-pests">Schädlingslexikon öffnen →</button></div></div><div class="lex-card" hidden="" id="beneficial-card"><div class="lex-icon">❧</div><div><div class="lex-title">Nützlingslexikon</div><p>Hier findest du Nützlinge, ihre Erkennungsmerkmale, ihre Wirkung und Hinweise zu ihrem Einsatz gegen Pflanzenschädlinge.</p><span class="pill">11 Nützlingsprofile</span><br/><button class="primary" id="open-beneficials">Nützlingslexikon öffnen →</button></div></div><div class="lex-card" hidden="" id="nutrients-card"><div class="lex-icon">❧</div><div><div class="lex-title">Über- und Unterdüngungslexikon</div><p>Hier findest du typische Hinweise auf Nährstoffmängel und Überschüsse, anschauliche Pflanzenbilder sowie Hinweise zur Diagnose mit pH, EC und Wurzelzustand.</p><span class="pill">12 Nährstoffprofile</span><br/><button class="primary" id="open-nutrients">Nährstofflexikon öffnen →</button></div></div>
-</div></section>
+<div class="lex-card" hidden="" id="cannabis-finder-card"><div class="lex-icon">✿</div><div><div class="lex-title">Cannabis-Mängel-Finder</div><p>Symptome auswählen, mögliche Ursachen vergleichen und passende Informationen samt Originalbildern aus dem Nährstofflexikon anzeigen lassen.</p><span class="pill">Regelbasierte Orientierung</span><br/><button class="primary" id="open-cannabis-finder">Mängel-Finder öffnen →</button></div></div></div></section>
 <section class="section" id="intro"><div class="intro-grid"><div><div class="section-label">KEIMWERK KENNENLERNEN</div><h2>Gut verwurzelt.<br/>Klar erklärt.</h2></div><p>Keimwerk ist ein Wissensprojekt rund um Cannabispflanzen und ihre Pflege. Unser Ziel ist es, Beobachtungen verständlicher zu machen und Informationen in klar gegliederten Bereichen bereitzustellen.</p></div>
 <div class="features"><div class="feature"><div class="feature-symbol">⌕</div><h3>Verständlich</h3><p>Erkennungsmerkmale und Fachbegriffe in klarer Sprache.</p></div><div class="feature"><div class="feature-symbol">◉</div><h3>Übersichtlich</h3><p>Wissen nach Themen geordnet und leicht auffindbar.</p></div><div class="feature"><div class="feature-symbol">↗</div><h3>Mit Sorgfalt</h3><p>Neue Inhalte werden nach und nach ergänzt.</p></div></div>
 </section>
@@ -210,6 +226,47 @@ footer{text-align:center;border-top:1px solid var(--line);background:#29372c;fon
 </div>
 </main>
 <main class="page" hidden="" id="beneficials"><button class="back" id="beneficials-back">← Zurück zur Startseite</button><div class="subhead"><div class="section-label">WISSEN ENTDECKEN</div><h1>Nützlingslexikon</h1><p>Erkennungsmerkmale, Wirkung und praktische Hinweise zu Nützlingen und ihrem Einsatz.</p><span class="pill">11 Nützlingsprofile</span></div><div class="pest-grid"><article class="pest"><h3>Raubmilbe gegen Spinnmilben</h3><div class="latin">Phytoseiulus persimilis</div><p>Spezialisierter Jäger von Spinnmilben.</p><div class="pest-images"><figure><img alt="Raubmilbe gegen Spinnmilben – Bildbeispiel" src="./assets/image-37.webp"/></figure></div><p><strong>Aussehen:</strong> Etwa 0,5 mm groß, birnenförmig und meist orange bis rot. Bewegt sich deutlich schneller als viele Pflanzmilben.</p><p><strong>Wirkung:</strong> Frisst Spinnmilben, vor allem Eier und junge Stadien.</p><p class="tip"><strong>Praxis-Hinweis:</strong> Nicht ohne Beute ausbringen: Ohne Spinnmilben wandert sie häufig ab. Geeignete Wärme und Luftfeuchte fördern die Wirkung.</p></article><article class="pest"><h3>Raubmilbe für robustere Bedingungen</h3><div class="latin">Neoseiulus californicus</div><p>Spinnmilben-Gegenspieler mit höherer Toleranz gegenüber Wärme und trockeneren Bedingungen.</p><div class="pest-images"><figure><img alt="Raubmilbe für robustere Bedingungen – Bildbeispiel" src="./assets/image-38.webp"/></figure></div><p><strong>Aussehen:</strong> Sehr kleine, hellgelbliche bis orangefarbene Raubmilbe; mit bloßem Auge kaum sicher zu erkennen.</p><p><strong>Wirkung:</strong> Frisst verschiedene Spinnmilben-Arten; je nach Situation auch andere Milben, Thripse oder Pollen.</p><p class="tip"><strong>Praxis-Hinweis:</strong> Interessant bei wärmeren oder etwas trockeneren Bedingungen und niedrigerer Spinnmilben-Dichte.</p></article><article class="pest"><h3>Raubmilbe gegen Thripse &amp; Weiße Fliegen</h3><div class="latin">Amblyseius swirskii</div><p>Generalistische Raubmilbe, besonders interessant bei Thrips- und Weiße-Fliegen-Druck.</p><div class="pest-images"><figure><img alt="Raubmilbe gegen Thripse &amp; Weiße Fliegen – Bildbeispiel" src="./assets/image-39.webp"/></figure></div><p><strong>Aussehen:</strong> Winzige, blassgelbliche Raubmilbe; unter Vergrößerung besser erkennbar.</p><p><strong>Wirkung:</strong> Frisst vor allem junge Thripse sowie Eier und Larven der Weißen Fliege. Pollen kann die Population stützen.</p><p class="tip"><strong>Praxis-Hinweis:</strong> Für vorbeugende und frühzeitige biologische Kontrolle interessant. Wirkung hängt von Temperatur und Beutedruck ab.</p></article><article class="pest"><h3>Boden-Raubmilbe</h3><div class="latin">Stratiolaelaps scimitus / Hypoaspis miles</div><p>Bodenbewohnende Raubmilbe gegen Trauermückenlarven und Thrips-Puppen.</p><div class="pest-images"><figure><img alt="Boden-Raubmilbe – Bildbeispiel" src="./assets/image-40.webp"/></figure></div><p><strong>Aussehen:</strong> Sehr kleine, helle bis bräunliche Raubmilbe im Boden und an der Substratoberfläche.</p><p><strong>Wirkung:</strong> Frisst Eier, Larven und Puppen von Trauermücken sowie Thrips-Puppen und weitere kleine Bodenorganismen.</p><p class="tip"><strong>Praxis-Hinweis:</strong> Besonders als vorbeugender Boden-Nützling interessant. Gleichmäßig ins Substrat einbringen.</p></article><article class="pest"><h3>Florfliege</h3><div class="latin">Chrysoperla carnea</div><p>Vor allem die Larven sind aktive Räuber von Blattläusen und weiteren weichhäutigen Schädlingen.</p><div class="pest-images"><figure><img alt="Florfliege – Bildbeispiel" src="./assets/image-41.webp"/></figure></div><p><strong>Aussehen:</strong> Die erwachsene Florfliege ist zartgrün und besitzt durchsichtige Flügel. Larven sind länglich und haben kräftige Greifkiefer.</p><p><strong>Wirkung:</strong> Die Larven fressen Blattläuse, Thripse und andere kleine Beutetiere.</p><p class="tip"><strong>Praxis-Hinweis:</strong> Besonders bei Blattlausproblemen nützlich. Blühpflanzen mit Nektar und Pollen helfen erwachsenen Tieren.</p></article><article class="pest"><h3>Schlupfwespe gegen Blattläuse</h3><div class="latin">Aphidius colemani</div><p>Winziger Parasitoid, dessen Larve sich in Blattläusen entwickelt.</p><div class="pest-images"><figure><img alt="Schlupfwespe gegen Blattläuse – Bildbeispiel" src="./assets/image-42.webp"/></figure></div><p><strong>Aussehen:</strong> Sehr kleine, schlanke Schlupfwespe mit dunklem Körper; Weibchen suchen Blattläuse aktiv ab.</p><p><strong>Wirkung:</strong> Parasitierte Blattläuse sterben ab und werden rundlich, aufgebläht und hellbraun bis beige („Blattlaus-Mumien“).</p><p class="tip"><strong>Praxis-Hinweis:</strong> Besonders für frühe bis mittlere Blattlauspopulationen geeignet. Breite Pestizidwirkung vermeiden.</p></article><article class="pest"><h3>Schlupfwespe gegen Weiße Fliegen</h3><div class="latin">Encarsia formosa</div><p>Wichtiger Parasitoid der Weißen Fliege, besonders im geschützten Anbau.</p><div class="pest-images"><figure><img alt="Schlupfwespe gegen Weiße Fliegen – Bildbeispiel" src="./assets/image-43.webp"/></figure></div><p><strong>Aussehen:</strong> Etwa 0,5 mm klein; Weibchen mit dunkel gefärbtem Vorderkörper und gelblichem Hinterleib.</p><p><strong>Wirkung:</strong> Parasitierte Nymphen der Gewächshaus-Weißen Fliege werden dunkel bis schwarz; bei Bemisia tabaci eher bräunlich.</p><p class="tip"><strong>Praxis-Hinweis:</strong> Am wirksamsten bei frühem bis mittlerem Befall. Blattunterseiten regelmäßig kontrollieren.</p></article><article class="pest"><h3>Raubwanze gegen Thripse</h3><div class="latin">Orius laevigatus</div><p>Räuberische Blumenwanze, die Thripse in verschiedenen Entwicklungsstadien erbeutet.</p><div class="pest-images"><figure><img alt="Raubwanze gegen Thripse – Bildbeispiel" src="./assets/image-44.webp"/></figure></div><p><strong>Aussehen:</strong> Kleine schwarzbraune Wanze mit hellem Flügelmuster; auch die Nymphen sind räuberisch.</p><p><strong>Wirkung:</strong> Erwachsene und Nymphen fressen Thripse. Pollen kann als Zusatznahrung dienen.</p><p class="tip"><strong>Praxis-Hinweis:</strong> Interessant bei Thripsdruck und in blühenden Beständen. Unter etwa 20 °C arbeitet die Art langsamer.</p></article><article class="pest"><h3>Nützliche Fadenwürmer</h3><div class="latin">Steinernema feltiae (SF-Nematoden)</div><p>Mikroskopisch kleine Nematoden, die geeignete Schadinsekten im Boden parasitieren.</p><div class="pest-images"><figure><img alt="Nützliche Fadenwürmer – Bildbeispiel" src="./assets/image-45.webp"/></figure></div><p><strong>Aussehen:</strong> Mikroskopisch kleine, fadenförmige Fadenwürmer; nicht mit bloßem Auge sichtbar.</p><p><strong>Wirkung:</strong> Werden vor allem gegen bodenlebende Larven eingesetzt, insbesondere Trauermückenlarven.</p><p class="tip"><strong>Praxis-Hinweis:</strong> Für die Anwendung müssen die Hinweise des jeweiligen Präparats und die Feuchtigkeitsbedingungen beachtet werden.</p></article><article class="pest beneficial-image-match"><h3>Marienkäfer</h3><div class="latin">Coccinellidae</div><p>Nützliche Käfer, deren Larven und erwachsene Tiere je nach Art Blattläuse fressen können.</p><div class="pest-images"><figure><img alt="Marienkäfer – Bildbeispiel" src="./assets/image-46.webp"/></figure></div><p><strong>Aussehen:</strong> Runde Käfer mit harten Flügeldecken; die Larven sind länglich und sehen deutlich anders aus als die erwachsenen Tiere.</p><p><strong>Wirkung:</strong> Blattläuse sind eine wichtige Beute vieler Marienkäferarten.</p><p class="tip"><strong>Praxis-Hinweis:</strong> Als allgemeine Nützlinge fördern; konkrete Wirksamkeit hängt von Art und Situation ab.</p></article><article class="pest beneficial-image-match"><h3>Schwebfliegen</h3><div class="latin">Syrphidae</div><p>Nützliche Insekten; die Larven vieler Arten fressen Blattläuse.</p><div class="pest-images"><figure><img alt="Schwebfliege auf einer orangefarbenen Blüte" src="./assets/image-47.webp"/></figure></div><p><strong>Aussehen:</strong> Erwachsene Schwebfliegen erinnern oft an Wespen, können aber nicht stechen. Die Larven sind meist wurmförmig und ohne Beine.</p><p><strong>Wirkung:</strong> Larven vieler Arten ernähren sich von Blattläusen; erwachsene Tiere nutzen Blüten als Nahrungsquelle.</p><p class="tip"><strong>Praxis-Hinweis:</strong> Blühpflanzen können erwachsene Schwebfliegen unterstützen. Die Wirkung ist artabhängig.</p></article></div></main>
+
+<main class="page" hidden="" id="cannabis-finder">
+<button class="back" id="cannabis-finder-back">← Zurück zur Startseite</button>
+<div class="subhead"><div class="section-label">KEIMWERK · PFLANZENWISSEN</div><h1>Cannabis-Mängel-Finder</h1><p>Wähle sichtbare Symptome und Pflegebedingungen aus. Der Finder vergleicht die Angaben mit Regeln und verknüpft passende Ergebnisse mit den Originaleinträgen und Beispielbildern aus dem bestehenden Über- und Unterdüngungslexikon.</p><span class="pill">Regelbasierte Orientierung + optionale Gemini-KI-Diagnose</span></div>
+<div class="cf-warning"><strong>Wichtig:</strong> Die Ergebnisse sind Hinweise, keine sichere Diagnose. Ähnliche Symptome können durch Nährstoffversorgung, pH, EC/Salzstress, Wurzeln, Gießen, Licht, Schädlinge oder Krankheiten entstehen. Ändere nicht mehrere Dinge gleichzeitig.</div>
+<div class="cf-grid">
+<section class="cf-panel">
+<h2>1 · Symptome</h2><p>Wähle mindestens ein sichtbares Symptom aus.</p>
+<div class="cf-checks">
+<label><input type="checkbox" value="yellow-old"> Ältere / untere Blätter werden gelb</label>
+<label><input type="checkbox" value="yellow-new"> Junge / obere Blätter werden gelb</label>
+<label><input type="checkbox" value="interveinal"> Gelb zwischen grünen Blattadern</label>
+<label><input type="checkbox" value="burn"> Verbrannte Blattspitzen oder Ränder</label>
+<label><input type="checkbox" value="spots"> Flecken, rostige oder nekrotische Stellen</label>
+<label><input type="checkbox" value="curl"> Blätter rollen oder verformen sich</label>
+<label><input type="checkbox" value="wilting"> Pflanze welkt oder hängt</label>
+<label><input type="checkbox" value="slow"> Langsames Wachstum / kleine Blätter</label>
+<label><input type="checkbox" value="purple"> Rötliche oder violette Färbung</label>
+<label><input type="checkbox" value="edge"> Blattränder werden zuerst gelb</label>
+<label><input type="checkbox" value="pests"> Tierchen, Gespinste oder Fraßspuren</label>
+<label><input type="checkbox" value="mold"> Belag, Schimmel oder weiche Stellen</label>
+</div>
+<h2>2 · Wo beginnt das Problem?</h2>
+<div class="cf-field"><label for="cf-where">Blattposition</label><select id="cf-where"><option value="unknown">Nicht sicher</option><option value="old">Vor allem ältere / untere Blätter</option><option value="new">Vor allem junge / obere Blätter</option><option value="all">An der ganzen Pflanze</option><option value="patchy">Einzelne Blätter / unregelmäßig</option></select></div>
+<div class="cf-field"><label for="cf-water">Gießverhalten / Medium</label><select id="cf-water"><option value="unknown">Keine Angabe</option><option value="wet">Substrat bleibt lange nass</option><option value="dry">Substrat trocknet sehr schnell aus</option><option value="normal">Gießen wirkt normal</option><option value="hydro">Hydroponik / Wasserreservoir</option></select></div>
+<div class="cf-field"><label for="cf-ph">Gemessener pH-Wert (optional)</label><input id="cf-ph" type="number" min="0" max="14" step="0.1" placeholder="z. B. 6,4"></div>
+<div class="cf-field"><label for="cf-ec">EC-Wert (optional, mS/cm)</label><input id="cf-ec" type="number" min="0" step="0.1" placeholder="z. B. 1,8"></div>
+<div class="cf-field"><label for="cf-change">Kürzliche Veränderung</label><select id="cf-change"><option value="unknown">Keine Angabe</option><option value="feed">Dünger gewechselt / stärker gedüngt</option><option value="repot">Umtopfen / Wurzeln gestört</option><option value="light">Licht, Temperatur oder Standort verändert</option><option value="none">Keine bekannte Veränderung</option></select></div>
+<div class="cf-field"><label for="cf-notes">Weitere Beobachtungen (optional)</label><textarea id="cf-notes" rows="3" placeholder="Seit wann? Nur eine Pflanze? Neue Blätter gesund?"></textarea></div>
+<div class="cf-field"><label for="cf-stage">Pflanzenstadium (für KI-Diagnose)</label><select id="cf-stage"><option value="Nicht angegeben">Nicht angegeben</option><option value="Keimling">Keimling</option><option value="Wachstum">Wachstum</option><option value="Vorblüte">Vorblüte</option><option value="Blüte">Blüte</option></select></div>
+<div class="cf-field"><label for="cf-substrate">Substrat / Anbaumethode (für KI-Diagnose)</label><select id="cf-substrate"><option value="Nicht angegeben">Nicht angegeben</option><option value="Erde">Erde</option><option value="Kokos">Kokos</option><option value="Hydroponik">Hydroponik</option><option value="DWC">DWC / Deep Water Culture</option><option value="Sonstiges">Sonstiges</option></select></div>
+<div class="cf-field"><label for="cf-photo">Pflanzenbild (optional, JPEG/PNG/WebP; max. 5 MB)</label><input id="cf-photo" type="file" accept="image/jpeg,image/png,image/webp"/><p class="cf-muted">Das Bild wird zur Analyse an den Keimwerk-Diagnosedienst gesendet. Entferne vor dem Upload persönliche oder identifizierende Bildinhalte.</p></div>
+<div class="cf-actions"><button class="primary" type="button" id="cf-ai-analyze">KI-Diagnose starten</button><span id="cf-ai-status" class="cf-muted" role="status" aria-live="polite"></span></div>
+<section id="cf-ai-results" class="cf-panel" hidden="" aria-live="polite"><h2>KI-Diagnose</h2><p id="cf-ai-summary"></p><p id="cf-ai-confidence"></p><div id="cf-ai-causes"></div><div><strong>Rückfragen</strong><ul id="cf-ai-questions"></ul></div><p id="cf-ai-safety" class="cf-muted"></p></section>
+
+<div class="cf-actions"><button class="primary" type="button" id="cf-analyze">Mögliche Ursachen eingrenzen</button><button class="cf-secondary" type="button" id="cf-reset">Zurücksetzen</button></div>
+</section>
+<aside class="cf-panel cf-side"><h2>So liest du das Ergebnis</h2><p>Die Reihenfolge zeigt, wie gut die ausgewählten Symptome und Zusatzangaben zu den hinterlegten Regeln passen. Sie ist keine medizinische oder statistisch validierte Wahrscheinlichkeit.</p><h3>Vor einer Behandlung prüfen</h3><ul><li>Wurzelzustand, pH und EC zusammen betrachten.</li><li>Bei gelben Blättern nicht automatisch mehr düngen.</li><li>Bei Schädlingsspuren Blattunterseiten und Triebspitzen kontrollieren.</li><li>Neue Entwicklung dokumentieren und vergleichen.</li></ul><p class="cf-muted">Die Mängelprofile und Beispielbilder stammen aus dem vorhandenen Keimwerk-Lexikon.</p></aside>
+</div>
+<section class="cf-panel cf-results" id="cf-results" hidden="" aria-live="polite"><h2>Deine Ergebnisse</h2><p id="cf-summary"></p><div id="cf-result-list"></div><div class="cf-warning"><strong>Hinweis:</strong> Ein Beispielbild dient dem Vergleich, nicht als Beweis. Prüfe die Begleitumstände, bevor du Nährstoffe oder Mittel ergänzt.</div><div class="cf-actions"><button class="cf-secondary" id="cf-back-to-form" type="button">Angaben ändern</button><button class="cf-secondary" type="button" id="cf-print">Ergebnis drucken / als PDF speichern</button></div></section>
+</main>
 <main class="page" hidden="" id="nutrients">
 <button class="back" id="nutrients-back">← Zurück zur Startseite</button>
 <button class="back" id="nutrients-to-calculator" type="button" style="margin-left:8px">← Zurück zum Düngerechner</button>
@@ -1110,7 +1167,7 @@ window.addEventListener('message',e=&gt;{if(!e.data||!e.data.type)return;if(e.da
 </section></main>
 <footer>Wissen, das Wurzeln schlägt.</footer>
 <script>
-(()=>{const home=document.getElementById('home'),pests=document.getElementById('pests'),beneficials=document.getElementById('beneficials'),nutrients=document.getElementById('nutrients'),about=document.getElementById('about'),calculator=document.getElementById('calculator'),contact=document.getElementById('contact'),diary=document.getElementById('grow-diary'),diaryNav=document.getElementById('diary-nav'),homeNav=document.getElementById('home-nav'),aboutNav=document.getElementById('about-nav'),contactNav=document.getElementById('contact-nav'),calculatorFrame=document.getElementById('calculator-frame');function show(page){home.hidden=page!=='home';pests.hidden=page!=='pests';beneficials.hidden=page!=='beneficials';nutrients.hidden=page!=='nutrients';about.hidden=page!=='about';calculator.hidden=page!=='calculator';contact.hidden=page!=='contact';diary.hidden=page!=='diary';homeNav.classList.toggle('active',page!=='about'&&page!=='calculator'&&page!=='contact'&&page!=='diary');aboutNav.classList.toggle('active',page==='about');contactNav.classList.toggle('active',page==='contact');diaryNav.classList.toggle('active',page==='diary');if(page==='calculator'&&!calculatorFrame.dataset.loaded){calculatorFrame.srcdoc=calculatorFrame.getAttribute('data-srcdoc');calculatorFrame.dataset.loaded='true';calculatorFrame.removeAttribute('data-srcdoc')}window.scrollTo({top:0,behavior:'smooth'})}document.getElementById('lex-select').addEventListener('change',e=>{document.getElementById('pest-card').hidden=e.target.value!=='pests';document.getElementById('beneficial-card').hidden=e.target.value!=='beneficials';document.getElementById('nutrients-card').hidden=e.target.value!=='nutrients'});document.getElementById('open-pests').addEventListener('click',()=>show('pests'));document.getElementById('open-beneficials').addEventListener('click',()=>show('beneficials'));document.getElementById('open-nutrients').addEventListener('click',()=>show('nutrients'));document.getElementById('beneficials-back').addEventListener('click',()=>show('home'));document.getElementById('pests-back').addEventListener('click',()=>show('home'));document.getElementById('nutrients-back').addEventListener('click',()=>show('home'));document.getElementById('nutrients-to-calculator').addEventListener('click',()=>show('calculator'));document.getElementById('about-back').addEventListener('click',()=>show('home'));homeNav.addEventListener('click',()=>show('home'));aboutNav.addEventListener('click',()=>show('about'));contactNav.addEventListener('click',()=>show('contact'));document.getElementById('contact-back').addEventListener('click',()=>show('home'));document.getElementById('calculator-back').addEventListener('click',()=>show('home'));window.addEventListener('message',e=>{if(e.source!==calculatorFrame.contentWindow||!e.data)return;if(e.data.type==='keimwerk-schema-data'||e.data.type==='keimwerk-schema-error'||e.data.type==='keimwerk-schema-applied'){window.dispatchEvent(new CustomEvent('keimwerk-profile-bridge',{detail:e.data}));return;}if(e.data.type==='keimwerk-calculator-height'){const h=Number(e.data.height);if(Number.isFinite(h)&&h>0){const current=calculatorFrame.getBoundingClientRect().height;const next=Math.max(950,Math.ceil(h+8));/* Verhindert Scrollsprünge: die automatische Höhe darf wachsen, aber nicht durch schwankende Messwerte schrumpfen. */if(next>current+12)calculatorFrame.style.height=next+'px';}return;}if(e.data.type==='keimwerk-open-nutrient'){const profileIds={N:'nutrient-profile-n',P:'nutrient-profile-p',K:'nutrient-profile-k',Ca:'nutrient-profile-ca',Mg:'nutrient-profile-mg',S:'nutrient-profile-s',B:'nutrient-profile-b',Cu:'nutrient-profile-cu',Fe:'nutrient-profile-fe',Mn:'nutrient-profile-mn',Mo:'nutrient-profile-mo',Zn:'nutrient-profile-zn'};const targetId=profileIds[e.data.nutrient];if(!targetId)return;show('nutrients');requestAnimationFrame(()=>{const target=document.getElementById(targetId);if(target)target.scrollIntoView({behavior:'smooth',block:'start'});});}});document.getElementById('intro-button').addEventListener('click',()=>{show('home');document.getElementById('intro').scrollIntoView({behavior:'smooth'})});document.getElementById('calculator-hero-button').addEventListener('click',()=>show('calculator'));document.getElementById('diary-nav').addEventListener('click',()=>{show('diary');gdRefresh()});document.getElementById('grow-diary-back').addEventListener('click',()=>show('home'))})();
+(()=>{const home=document.getElementById('home'),cannabisFinder=document.getElementById('cannabis-finder'),pests=document.getElementById('pests'),beneficials=document.getElementById('beneficials'),nutrients=document.getElementById('nutrients'),about=document.getElementById('about'),calculator=document.getElementById('calculator'),contact=document.getElementById('contact'),diary=document.getElementById('grow-diary'),diaryNav=document.getElementById('diary-nav'),homeNav=document.getElementById('home-nav'),aboutNav=document.getElementById('about-nav'),contactNav=document.getElementById('contact-nav'),calculatorFrame=document.getElementById('calculator-frame');function show(page){home.hidden=page!=='home';cannabisFinder.hidden=page!=='cannabis-finder';pests.hidden=page!=='pests';beneficials.hidden=page!=='beneficials';nutrients.hidden=page!=='nutrients';about.hidden=page!=='about';calculator.hidden=page!=='calculator';contact.hidden=page!=='contact';diary.hidden=page!=='diary';homeNav.classList.toggle('active',page!=='about'&&page!=='calculator'&&page!=='contact'&&page!=='diary'&&page!=='cannabis-finder');aboutNav.classList.toggle('active',page==='about');contactNav.classList.toggle('active',page==='contact');diaryNav.classList.toggle('active',page==='diary');if(page==='calculator'&&!calculatorFrame.dataset.loaded){calculatorFrame.srcdoc=calculatorFrame.getAttribute('data-srcdoc');calculatorFrame.dataset.loaded='true';calculatorFrame.removeAttribute('data-srcdoc')}window.scrollTo({top:0,behavior:'smooth'})}window.keimwerkShowPage=show;document.getElementById('lex-select').addEventListener('change',e=>{document.getElementById('pest-card').hidden=e.target.value!=='pests';document.getElementById('beneficial-card').hidden=e.target.value!=='beneficials';document.getElementById('nutrients-card').hidden=e.target.value!=='nutrients';document.getElementById('cannabis-finder-card').hidden=e.target.value!=='cannabis-finder'});document.getElementById('open-pests').addEventListener('click',()=>show('pests'));document.getElementById('open-beneficials').addEventListener('click',()=>show('beneficials'));document.getElementById('open-nutrients').addEventListener('click',()=>show('nutrients'));document.getElementById('open-cannabis-finder').addEventListener('click',()=>show('cannabis-finder'));document.getElementById('cannabis-finder-back').addEventListener('click',()=>show('home'));document.getElementById('beneficials-back').addEventListener('click',()=>show('home'));document.getElementById('pests-back').addEventListener('click',()=>show('home'));document.getElementById('nutrients-back').addEventListener('click',()=>show('home'));document.getElementById('nutrients-to-calculator').addEventListener('click',()=>show('calculator'));document.getElementById('about-back').addEventListener('click',()=>show('home'));homeNav.addEventListener('click',()=>show('home'));aboutNav.addEventListener('click',()=>show('about'));contactNav.addEventListener('click',()=>show('contact'));document.getElementById('contact-back').addEventListener('click',()=>show('home'));document.getElementById('calculator-back').addEventListener('click',()=>show('home'));window.addEventListener('message',e=>{if(e.source!==calculatorFrame.contentWindow||!e.data)return;if(e.data.type==='keimwerk-schema-data'||e.data.type==='keimwerk-schema-error'||e.data.type==='keimwerk-schema-applied'){window.dispatchEvent(new CustomEvent('keimwerk-profile-bridge',{detail:e.data}));return;}if(e.data.type==='keimwerk-calculator-height'){const h=Number(e.data.height);if(Number.isFinite(h)&&h>0){const current=calculatorFrame.getBoundingClientRect().height;const next=Math.max(950,Math.ceil(h+8));/* Verhindert Scrollsprünge: die automatische Höhe darf wachsen, aber nicht durch schwankende Messwerte schrumpfen. */if(next>current+12)calculatorFrame.style.height=next+'px';}return;}if(e.data.type==='keimwerk-open-nutrient'){const profileIds={N:'nutrient-profile-n',P:'nutrient-profile-p',K:'nutrient-profile-k',Ca:'nutrient-profile-ca',Mg:'nutrient-profile-mg',S:'nutrient-profile-s',B:'nutrient-profile-b',Cu:'nutrient-profile-cu',Fe:'nutrient-profile-fe',Mn:'nutrient-profile-mn',Mo:'nutrient-profile-mo',Zn:'nutrient-profile-zn'};const targetId=profileIds[e.data.nutrient];if(!targetId)return;show('nutrients');requestAnimationFrame(()=>{const target=document.getElementById(targetId);if(target)target.scrollIntoView({behavior:'smooth',block:'start'});});}});document.getElementById('intro-button').addEventListener('click',()=>{show('home');document.getElementById('intro').scrollIntoView({behavior:'smooth'})});document.getElementById('calculator-hero-button').addEventListener('click',()=>show('calculator'));document.getElementById('diary-nav').addEventListener('click',()=>{show('diary');gdRefresh()});document.getElementById('grow-diary-back').addEventListener('click',()=>show('home'))})();
 </script>
 
 <script>
@@ -1190,6 +1247,111 @@ $('gd-export').addEventListener('click',()=>{const data={format:'keimwerk-grow-d
 $('gd-import-btn').addEventListener('click',()=>$('gd-import-file').click());
 $('gd-import-file').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{const data=JSON.parse(await file.text()),projects=Array.isArray(data)?data:data.projects;if(!Array.isArray(projects)||projects.some(p=>!p||typeof p.id!=='string'||typeof p.name!=='string'||!Array.isArray(p.entries||[])))throw new Error('Die Datei hat kein gültiges Grow-Tagebuch-Format.');if(!confirm('Importiert werden '+projects.length+' Projekte. Gleichnamige oder gleich-ID-Projekte werden ersetzt. Fortfahren?'))return;const existing=read();for(const p of projects){const idx=existing.findIndex(x=>x.id===p.id);if(idx>=0)existing[idx]=p;else existing.push(p)}if(write(existing)){gdRefresh();alert('Grow-Tagebuch importiert.')}}catch(err){alert('Import fehlgeschlagen: '+err.message)}finally{e.target.value=''}});
 window.gdRefresh=gdRefresh;refreshProfiles();
+
+// Cannabis-Mängel-Finder: Regeln verknüpfen Symptome mit vorhandenen Lexikonprofilen.
+const cfRules=[
+ {name:'Stickstoff (N)',id:'nutrient-profile-n',sym:['yellow-old','slow'],where:['old','all'],why:'Eine gleichmäßige Vergilbung älterer Blätter und gebremstes Wachstum können zu einer Stickstoff-Unterversorgung passen.',checks:['Prüfe, ob vor allem ältere Blätter gleichmäßig heller werden.','Beurteile Düngung, Wurzelgesundheit und Gesamtbild gemeinsam.']},
+ {name:'Phosphor (P)',id:'nutrient-profile-p',sym:['purple','slow','spots'],why:'Wachstumshemmung oder rötlich-violette Verfärbungen können unter anderem mit Phosphorversorgung, Temperatur oder Wurzelbedingungen zusammenhängen.',checks:['Prüfe Wurzelraum, Temperatur und pH, bevor du einen Mangel annimmst.','Violette Färbung allein beweist keinen Phosphormangel.']},
+ {name:'Kalium (K)',id:'nutrient-profile-k',sym:['edge','burn','spots'],where:['old','all'],why:'Randbetonte Vergilbung und braune Blattränder können zu Kaliumproblemen passen, sind aber nicht eindeutig.',checks:['Prüfe, ob Schäden an den Rändern beginnen.','Berücksichtige Salzstress, Hitze, Trockenheit und EC.']},
+ {name:'Calcium (Ca)',id:'nutrient-profile-ca',sym:['yellow-new','spots','curl','slow'],where:['new'],why:'Verformtes junges Wachstum und lokale Gewebeschäden können unter anderem mit Calciumversorgung oder gestörter Wurzelfunktion zusammenhängen.',checks:['Prüfe junge Blätter und Wachstumspunkte.','Kontrolliere pH, Wurzelzustand und Wasserführung.']},
+ {name:'Magnesium (Mg)',id:'nutrient-profile-mg',sym:['interveinal','yellow-old'],where:['old'],why:'Gelbfärbung zwischen den Blattadern, besonders an älteren Blättern, kann zu Magnesiumproblemen passen.',checks:['Achte darauf, ob die Blattadern länger grün bleiben.','Prüfe pH und Nährstoffverhältnisse, bevor du Magnesium ergänzt.']},
+ {name:'Bor (B)',id:'nutrient-profile-b',sym:['yellow-new','curl','slow'],where:['new'],why:'Störungen an jungen Trieben können verschiedene Ursachen haben; Borprobleme sind ohne weitere Hinweise schwer sicher zu erkennen.',checks:['Untersuche neues Wachstum und Wachstumspunkte.','Prüfe pH und Wurzeln; Bor nicht auf Verdacht dosieren.']},
+ {name:'Eisen (Fe)',id:'nutrient-profile-fe',sym:['yellow-new','interveinal','slow'],where:['new'],why:'Junge Blätter mit Aufhellung zwischen grüneren Adern können zu eingeschränkter Eisenverfügbarkeit passen.',checks:['Prüfe zuerst die jüngsten Blätter.','Kontrolliere pH und Wurzelbedingungen.']},
+ {name:'Mangan (Mn)',id:'nutrient-profile-mn',sym:['interveinal','spots','yellow-new'],where:['new'],why:'Fleckige Chlorosen können unter anderem bei Manganproblemen vorkommen, überschneiden sich aber mit anderen Ursachen.',checks:['Vergleiche mehrere neue Blätter.','Prüfe pH und mögliche Überversorgung anderer Nährstoffe.']},
+ {name:'Molybdän (Mo)',id:'nutrient-profile-mo',sym:['yellow-old','curl','slow'],why:'Molybdänprobleme sind anhand äußerer Symptome schwer eindeutig von anderen Nährstoff- oder pH-Problemen zu unterscheiden.',checks:['Prüfe pH und Nährstoffversorgung insgesamt.','Nicht allein aufgrund unspezifischer Vergilbung ergänzen.']},
+ {name:'Schwefel (S)',id:'nutrient-profile-s',sym:['yellow-new','slow'],where:['new'],why:'Aufhellung jüngerer Blätter kann unter anderem zu einer Schwefel-Unterversorgung passen, ähnelt aber anderen Problemen.',checks:['Achte darauf, ob die Vergilbung eher junges Wachstum betrifft.','Prüfe pH, Wurzeln und Düngerzusammensetzung.']},
+ {name:'Zink (Zn)',id:'nutrient-profile-zn',sym:['slow','yellow-new','interveinal'],where:['new'],why:'Kleine Blätter und gebremstes Triebwachstum können unter anderem bei Zinkproblemen auftreten.',checks:['Prüfe neue Triebe und Blattgröße.','Kontrolliere pH und mögliche Nährstoffantagonismen.']},
+ {name:'Kupfer (Cu)',id:'nutrient-profile-cu',sym:['yellow-new','curl','slow'],where:['new'],why:'Störungen des jungen Wachstums können viele Ursachen haben; Kupferprobleme sind ohne weitere Hinweise nicht sicher erkennbar.',checks:['Beurteile neues Wachstum und Wurzelgesundheit.','Kupfer nicht auf Verdacht ergänzen, da der Bereich zwischen Bedarf und Überschuss eng ist.']},
+ {name:'Überdüngung / Salzstress',id:null,sym:['burn','curl','wilting','spots','slow'],why:'Verbrannte Spitzen, Stress und gestörte Wasseraufnahme können durch zu hohe Salzbelastung oder zu starke Düngung entstehen.',checks:['Prüfe, ob die Symptome nach einer Düngergabe begonnen haben.','Wenn ein EC-Wert vorliegt, betrachte ihn zusammen mit Medium, Gießwasser und Dünger.']},
+ {name:'pH-Problem / Nährstoffblockade',id:null,sym:['yellow-old','yellow-new','interveinal','spots','slow','purple'],why:'Ein ungeeigneter pH-Wert kann die Verfügbarkeit mehrerer Nährstoffe beeinflussen und gemischte Symptome erzeugen.',checks:['Miss den pH-Wert mit verlässlicher Methode.','Berücksichtige Medium, Wasser und konkrete Messstelle.']},
+ {name:'Zu nasses Substrat / Wurzelstress',id:null,sym:['wilting','yellow-old','slow','curl'],why:'Dauerhaft nasses Substrat kann Sauerstoffmangel im Wurzelraum und dadurch Vergilbung oder Welken verursachen.',checks:['Prüfe die Feuchtigkeit tiefer im Topf und die Drainage.','Achte auf ungewöhnlichen Geruch oder weiche, dunkle Wurzeln.']},
+ {name:'Austrocknung / Wassermangel',id:null,sym:['wilting','curl','burn','slow'],why:'Ein zu trockener Wurzelballen und hohe Verdunstung können Welken, eingerollte Blätter und trockene Ränder verursachen.',checks:['Prüfe die Feuchtigkeit im gesamten Wurzelballen.','Beachte Hitze, Luftzug und Topfgröße.']},
+ {name:'Licht- oder Temperaturstress',id:null,sym:['curl','burn','purple','wilting','spots'],why:'Starke Beleuchtung, Hitze, Kälte oder abrupte Standortänderungen können ähnliche Blattsymptome verursachen.',checks:['Prüfe Lichtabstand und Temperatur.','Vergleiche das Muster mit der Licht- oder Fensterseite.']},
+ {name:'Schädlinge',id:null,sym:['pests','spots','curl','yellow-new'],why:'Saugende oder fressende Schädlinge können Punkte, Verformungen, Gespinste oder Fraßspuren verursachen.',checks:['Untersuche Blattunterseiten und Triebspitzen mit einer Lupe.','Prüfe benachbarte Pflanzen.']},
+ {name:'Mögliche Blattkrankheit',id:null,sym:['spots','mold','wilting'],why:'Flecken oder Beläge können Krankheitserreger anzeigen, aber auch durch Verletzungen oder Umweltstress entstehen.',checks:['Prüfe, ob Flecken sich ausbreiten.','Vermeide Kontakt zwischen nassen Pflanzen und dokumentiere die Entwicklung.']}
+];
+const cfLabels={'yellow-old':'ältere Blätter gelb','yellow-new':'junge Blätter gelb','interveinal':'gelb zwischen Blattadern','burn':'verbrannte Spitzen/Ränder','spots':'Flecken / Nekrosen','curl':'Blattrollen / Verformung','wilting':'Welken','slow':'langsames Wachstum','purple':'violette Färbung','edge':'gelbe Blattränder','pests':'Schädlingsspuren','mold':'Belag / Schimmel'};
+const cfEsc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function cfAnalyze(){
+ const symptoms=[...document.querySelectorAll('#cannabis-finder .cf-checks input:checked')].map(x=>x.value);
+ if(!symptoms.length){alert('Bitte wähle mindestens ein Symptom aus.');return}
+ const where=document.getElementById('cf-where').value,water=document.getElementById('cf-water').value,change=document.getElementById('cf-change').value;
+ const pht=document.getElementById('cf-ph').value.replace(',','.'),ph=pht===''?null:Number(pht);
+ const ect=document.getElementById('cf-ec').value.replace(',','.'),ec=ect===''?null:Number(ect);
+ const ranked=cfRules.map(r=>{let score=symptoms.filter(s=>r.sym.includes(s)).length*2;
+ if(r.where&&r.where.includes(where))score+=2;
+ if(r.id===null&&r.name.startsWith('Überdüngung')&&change==='feed')score+=4;
+ if(r.name.startsWith('Zu nasses')&&water==='wet')score+=5;
+ if(r.name.startsWith('Austrocknung')&&water==='dry')score+=5;
+ if(r.name.startsWith('Licht-')&&change==='light')score+=4;
+ if(r.name.startsWith('pH-Problem')&&ph!==null&&(ph<4.5||ph>8))score+=5;
+ if(r.name.startsWith('Überdüngung')&&ec!==null&&ec>2.5)score+=3;
+ if(r.name==='Schädlinge'&&symptoms.includes('pests'))score+=4;
+ if(r.name==='Mögliche Blattkrankheit'&&symptoms.includes('mold'))score+=4;
+ return {...r,score,matched:symptoms.filter(s=>r.sym.includes(s))};
+ }).filter(r=>r.score>0).sort((a,b)=>b.score-a.score).slice(0,5);
+ document.getElementById('cf-summary').textContent=`Aus ${symptoms.length} ausgewählten Symptomen wurden ${ranked.length} mögliche Ursache(n) priorisiert. Die Reihenfolge ist eine regelbasierte Orientierung und keine statistisch validierte Wahrscheinlichkeit.`;
+ const list=document.getElementById('cf-result-list');list.replaceChildren();
+ ranked.forEach((r,i)=>{
+  if(r.name==='Schädlinge'){
+   const pestKeywords=[
+    {name:'Spinnmilben',keys:['Gespinste','feine Gespinste','Punkte']},
+    {name:'Thripse',keys:['silbrig','Thripse','Kotpunkte']},
+    {name:'Blattläuse',keys:['Honigtau','Blattläuse','eingerollte']},
+    {name:'Weiße Fliegen',keys:['Weiße Fliegen','weiße Fliegen']},
+    {name:'Trauermücken',keys:['Trauermücken','Substrat','Larven']},
+    {name:'Minierfliegen',keys:['Minierfliegen','Minen']},
+    {name:'Schildläuse',keys:['Schildläuse','klebriger']},
+    {name:'Wanzen',keys:['Wanzen','Fraßspuren']},
+    {name:'Schnecken',keys:['Schnecken','Schleimspuren']},
+    {name:'Dickmaulrüssler',keys:['Dickmaulrüssler','Fraßbuchten']}
+   ];
+   const allPests=[...document.querySelectorAll('#pests article.pest')];
+   const allBeneficials=[...document.querySelectorAll('#beneficials article.pest')];
+   const symptomText=symptoms.map(s=>cfLabels[s]||s).join(' ').toLowerCase();
+   const likely=allPests.map(a=>{const t=a.innerText.toLowerCase();let score=0;
+    if(symptoms.includes('pests'))score+=1;
+    if(symptoms.includes('spots')&&/(punkte|flecken|fraß|silbrig|gespinst|minen)/.test(t))score+=2;
+    if(symptoms.includes('curl')&&/(eingerollt|verform|rollen|honigtau)/.test(t))score+=2;
+    if(symptoms.includes('yellow-new')&&/(saug|blattunterseiten|jung|trieb)/.test(t))score+=1;
+    if(/belag|schimmel/.test(symptomText)&&/(pilz|schimmel|belag)/.test(t))score+=2;
+    return {a,score};}).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,5);
+   const usefulBeneficials=allBeneficials.filter(a=>{const t=a.innerText.toLowerCase();return likely.some(x=>{const n=x.a.querySelector('h3')?.innerText.toLowerCase()||'';return (n.includes('spinnmilb')&&/raubmilbe/.test(t))||(n.includes('thrips')&&/(raubmilbe|raubwanze|florfliege)/.test(t))||(n.includes('blattlaus')&&/(florfliege|schlupfwespe|marienkäfer|schwebfliege)/.test(t))||(n.includes('trauermück')&&/(fadenwürmer|boden-raubmilbe)/.test(t))||(n.includes('weiße flieg')&&/(encarsia|swirskii)/.test(t));});});
+   const links=(items,page,label)=>{const pageArticles=[...document.querySelectorAll('#'+page+' article.pest')];return items.map(x=>{const a=x.a||x;const title=a.querySelector('h3')?.innerText||label;const index=pageArticles.indexOf(a);const images=a.querySelector('.pest-images');const imageHtml=images?`<div class="cf-result-images cf-pest-preview">${images.innerHTML}</div>`:'';return `<div class="cf-lex-result">${imageHtml}<button type="button" class="cf-link" data-cf-lex="${page}" data-cf-index="${index}">${cfEsc(title)} im Lexikon öffnen →</button></div>`}).join('')};
+   const el=document.createElement('article');el.className='cf-result';
+   el.innerHTML=`<span class="cf-label">Schädlings- und Nützlingslexikon</span><h3>${i+1}. Schädlinge als mögliche Ursache</h3><p>${cfEsc(r.why)}</p><p><strong>Passende Einträge im Schädlingslexikon:</strong></p>${likely.length?links(likely,'pests','Schädling'):'<p>Bitte vergleiche die sichtbaren Spuren mit den Einträgen im Schädlingslexikon.</p>'}<p><strong>Mögliche Gegenspieler im Nützlingslexikon:</strong></p>${usefulBeneficials.length?links(usefulBeneficials,'beneficials','Nützling'):'<p>Welcher Nützling passt, hängt von der tatsächlichen Schädlingsart ab. Erst den Befall bestimmen, dann gezielt einen passenden Nützling auswählen.</p>'}<ul>${r.checks.map(x=>`<li>${cfEsc(x)}</li>`).join('')}</ul><button type="button" class="cf-link" data-cf-lex="pests">Gesamtes Schädlingslexikon öffnen →</button> <button type="button" class="cf-link" data-cf-lex="beneficials">Gesamtes Nützlingslexikon öffnen →</button>`;
+   list.appendChild(el);return;
+  }
+  const profile=r.id?document.getElementById(r.id):null;
+  const images=profile?.querySelector('.nutrient-images');
+  const profileTitle=profile?.querySelector('h3')?.innerText||r.name;
+  const rankText=i===0?'Passt vergleichsweise gut zu deinen Angaben':i===1?'Weitere plausible Möglichkeit':'Zusätzliche Möglichkeit';
+  const imgHtml=images?`<div class="cf-result-images">${images.innerHTML}</div>`:'';
+  const buttonHtml=profile?`<button type="button" class="cf-link" data-cf-profile="${r.id}">Vollständigen Lexikoneintrag öffnen →</button>`:'';
+  const el=document.createElement('article');el.className='cf-result';
+  el.innerHTML=`<span class="cf-label">${cfEsc(r.id?'Nährstofflexikon':'Mögliche andere Ursache')}</span><h3>${i+1}. ${cfEsc(profileTitle)}</h3><p><strong>${rankText}</strong></p><p>${cfEsc(r.why)}</p>${imgHtml}<strong>Das kannst du prüfen:</strong><ul>${r.checks.map(x=>`<li>${cfEsc(x)}</li>`).join('')}</ul><div>${r.matched.map(s=>`<span class="cf-label">${cfEsc(cfLabels[s]||s)}</span>`).join(' ')}</div>${buttonHtml}`;
+  list.appendChild(el);
+ });
+ if(!ranked.length)list.innerHTML='<p>Mit diesen Angaben ließ sich keine Ursache sinnvoll priorisieren. Wähle weitere Symptome oder ergänze Pflegeangaben.</p>';
+ document.getElementById('cf-results').hidden=false;document.getElementById('cf-results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.getElementById('cf-analyze').addEventListener('click',cfAnalyze);
+document.getElementById('cf-result-list').addEventListener('click',e=>{const b=e.target.closest('[data-cf-lex]');if(!b)return;const page=b.dataset.cfLex;if(typeof window.keimwerkShowPage!=='function'){console.error('Keimwerk-Navigation ist nicht verfügbar.');return;}window.keimwerkShowPage(page);if(b.dataset.cfIndex!==undefined&&Number(b.dataset.cfIndex)>=0){const index=Number(b.dataset.cfIndex);requestAnimationFrame(()=>requestAnimationFrame(()=>{const articles=[...document.querySelectorAll('#'+page+' article.pest')];const target=articles[index];if(target)target.scrollIntoView({behavior:'smooth',block:'start'});}));}});
+document.getElementById('cf-reset').addEventListener('click',()=>{
+ document.querySelectorAll('#cannabis-finder .cf-checks input').forEach(x=>x.checked=false);
+ ['cf-where','cf-water','cf-change','cf-stage','cf-substrate'].forEach(id=>{const el=document.getElementById(id);if(el)el.selectedIndex=0;});
+ ['cf-ph','cf-ec','cf-notes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+ const photo=document.getElementById('cf-photo');if(photo)photo.value='';
+ const ruleResults=document.getElementById('cf-results');if(ruleResults)ruleResults.hidden=true;
+ const aiResults=document.getElementById('cf-ai-results');if(aiResults)aiResults.hidden=true;
+ ['cf-ai-summary','cf-ai-confidence','cf-ai-safety','cf-ai-status'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent='';});
+ ['cf-ai-causes','cf-ai-questions'].forEach(id=>{const el=document.getElementById(id);if(el)el.replaceChildren();});
+ document.getElementById('cannabis-finder').scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('cf-back-to-form').addEventListener('click',()=>document.getElementById('cannabis-finder').scrollIntoView({behavior:'smooth'}));
+document.getElementById('cf-print').addEventListener('click',()=>window.print());
+document.addEventListener('click',e=>{const btn=e.target.closest('[data-cf-profile]');if(!btn)return;if(typeof window.keimwerkShowPage==='function')window.keimwerkShowPage('nutrients');setTimeout(()=>{const target=document.getElementById(btn.dataset.cfProfile);target?.scrollIntoView({behavior:'smooth',block:'start'});},100)});
+
 $('gd-profile').addEventListener('change',()=>{
  const v=$('gd-profile').value;
  if(v==='') return;
@@ -1225,6 +1387,83 @@ $('gd-profile').addEventListener('change',()=>{
  document.getElementById('welcome-contact-link')?.addEventListener('click', () => {
    close();
    document.getElementById('contact-nav')?.click();
+ });
+})();
+</script>
+
+
+<script>
+(()=> {
+ const endpoint='https://keimwerk-ai-diagnose.chrisvoigt17.workers.dev/diagnose';
+ const $=id=>document.getElementById(id);
+ const escapeText=s=>String(s??'');
+ function addText(parent,tag,text,cls){
+   const el=document.createElement(tag); if(cls)el.className=cls; el.textContent=escapeText(text); parent.appendChild(el); return el;
+ }
+ function fileToBase64(file){
+   return new Promise((resolve,reject)=>{
+     const reader=new FileReader();
+     reader.onerror=()=>reject(new Error('Das Bild konnte nicht gelesen werden.'));
+     reader.onload=()=>{
+       const result=String(reader.result||'');
+       const comma=result.indexOf(',');
+       if(comma<0) return reject(new Error('Das Bildformat konnte nicht verarbeitet werden.'));
+       resolve(result.slice(comma+1));
+     };
+     reader.readAsDataURL(file);
+   });
+ }
+ $('cf-ai-analyze')?.addEventListener('click',async()=>{
+   const button=$('cf-ai-analyze'), status=$('cf-ai-status'), results=$('cf-ai-results');
+   const checked=[...document.querySelectorAll('#cannabis-finder .cf-checks input:checked')];
+   const labels=checked.map(input=>input.closest('label')?.innerText.trim()||input.value);
+   const notes=$('cf-notes').value.trim();
+   if(!labels.length&&!notes){status.textContent='Bitte wähle mindestens ein Symptom aus oder beschreibe die Beobachtung.';return;}
+   const photo=$('cf-photo').files?.[0];
+   if(photo && photo.size>5*1024*1024){status.textContent='Das Bild ist größer als 5 MB. Bitte wähle ein kleineres Bild.';return;}
+   if(photo && !['image/jpeg','image/png','image/webp'].includes(photo.type)){status.textContent='Bitte nutze ein JPEG-, PNG- oder WebP-Bild.';return;}
+   button.disabled=true; status.textContent='KI analysiert die Angaben…'; results.hidden=true;
+   try{
+     const waterMap={unknown:'Keine Angabe',wet:'Substrat bleibt lange nass',dry:'Substrat trocknet sehr schnell aus',normal:'Gießen wirkt normal',hydro:'Hydroponik / Wasserreservoir'};
+     const changeMap={unknown:'Keine Angabe',feed:'Dünger gewechselt / stärker gedüngt',repot:'Umtopfen / Wurzeln gestört',light:'Licht, Temperatur oder Standort verändert',none:'Keine bekannte Veränderung'};
+     const body={
+       symptoms:[...labels,notes?('Weitere Beobachtungen: '+notes):''].filter(Boolean).join('; '),
+       plantStage:$('cf-stage').value,
+       substrate:$('cf-substrate').value,
+       watering:waterMap[$('cf-water').value]||'Nicht angegeben',
+       ph:$('cf-ph').value===''?null:Number($('cf-ph').value.replace(',','.')),
+       ec:$('cf-ec').value===''?null:Number($('cf-ec').value.replace(',','.'))
+     };
+     if(photo) body.image={mimeType:photo.type,data:await fileToBase64(photo)};
+     const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+     const data=await response.json();
+     if(!response.ok||!data.success||!data.diagnosis){
+       throw new Error(data.details||data.error||('Anfrage fehlgeschlagen (HTTP '+response.status+').'));
+     }
+     const d=data.diagnosis;
+     $('cf-ai-summary').textContent=d.summary||'Keine Zusammenfassung verfügbar.';
+     $('cf-ai-confidence').textContent='Einschätzung: '+(d.confidence||'nicht angegeben');
+     const causes=$('cf-ai-causes'); causes.replaceChildren();
+     (Array.isArray(d.causes)?d.causes:[]).forEach(c=>{
+       const article=document.createElement('article'); article.className='guidance-card';
+       addText(article,'h3',c.name||'Mögliche Ursache');
+       addText(article,'p','Wahrscheinlichkeit: '+(c.likelihood||'nicht angegeben'));
+       if(c.evidence)addText(article,'p','Dafür spricht: '+c.evidence);
+       if(c.against)addText(article,'p','Noch unklar / dagegen: '+c.against);
+       if(Array.isArray(c.nextChecks)&&c.nextChecks.length){
+         addText(article,'strong','Nächste Prüfschritte');
+         const ul=document.createElement('ul');c.nextChecks.forEach(x=>addText(ul,'li',x));article.appendChild(ul);
+       }
+       causes.appendChild(article);
+     });
+     const questions=$('cf-ai-questions');questions.replaceChildren();
+     (Array.isArray(d.questions)?d.questions:[]).forEach(q=>addText(questions,'li',q));
+     if(!questions.children.length)addText(questions,'li','Keine weiteren Rückfragen.');
+     $('cf-ai-safety').textContent=d.safetyNote||'Die KI-Einschätzung ist keine sichere Diagnose.';
+     results.hidden=false; status.textContent='Analyse abgeschlossen.'; results.scrollIntoView({behavior:'smooth',block:'start'});
+   }catch(error){
+     status.textContent='KI-Diagnose fehlgeschlagen: '+(error?.message||'Unbekannter Fehler');
+   }finally{button.disabled=false;}
  });
 })();
 </script>
