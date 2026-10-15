@@ -158,6 +158,54 @@ footer{text-align:center;border-top:1px solid var(--line);background:#29372c;fon
 .cf-muted{color:#b9c9b1!important}
 @media(max-width:760px){.cf-grid{grid-template-columns:1fr}.cf-checks{grid-template-columns:1fr}.cf-result-images img{height:145px}.cf-pest-preview img{height:80px}.cf-pest-preview figcaption{font-size:9px}}
 @media print{body{background:white;color:#111}.cf-side,.cf-actions,header,footer{display:none!important}.cf-panel,.cf-result{background:white;color:#111;border:1px solid #aaa;box-shadow:none}.cf-panel p,.cf-result p,.cf-result li,.cf-result h3{color:#111}.cf-warning{background:#fff8e8;color:#111}}
+
+/* Cannabis-Wissensnetz: verknuepft vorhandene Keimwerk-Lexika ohne Inhalte zu duplizieren. */
+.knowledge-network{margin-top:14px}
+.knowledge-tools{display:grid;grid-template-columns:1fr auto;gap:10px;margin:18px 0 22px}
+.knowledge-tools input{width:100%;min-height:48px;padding:11px 13px;border:1px solid #64735c;border-radius:7px;background:#17231b;color:#f0f1eb;font:inherit}
+.knowledge-tools button,.knowledge-filter{border:1px solid #5f715a;background:#29382d;color:#e4e8df;border-radius:7px;padding:10px 13px}
+.knowledge-filter-row{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.knowledge-filter[aria-pressed="true"]{background:#b0c2a6;color:#1c2a20;border-color:#b0c2a6;font-weight:bold}
+.knowledge-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.knowledge-node{background:#26352a;border:1px solid #435346;border-radius:10px;padding:16px;min-width:0}
+.knowledge-node h2{font-size:17px;margin:0 0 6px;color:#eef2e9}
+.knowledge-node p{font-size:12px;line-height:1.7;color:#d8dfd4;margin:7px 0 12px}
+.knowledge-category{display:inline-block;font-size:10px;letter-spacing:.6px;text-transform:uppercase;color:#c5d5bc;margin-bottom:6px}
+.knowledge-links{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.knowledge-links button{border:1px solid #5f715a;border-radius:5px;background:#314436;color:#e5ecdf;padding:6px 9px;font-size:11px;text-align:left}
+.knowledge-open{border:0;border-radius:5px;background:#b0c2a6;color:#1c2a20;padding:9px 12px;font-weight:bold;font-size:11px;margin-top:6px}
+.knowledge-empty{padding:18px;border:1px dashed #5f715a;border-radius:8px;color:#d8dfd4}
+@media(max-width:650px){.knowledge-grid{grid-template-columns:1fr}.knowledge-tools{grid-template-columns:1fr}.knowledge-tools button{width:100%}}
+
+
+/* Projekt 4: Interaktiver Cannabis-Wissensassistent */
+.ka-shell{max-width:900px;margin:0 auto}
+.ka-intro{color:#d4dfd0;max-width:780px}
+.ka-note{border:1px solid #4b604d;background:#253329;border-radius:9px;padding:12px 14px;color:#cad6c4;font-size:12px;line-height:1.7;margin:14px 0}
+.ka-suggestions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}
+.ka-suggestion{background:#27362b;color:#e4e9df;border:1px solid #536751;border-radius:999px;padding:8px 12px;font-size:12px;text-align:left}
+.ka-suggestion:hover,.ka-suggestion:focus-visible{background:#334737;border-color:#9eb594;outline:2px solid transparent}
+.ka-chat-panel{border:1px solid #46594a;border-radius:13px;background:#243128;overflow:hidden}
+.ka-chat-heading{padding:16px 18px;border-bottom:1px solid #435346;display:flex;align-items:center;gap:10px}
+.ka-chat-dot{width:10px;height:10px;border-radius:50%;background:#a9c19e;box-shadow:0 0 0 4px rgba(169,193,158,.12);flex-shrink:0}
+.ka-chat-heading strong{font-size:14px}.ka-chat-heading span{display:block;color:#bfcdb8;font-size:11px}
+.ka-messages{padding:16px;display:grid;gap:13px;min-height:130px;max-height:600px;overflow:auto}
+.ka-message{max-width:92%;padding:12px 14px;border:1px solid #46594a;border-radius:11px;background:#2b3b30;justify-self:start;min-width:0}
+.ka-message.user{background:#344638;border-color:#61765c;justify-self:end}
+.ka-message-label{color:#bbceb3;font-size:10px;font-weight:bold;letter-spacing:.7px;text-transform:uppercase;margin:0 0 5px}
+.ka-message-body{white-space:pre-wrap;overflow-wrap:anywhere;color:#edf0e9;font-size:13px;line-height:1.75;margin:0}
+.ka-sources{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-top:9px;border-top:1px solid #45594a}
+.ka-source-button{background:#1f2c22;color:#d7e2d1;border:1px solid #596c55;border-radius:6px;padding:6px 8px;font-size:11px}
+.ka-compose{border-top:1px solid #435346;padding:15px;background:#29382d}
+.ka-compose label{margin-bottom:7px}.ka-compose textarea{display:block;width:100%;min-height:104px;resize:vertical;padding:12px;border:1px solid #63765d;border-radius:8px;background:#17231b;color:#f0f1eb;font:14px/1.6 Arial,Helvetica,sans-serif}
+.ka-compose textarea:focus-visible{outline:2px solid #a8b9a0;outline-offset:2px}
+.ka-compose-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.ka-submit{background:#b0c2a6;color:#1c2a20;border:0;border-radius:6px;padding:12px 16px;font-weight:bold}
+.ka-submit:disabled{opacity:.55;cursor:wait}
+.ka-status{font-size:12px;color:#c8d4c1;margin:10px 0 0;min-height:1.5em}
+.ka-empty-context{font-size:12px;color:#c8d0c5}
+@media(max-width:650px){.ka-messages{padding:10px}.ka-message{max-width:100%}.ka-compose{padding:12px}.ka-suggestion{font-size:11px}}
+
 </style>
 <style>
 #diary-nav{border-color:#455748}
@@ -169,6 +217,112 @@ footer{text-align:center;border-top:1px solid var(--line);background:#29372c;fon
 .gd-projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
 .gd-card{background:#29382d;border:1px solid #435246;border-radius:11px;overflow:hidden}.gd-card img{width:100%;height:170px;object-fit:cover;display:block}.gd-card-body{padding:14px}.gd-card h3{margin:0 0 5px;font-size:18px}.gd-card p{font-size:12px;margin:4px 0}.gd-muted{color:#c8d0c5;font-size:12px}.gd-entry{border-top:1px solid #435246;padding:15px 0}.gd-entry img{max-width:180px;max-height:180px;object-fit:cover;border-radius:8px;display:block;margin:8px 0}.gd-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.gd-detail-actions{display:flex;gap:8px;flex-wrap:wrap}
 @media(max-width:650px){.gd-grid{grid-template-columns:1fr}.gd-wide{grid-column:auto}.gd-toolbar{align-items:flex-start}}
+</style>
+
+<style>
+/* Projekt 5: Cannabis-Grow-Analyse */
+.ga-warning{background:#3b3425;border:1px solid #74613a;border-radius:9px;padding:13px 15px;margin:10px 0 18px;color:#f4e5bd;font-size:13px;line-height:1.65}
+.ga-panel{background:#29382d;border:1px solid #435246;border-radius:11px;padding:20px;margin:14px 0;color:#f0f1eb;min-width:0}
+.ga-panel h2{font-size:20px;margin:0 0 10px}.ga-panel h3{font-size:16px;margin:18px 0 8px}.ga-panel p,.ga-panel li{color:#d8dfd4;font-size:13px;line-height:1.7}
+.ga-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:end}.ga-field label{display:block;font-weight:bold;font-size:13px}.ga-field select{display:block;width:100%;margin-top:6px;padding:11px;background:#17231b;color:#f0f1eb;border:1px solid #64735c;border-radius:7px;min-height:44px}
+.ga-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.ga-button{border:1px solid #61755d;border-radius:6px;padding:11px 14px;background:#b0c2a6;color:#1c2a20;font-weight:bold;cursor:pointer}.ga-button.secondary{background:transparent;color:#dce6d5}.ga-button:disabled{opacity:.55;cursor:wait}
+.ga-check{display:flex!important;align-items:flex-start;gap:9px;margin:14px 0 8px;font-weight:normal!important}.ga-check input{margin-top:3px;accent-color:#b0c2a6}.ga-muted{color:#bdcbb7!important;font-size:12px!important}.ga-status{font-size:13px;min-height:1.4em;color:#cfddc7;overflow-wrap:anywhere}
+.ga-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0}.ga-stat{background:#1e2a21;border:1px solid #435246;border-radius:8px;padding:13px}.ga-stat span{display:block;font-size:11px;color:#bdcbb7}.ga-stat strong{display:block;font-size:22px;margin-top:4px;overflow-wrap:anywhere}.ga-table-wrap{overflow-x:auto}.ga-table{width:100%;border-collapse:collapse;font-size:12px}.ga-table th,.ga-table td{text-align:left;padding:10px 9px;border-bottom:1px solid #435246;vertical-align:top;white-space:nowrap}.ga-table th{color:#c8d8c1;font-weight:bold}.ga-table td{color:#e2e7df}.ga-charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:12px 0}.ga-chart{background:#1e2a21;border:1px solid #435246;border-radius:8px;padding:12px;min-width:0}.ga-chart h4{font-size:13px;margin:0 0 8px}.ga-chart svg{width:100%;height:100px;display:block;overflow:visible}.ga-chart .ga-chart-note{color:#bdcbb7;font-size:11px;margin:7px 0 0}.ga-timeline{display:grid;gap:9px}.ga-entry{background:#1e2a21;border:1px solid #435246;border-radius:8px;padding:12px}.ga-entry header{position:static;display:flex;justify-content:space-between;gap:10px;align-items:flex-start;background:transparent;padding:0;border:0}.ga-entry h4{font-size:13px;margin:0;color:#f0f1eb}.ga-entry p{margin:5px 0 0}.ga-result{background:#1e2a21;border:1px solid #435246;border-radius:8px;padding:16px;white-space:pre-wrap;line-height:1.75;font-size:14px;color:#f0f1eb;overflow-wrap:anywhere}.ga-ai-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.ga-note{background:#233127;border:1px solid #435246;padding:12px;border-radius:7px;color:#cbd7c5;font-size:12px;line-height:1.6}
+@media(max-width:650px){.ga-controls{grid-template-columns:1fr}.ga-table{min-width:600px}.ga-panel{padding:14px}}
+@media print{#grow-analysis .ga-controls,#grow-analysis .ga-actions,#grow-analysis .ga-check,#grow-analysis #ga-turnstile-widget,.ga-button{display:none!important}.ga-panel,.ga-stat,.ga-chart,.ga-entry,.ga-result{background:white!important;color:#111!important;border:1px solid #bbb!important}.ga-panel p,.ga-panel li,.ga-table td,.ga-table th,.ga-chart .ga-chart-note{color:#222!important}.ga-warning,.ga-note{background:white!important;color:#111!important}}
+</style>
+
+
+<style id="keimwerk-global-mobile-layout">
+/* Keimwerk – responsive Oberfläche für Smartphones und Tablets */
+html{scroll-padding-top:12px;-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+img,svg,video,canvas,iframe{max-width:100%}
+button,input,select,textarea{touch-action:manipulation}
+.page,.section,.contact-panel,.cf-panel,.ga-panel,.knowledge-node,.ka-shell,.gd-card,.ga-chart{min-width:0}
+.page img,.page video,.page canvas{max-width:100%;height:auto}
+#grow-analysis .ga-table-wrap,#grow-analysis .ga-table-wrap table,.nutrient-table-wrap{max-width:100%}
+.ga-table-wrap,.nutrient-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+
+@media(max-width:760px){
+  header{width:100%;padding:12px 16px;align-items:flex-start;gap:9px;flex-wrap:wrap}
+  .brand{width:100%;min-width:0;gap:9px;flex-wrap:wrap}
+  .brand-logo-image{width:72px;height:76px}
+  .diary-brand-button{min-height:42px;white-space:normal;padding:9px 11px;max-width:100%}
+  header nav{display:flex;width:100%;max-width:100%;justify-content:flex-start;gap:6px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;padding:0 0 4px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+  header nav button{flex:0 0 auto;min-height:42px;padding:10px 12px;font-size:12px}
+  .page{width:100%;max-width:100%;padding:24px 16px 28px}
+  .hero{grid-template-columns:minmax(0,1fr);gap:18px;padding:0 0 30px}
+  .hero>div,.hero-copy{min-width:0;max-width:100%}
+  .hero h1{font-size:clamp(34px,9vw,44px);letter-spacing:-.8px}
+  .plant-panel{height:auto;min-height:210px;padding:14px}
+  .plant-art{height:auto;min-height:125px}
+  .plant-art .hero-logo-image{width:min(210px,100%);height:auto;max-height:160px}
+  .section-head,.intro-grid{grid-template-columns:minmax(0,1fr);gap:12px}
+  .features{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .lex-card{grid-template-columns:24px minmax(0,1fr)}
+  .hero-actions{gap:8px;flex-wrap:wrap}
+  .hero-actions button,.lex-card .primary{max-width:100%;white-space:normal}
+  .contact-panel{width:100%;max-width:100%;padding:16px}
+  .contact-form input,.contact-form select,.contact-form textarea{min-width:0;font-size:16px}
+  .knowledge-grid,.cf-grid,.gd-grid{grid-template-columns:minmax(0,1fr)}
+  .knowledge-tools{grid-template-columns:minmax(0,1fr)}
+  .knowledge-tools button{width:100%}
+  .gd-wide{grid-column:auto}
+  .gd-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gd-toolbar{align-items:flex-start;gap:9px}
+  .gd-actions,.gd-detail-actions{gap:7px}
+  .ga-controls{grid-template-columns:minmax(0,1fr)}
+  .ga-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ga-charts{grid-template-columns:minmax(0,1fr)}
+  .ga-panel,.cf-panel{padding:14px;max-width:100%}
+  .ga-table-wrap,.nutrient-table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .ga-table{min-width:600px}
+  .ka-shell{width:100%;max-width:100%}
+  .ka-messages{max-height:min(55vh,480px);max-height:min(55dvh,480px)}
+  .ka-compose textarea{font-size:16px}
+  .page button{min-height:42px;max-width:100%;white-space:normal}
+  .page input:not([type=checkbox]):not([type=radio]):not([type=file]),.page select,.page textarea{max-width:100%;min-width:0;font-size:16px}
+  .page input[type=checkbox],.page input[type=radio]{min-height:0}
+  #calculator.page{padding:12px 0 20px}
+  #calculator>.back{margin-left:16px;margin-right:16px}
+  #calculator .subhead{padding:8px 16px 12px}
+  #calculator .calculator-frame-shell{width:100%;max-width:none;border-radius:0}
+  #calculator-frame{display:block;width:100%;max-width:100%;min-width:0;height:1100px;border-radius:0}
+  .welcome-dialog{width:calc(100vw - 24px);max-width:540px;max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);overflow:auto}
+  .water-warning-dialog{width:100%;max-width:100%}
+}
+
+@media(max-width:480px){
+  header{padding:10px 12px}
+  .brand-logo-image{width:62px;height:66px}
+  .page{padding:19px 12px 24px}
+  #calculator.page{padding:10px 0 18px}
+  .features{grid-template-columns:minmax(0,1fr)}
+  .section{padding:20px 0 26px}
+  .hero-actions{display:grid;grid-template-columns:minmax(0,1fr);align-items:stretch}
+  .hero-actions button{width:100%;margin-top:7px}
+  .gd-fields{grid-template-columns:minmax(0,1fr)}
+  .gd-toolbar>*{max-width:100%}
+  .gd-toolbar button,.gd-actions button,.gd-detail-actions button{min-height:42px}
+  .ga-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .ga-stat{padding:10px}
+  .ga-stat strong{font-size:19px}
+  .ga-panel h2,.cf-panel h2{font-size:19px}
+  .knowledge-tools input{font-size:16px}
+  .ka-suggestions{display:grid;grid-template-columns:minmax(0,1fr)}
+  .ka-suggestion{width:100%;font-size:12px}
+  .welcome-dialog{padding:22px 17px}
+  .page table{font-size:12px}
+}
+
+@media(max-width:360px){
+  header nav button{padding:9px 10px;font-size:11px}
+  .ga-stats{grid-template-columns:minmax(0,1fr)}
+  .gd-fields{grid-template-columns:minmax(0,1fr)}
+  .hero h1{font-size:33px}
+}
+
 </style>
 </head>
 <body>
@@ -199,12 +353,69 @@ footer{text-align:center;border-top:1px solid var(--line);background:#29372c;fon
 </div><div class="plant-caption">Wachsen. Entfalten. Ernten.</div></div>
 </section>
 <section class="section" id="lexika"><div class="section-head"><div><div class="section-label">WISSEN ENTDECKEN</div><h2>Unsere Lexika</h2></div><p>Wähle einen Wissensbereich aus und entdecke hilfreiche Informationen, verständliche Erklärungen und übersichtliches Pflanzenwissen. Die verschiedenen Bereiche helfen dir dabei, Themen besser zu verstehen und Zusammenhänge zu erkennen.</p></div>
-<div class="chooser"><label for="lex-select">Welches Lexikon möchtest du ansehen?</label><select id="lex-select"><option disabled="" selected="" value="">Bitte ein Lexikon auswählen …</option><option value="pests">Schädlingslexikon</option><option value="beneficials">Nützlingslexikon</option><option value="nutrients">Über- und Unterdüngungslexikon</option><option value="cannabis-finder">Cannabis-Mängel-Finder</option></select>
+<div class="chooser"><label for="lex-select">Welches Lexikon möchtest du ansehen?</label><select id="lex-select"><option disabled="" selected="" value="">Bitte ein Lexikon auswählen …</option><option value="pests">Schädlingslexikon</option><option value="beneficials">Nützlingslexikon</option><option value="nutrients">Über- und Unterdüngungslexikon</option><option value="cannabis-finder">Cannabis-Mängel-Finder</option><option value="knowledge-network">Cannabis-Wissensnetz</option><option value="knowledge-assistant">Interaktiver Cannabis-Wissensassistent</option><option value="grow-analysis">Umfassende Cannabis-Grow-Analyse</option></select>
 <div class="lex-card" hidden="" id="pest-card"><div class="lex-icon">❧</div><div><div class="lex-title">Schädlingslexikon</div><p>Hier findest du eine Übersicht zu Schädlingen an Pflanzen. Der Bereich soll helfen, mögliche Schädlinge anhand von Aussehen, Symptomen und typischen Schadbildern zu erkennen. Zu den Einträgen gehören Informationen zur visuellen Erkennung und Hinweise zur genaueren Kontrolle. Die Inhalte sind so gegliedert, dass du einzelne Profile später leicht finden und vergleichen kannst.</p><span class="pill">12 Schädlingsprofile</span><br/><button class="primary" id="open-pests">Schädlingslexikon öffnen →</button></div></div><div class="lex-card" hidden="" id="beneficial-card"><div class="lex-icon">❧</div><div><div class="lex-title">Nützlingslexikon</div><p>Hier findest du Nützlinge, ihre Erkennungsmerkmale, ihre Wirkung und Hinweise zu ihrem Einsatz gegen Pflanzenschädlinge.</p><span class="pill">11 Nützlingsprofile</span><br/><button class="primary" id="open-beneficials">Nützlingslexikon öffnen →</button></div></div><div class="lex-card" hidden="" id="nutrients-card"><div class="lex-icon">❧</div><div><div class="lex-title">Über- und Unterdüngungslexikon</div><p>Hier findest du typische Hinweise auf Nährstoffmängel und Überschüsse, anschauliche Pflanzenbilder sowie Hinweise zur Diagnose mit pH, EC und Wurzelzustand.</p><span class="pill">12 Nährstoffprofile</span><br/><button class="primary" id="open-nutrients">Nährstofflexikon öffnen →</button></div></div>
-<div class="lex-card" hidden="" id="cannabis-finder-card"><div class="lex-icon">✿</div><div><div class="lex-title">Cannabis-Mängel-Finder</div><p>Symptome auswählen, mögliche Ursachen vergleichen und passende Informationen samt Originalbildern aus dem Nährstofflexikon anzeigen lassen.</p><span class="pill">Regelbasierte Orientierung</span><br/><button class="primary" id="open-cannabis-finder">Mängel-Finder öffnen →</button></div></div></div></section>
+<div class="lex-card" hidden="" id="cannabis-finder-card"><div class="lex-icon">✿</div><div><div class="lex-title">Cannabis-Mängel-Finder</div><p>Symptome auswählen, mögliche Ursachen vergleichen und passende Informationen samt Originalbildern aus dem Nährstofflexikon anzeigen lassen.</p><span class="pill">Regelbasierte Orientierung</span><br/><button class="primary" id="open-cannabis-finder">Mängel-Finder öffnen →</button></div></div><div class="lex-card" hidden="" id="knowledge-network-card"><div class="lex-icon">⌘</div><div><div class="lex-title">Cannabis-Wissensnetz</div><p>Finde Zusammenhänge zwischen Nährstoffen, Symptomen, Wasserwerten, Schädlingen und Nützlingen – mit direkten Verweisen auf die vorhandenen Keimwerk-Lexika.</p><span class="pill">Verknüpfte Wissensbereiche</span><br/><button class="primary" id="open-knowledge-network">Wissensnetz öffnen →</button></div></div><div class="lex-card" hidden="" id="knowledge-assistant-card"><div class="lex-icon">✧</div><div><div class="lex-title">Interaktiver Cannabis-Wissensassistent</div><p>Stelle Fragen zu Cannabis-Pflanzenphysiologie, Nährstoffen, pH/EC, Substrat, Symptomen oder Schädlingen. Der Assistent nutzt passende Keimwerk-Inhalte als Kontext und verweist auf die entsprechenden Bereiche.</p><span class="pill">Fragen stellen · Quellen öffnen</span><br/><button class="primary" id="open-knowledge-assistant">Assistent öffnen →</button></div></div><div class="lex-card" hidden="" id="grow-analysis-card"><div class="lex-icon">⌁</div><div><div class="lex-title">Umfassende Cannabis-Grow-Analyse</div><p>Verbinde Tagebuch, Messwerte, Pflegeereignisse und optional Pflanzenfotos zu einer chronologischen Auswertung mit Trends, Datenlücken und einer vorsichtigen KI-Einschätzung.</p><span class="pill">Messwerte · Verlauf · Zusammenhänge</span><br/><button class="primary" id="open-grow-analysis">Grow-Analyse öffnen →</button></div></div></div></section>
 <section class="section" id="intro"><div class="intro-grid"><div><div class="section-label">KEIMWERK KENNENLERNEN</div><h2>Gut verwurzelt.<br/>Klar erklärt.</h2></div><p>Keimwerk ist ein Wissensprojekt rund um Cannabispflanzen und ihre Pflege. Unser Ziel ist es, Beobachtungen verständlicher zu machen und Informationen in klar gegliederten Bereichen bereitzustellen.</p></div>
 <div class="features"><div class="feature"><div class="feature-symbol">⌕</div><h3>Verständlich</h3><p>Erkennungsmerkmale und Fachbegriffe in klarer Sprache.</p></div><div class="feature"><div class="feature-symbol">◉</div><h3>Übersichtlich</h3><p>Wissen nach Themen geordnet und leicht auffindbar.</p></div><div class="feature"><div class="feature-symbol">↗</div><h3>Mit Sorgfalt</h3><p>Neue Inhalte werden nach und nach ergänzt.</p></div></div>
 </section>
+</main>
+<main class="page" hidden="" id="knowledge-network">
+<button class="back" id="knowledge-network-back">← Zurück zur Startseite</button>
+<div class="subhead"><div class="section-label">CANNABIS-WISSEN VERKNÜPFEN</div><h1>Cannabis-Wissensnetz</h1><p>Entdecke, wie Symptome, Nährstoffe, Wasserqualität, Schädlinge und Nützlinge zusammenhängen. Die Verknüpfungen führen in bereits vorhandene Keimwerk-Bereiche – sie ersetzen keine Diagnose und stellen mögliche Zusammenhänge nicht als sichere Ursache dar.</p><span class="pill">Interaktive Wissensnavigation</span></div>
+<div class="knowledge-network">
+<div class="knowledge-tools"><input id="knowledge-search" type="search" placeholder="Thema suchen, z. B. Magnesium, pH oder Thripse…" aria-label="Thema im Cannabis-Wissensnetz suchen"/><button id="knowledge-clear" type="button">Suche zurücksetzen</button></div>
+<div class="knowledge-filter-row" role="group" aria-label="Wissensbereich filtern"><button class="knowledge-filter" type="button" data-kg-filter="all" aria-pressed="true">Alle Themen</button><button class="knowledge-filter" type="button" data-kg-filter="nutrients" aria-pressed="false">Nährstoffe &amp; Wasser</button><button class="knowledge-filter" type="button" data-kg-filter="diagnosis" aria-pressed="false">Symptome &amp; Diagnose</button><button class="knowledge-filter" type="button" data-kg-filter="pests" aria-pressed="false">Schädlinge &amp; Nützlinge</button></div>
+<p id="knowledge-count" class="note" aria-live="polite">Alle Themen werden angezeigt.</p>
+<div class="knowledge-grid" id="knowledge-grid">
+<article class="knowledge-node" data-kg-category="nutrients" data-kg-search="nährstoff mangel überschuss stickstoff phosphor kalium calcium magnesium eisen bor mangan zink kupfer schwefel molybdän"><span class="knowledge-category">Nährstoffe</span><h2>Nährstoffmangel und Überschuss</h2><p>Blattsymptome können Hinweise geben, sind allein aber selten eindeutig. Vergleiche die sichtbaren Symptome mit den Nährstoffprofilen und prüfe auch Wurzelraum, pH und Bewässerung.</p><div class="knowledge-links"><button type="button" data-kg-query="Stickstoff">Stickstoff</button><button type="button" data-kg-query="Calcium">Calcium</button><button type="button" data-kg-query="Magnesium">Magnesium</button><button type="button" data-kg-query="Kalium">Kalium</button></div><button class="knowledge-open" type="button" data-kg-page="nutrients">Nährstofflexikon öffnen →</button></article>
+<article class="knowledge-node" data-kg-category="nutrients" data-kg-search="ph ec salzstress wasserqualität alkalinität calcium magnesium leitungswasser wurzelraum substrat nährstoffaufnahme"><span class="knowledge-category">Wasser &amp; Wurzelraum</span><h2>pH, EC und Nährstoffaufnahme</h2><p>Wasserwerte und Bedingungen im Wurzelraum beeinflussen, wie Nährstoffe verfügbar sind. Ein einzelner Messwert sollte immer zusammen mit Substrat, Messmethode und Pflanzenbild eingeordnet werden.</p><div class="knowledge-links"><button type="button" data-kg-query="pH">pH-Wert</button><button type="button" data-kg-query="EC">EC &amp; Salzstress</button><button type="button" data-kg-query="Wasserqualität">Wasserqualität</button></div><button class="knowledge-open" type="button" data-kg-page="nutrients">Erklärungen ansehen →</button></article>
+<article class="knowledge-node" data-kg-category="diagnosis" data-kg-search="symptome diagnose gelbe blätter flecken blattspitzen wachstum mangel überschuss wurzel problem bewässerung"><span class="knowledge-category">Symptome &amp; Diagnose</span><h2>Von Symptomen zu möglichen Ursachen</h2><p>Nutze den Mängel-Finder, um Beobachtungen strukturiert einzuordnen. Prüfe mehrere Ursachen, statt allein aus einer Blattverfärbung auf einen bestimmten Nährstoffmangel zu schließen.</p><div class="knowledge-links"><button type="button" data-kg-query="gelbe Blätter">Gelbe Blätter</button><button type="button" data-kg-query="Blattspitzen">Blattspitzen</button><button type="button" data-kg-query="Wurzeln">Wurzeln</button></div><button class="knowledge-open" type="button" data-kg-page="cannabis-finder">Cannabis-Mängel-Finder öffnen →</button></article>
+<article class="knowledge-node" data-kg-category="pests" data-kg-search="schädlinge spinnmilben thripse blattläuse weiße fliege trauermücken symptome fraßspuren"><span class="knowledge-category">Schädlingslexikon</span><h2>Schädlinge und Schadbilder</h2><p>Fraßspuren, Gespinste, silbrige Stellen oder kleine Punkte können Hinweise auf Schädlinge sein. Vergleiche die Erkennungsmerkmale und kontrolliere insbesondere Blattunterseiten und junge Triebe.</p><div class="knowledge-links"><button type="button" data-kg-query="Spinnmilben">Spinnmilben</button><button type="button" data-kg-query="Thripse">Thripse</button><button type="button" data-kg-query="Trauermücken">Trauermücken</button></div><button class="knowledge-open" type="button" data-kg-page="pests">Schädlingslexikon öffnen →</button></article>
+<article class="knowledge-node" data-kg-category="pests" data-kg-search="nützlinge raubmilbe florfliege schlupfwespe marienkäfer schwebfliege biologische kontrolle gegenspieler"><span class="knowledge-category">Nützlingslexikon</span><h2>Nützlinge als Gegenspieler</h2><p>Wenn ein Schädling sicherer bestimmt wurde, lassen sich passende Gegenspieler prüfen. Die Eignung hängt unter anderem von Schädlingsart, Entwicklungsstadium und Umgebungsbedingungen ab.</p><div class="knowledge-links"><button type="button" data-kg-query="Raubmilben">Raubmilben</button><button type="button" data-kg-query="Florfliegen">Florfliegen</button><button type="button" data-kg-query="Schlupfwespen">Schlupfwespen</button></div><button class="knowledge-open" type="button" data-kg-page="beneficials">Nützlingslexikon öffnen →</button></article>
+<article class="knowledge-node" data-kg-category="diagnosis" data-kg-search="dokumentation verlauf messwerte fotos grow tagebuch beobachtungen wasserwerte düngegaben"><span class="knowledge-category">Dokumentation</span><h2>Beobachtungen richtig verbinden</h2><p>Datum, Fotos, Messwerte und Pflegeereignisse helfen, Veränderungen zeitlich einzuordnen. Ein zeitlicher Zusammenhang ist ein Hinweis zur Prüfung, aber noch kein Beweis für eine Ursache.</p><div class="knowledge-links"><button type="button" data-kg-query="Messwerte">Messwerte</button><button type="button" data-kg-query="Fotos">Fotos</button><button type="button" data-kg-query="Düngegaben">Düngegaben</button></div><button class="knowledge-open" type="button" data-kg-page="diary">Grow-Tagebuch öffnen →</button></article>
+</div><div id="knowledge-empty" class="knowledge-empty" hidden>Keine passenden Themen gefunden. Versuche einen allgemeineren Suchbegriff.</div>
+</div></main>
+<main class="page" hidden="" id="knowledge-assistant">
+<button class="back" id="knowledge-assistant-back" type="button">← Zurück zur Startseite</button>
+<div class="subhead"><div class="section-label">FRAGEN STELLEN · ZUSAMMENHÄNGE VERSTEHEN</div><h1>Cannabis-<span>Wissensassistent</span></h1><p class="ka-intro">Stelle Fragen rund um Cannabispflanzen. Der Assistent sucht zuerst in den vorhandenen Keimwerk-Lexika und erklärt Zusammenhänge verständlich. Du kannst nach einer einfachen Erklärung fragen oder gezielt fachliche Details anfordern.</p><span class="pill">Keimwerk-Fachinhalte als Kontext</span></div>
+<div class="ka-shell">
+<div class="ka-note"><strong>Hinweis:</strong> Antworten sind Orientierung und keine sichere Diagnose. Symptome können mehrere Ursachen haben. Der Assistent kennzeichnet Unsicherheiten und sollte fehlende Messwerte nicht erfinden. Für die Anfrage wird die Frage zusammen mit passenden Textauszügen aus Keimwerk an den vorhandenen KI-Dienst gesendet; dein Grow-Tagebuch wird nicht automatisch übertragen.</div>
+<div class="ka-suggestions" aria-label="Beispielfragen">
+<button class="ka-suggestion" type="button" data-ka-prompt="Wie hängen pH-Wert und Nährstoffaufnahme bei Cannabis zusammen?">pH & Nährstoffaufnahme</button>
+<button class="ka-suggestion" type="button" data-ka-prompt="Woran kann ich erkennen, ob gelbe Blätter von einem Mangel oder einem anderen Problem kommen?">Gelbe Blätter einordnen</button>
+<button class="ka-suggestion" type="button" data-ka-prompt="Welche Informationen sollte ich sammeln, bevor ich einen Nährstoffmangel vermute?">Mangel systematisch prüfen</button>
+<button class="ka-suggestion" type="button" data-ka-prompt="Wie unterscheide ich Spinnmilben und Thripse anhand typischer Schadbilder?">Schädlinge unterscheiden</button>
+</div>
+<section class="ka-chat-panel" aria-label="Chat mit dem Cannabis-Wissensassistenten">
+<div class="ka-chat-heading"><span class="ka-chat-dot" aria-hidden="true"></span><div><strong>Keimwerk-Assistent</strong><span>Fragen zu Cannabiswissen und den vorhandenen Lexika</span></div></div>
+<div id="ka-messages" class="ka-messages" aria-live="polite" aria-relevant="additions text"><article class="ka-message assistant"><div class="ka-message-label">Keimwerk-Assistent</div><p class="ka-message-body">Hallo! Ich helfe dir, Wissen aus den Keimwerk-Lexika einzuordnen. Stelle eine konkrete Frage – zum Beispiel zu pH, EC, Nährstoffen, Wurzeln oder typischen Schadbildern.</p></article></div>
+<form id="ka-form" class="ka-compose"><label for="ka-question">Deine Frage</label><textarea id="ka-question" name="question" maxlength="2000" required placeholder="Was möchtest du über Cannabispflanzen verstehen?"></textarea><div class="ka-compose-footer"><div id="ka-turnstile-widget" aria-label="Sicherheitsprüfung"></div><button class="ka-submit" type="submit" id="ka-submit">Antwort erhalten →</button></div><p id="ka-status" class="ka-status" role="status" aria-live="polite">Bestätige die Sicherheitsprüfung, bevor du eine Frage sendest.</p></form>
+</section>
+</div>
+</main>
+<main class="page" hidden="" id="grow-analysis">
+<button class="back" id="grow-analysis-back" type="button">← Zurück zur Startseite</button>
+<div class="subhead"><div class="section-label">KEIMWERK · GROW-DATEN AUSWERTEN</div><h1>Cannabis-Grow-Analyse</h1><p>Analysiere gespeicherte Tagebucheinträge, Messwerte und Pflegeereignisse im zeitlichen Zusammenhang. Keimwerk zeigt zuerst eine nachvollziehbare lokale Übersicht und kann anschließend eine KI-Einschätzung erstellen.</p><span class="pill">Projektverlauf statt Einzelwert</span></div>
+<div class="ga-warning"><strong>Wichtig:</strong> Zusammenhänge im Zeitverlauf sind Hinweise, keine Beweise für eine Ursache. Fehlende Angaben werden nicht ergänzt. Die KI-Einschätzung ist keine sichere Diagnose und kann nur so belastbar sein wie die gespeicherten Einträge.</div>
+<section class="ga-panel">
+<h2>1. Grow-Projekt auswählen</h2>
+<div class="ga-controls"><div class="ga-field"><label for="ga-project-select">Projekt aus dem Grow-Tagebuch</label><select id="ga-project-select"><option value="">Grow-Projekt auswählen …</option></select></div><button class="ga-button secondary" id="ga-refresh" type="button">Projektliste aktualisieren</button></div>
+<label class="ga-check"><input id="ga-include-photos" type="checkbox"/><span><strong>Hauptfoto und bis zu zwei aktuelle Tagebuchfotos für die KI-Analyse mitsenden</strong><br/><span class="ga-muted">Optional. Bilder werden nur bei aktivierter Auswahl an den Keimwerk-KI-Dienst übermittelt.</span></span></label>
+<p class="ga-note">Für die KI-Auswertung werden Projektdaten und die ausgewählten Tagebucheinträge an den Keimwerk-Worker übermittelt. Dazu gehören auch deine Notizen sowie Messwerte. Bilder werden nur gesendet, wenn du das Kästchen aktivierst. Speichere oder exportiere deine Daten vor größeren Änderungen vorsichtshalber als Sicherung.</p>
+<div class="ga-actions"><button class="ga-button" id="ga-run" type="button">KI-Grow-Analyse starten →</button><button class="ga-button secondary" id="ga-print" type="button">Übersicht drucken / PDF</button></div>
+<div id="ga-turnstile-widget" aria-label="Sicherheitsprüfung"></div><p class="ga-status" id="ga-status" role="status" aria-live="polite">Wähle ein gespeichertes Grow-Projekt aus. Die lokale Übersicht erscheint ohne KI-Aufruf.</p>
+</section>
+<section class="ga-panel" id="ga-overview" hidden>
+<h2>2. Lokale Verlaufsübersicht</h2><p id="ga-project-meta" class="ga-muted"></p>
+<div class="ga-stats" id="ga-stats"></div>
+<h3>Messwerte im Vergleich</h3><p class="ga-muted">Min., Durchschnitt und Max. beruhen nur auf vorhandenen Zahlenwerten. Der Verlauf vergleicht den ersten und letzten Messpunkt; daraus ergibt sich keine automatische Bewertung als gut oder schlecht.</p>
+<div class="ga-table-wrap"><table class="ga-table"><thead><tr><th>Messgröße</th><th>Einträge</th><th>Minimum</th><th>Durchschnitt</th><th>Maximum</th><th>Erster → letzter Wert</th></tr></thead><tbody id="ga-metrics-body"></tbody></table></div>
+<h3>Verlaufsgrafiken</h3><div class="ga-charts" id="ga-charts"></div>
+<h3>Datenqualität und zeitliche Hinweise</h3><ul id="ga-data-notes"></ul>
+<h3>Letzte Tagebucheinträge</h3><div class="ga-timeline" id="ga-timeline"></div>
+</section>
+<section class="ga-panel" id="ga-ai-panel" hidden><div class="ga-ai-top"><h2>3. KI-Auswertung</h2><span class="pill" id="ga-ai-date"></span></div><div id="ga-ai-result" class="ga-result"></div><p class="ga-muted">Die KI stellt mögliche Zusammenhänge und nächste Prüfungen dar. Sie verändert weder deine Tagebucheinträge noch deine Dünger- oder Wasserwerte.</p></section>
 </main>
 <main class="page" hidden="" id="pests">
 <button class="back" id="pests-back">← Zurück zur Startseite</button><div class="subhead"><div class="section-label">WISSEN ENTDECKEN</div><h1>Schädlingslexikon</h1><p>Informationen zu Erkennungsmerkmalen, Symptomen, Schäden und typischen Hinweisen zu Pflanzenschädlingen.</p><span class="pill">12 Schädlingsprofile</span></div>
@@ -230,6 +441,11 @@ footer{text-align:center;border-top:1px solid var(--line);background:#29372c;fon
 <div class="cf-warning"><strong>Wichtig:</strong> Die Ergebnisse sind Hinweise, keine sichere Diagnose. Ähnliche Symptome können durch Nährstoffversorgung, pH, EC/Salzstress, Wurzeln, Gießen, Licht, Schädlinge oder Krankheiten entstehen. Ändere nicht mehrere Dinge gleichzeitig.</div>
 <div class="cf-grid">
 <section class="cf-panel">
+<h2>Grow-Daten einbeziehen</h2>
+<p>Optional: Wähle ein vorhandenes Grow-Projekt aus. Keimwerk kann gespeicherte Messwerte und letzte Beobachtungen als zusätzliche Hinweise übernehmen. Bestehende Einträge werden dabei nicht verändert.</p>
+<div class="cf-field"><label for="cf-grow-project">Grow-Projekt</label><select id="cf-grow-project"><option value="">Kein Grow-Projekt verwenden</option></select></div>
+<div class="cf-actions"><button class="cf-secondary" id="cf-refresh-grow" type="button">Projektliste aktualisieren</button><button class="cf-secondary" id="cf-grow-import-btn" type="button">Grow-Tagebuch-Export laden</button><input id="cf-grow-import-file" type="file" accept=".json,application/json" hidden><button class="cf-secondary" id="cf-load-grow" type="button">Daten aus Projekt übernehmen</button><span id="cf-grow-status" class="cf-muted" role="status" aria-live="polite"></span></div>
+<div id="cf-grow-context" class="cf-lex-result" hidden></div>
 <h2>1 · Symptome</h2><p>Wähle mindestens ein sichtbares Symptom aus.</p>
 <div class="cf-checks">
 <label><input type="checkbox" value="yellow-old"/> Ältere / untere Blätter werden gelb</label>
@@ -598,6 +814,10 @@ body.water-modal-active{overflow:hidden}
 .water-warning-actions button{white-space:normal}
 @media(max-width:520px){.water-warning-dialog{padding:18px}.water-warning-actions{display:grid;grid-template-columns:1fr}.water-warning-actions button{width:100%}}
 
+
+.batch-total-row th{background:rgba(183,200,175,.12);border-top:2px solid #6f856f;font-weight:700}.batch-total-row th:first-child{white-space:normal;min-width:185px}
+
+.nutrient-per-liter{display:block;font-weight:600}.batch-amount{display:block;font-size:10px;color:var(--muted);white-space:nowrap;line-height:1.25;margin-top:2px}.batch-total-row th{background:rgba(183,200,175,.12);border-top:2px solid #6f856f;font-weight:700}.batch-total-row th:first-child{white-space:normal;min-width:185px}
 &lt;/style&gt;
 
 &lt;style id=&quot;keimwerk-compact-spacing-fix&quot;&gt;
@@ -638,6 +858,86 @@ body.feature-modal-active{overflow:hidden}
 
 /* Gewünschte zwei Schaltflächen ausblenden */
 #toggleFertilizerCompare, #checklistBtn { display: none !important; }
+&lt;/style&gt;
+
+&lt;style id=&quot;keimwerk-mobile-layout&quot;&gt;
+/* Keimwerk-Düngerrechner – Touch- und Smartphone-Layout */
+html,body{max-width:100%;overflow-x:hidden}
+img,svg,canvas{max-width:100%}
+button,input,select,textarea{touch-action:manipulation}
+.table-scroll{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+
+@media(max-width:760px){
+  .wrap{padding:9px 12px 18px}
+  .top{padding:9px 12px;gap:8px;align-items:flex-start}
+  .brand{gap:8px;min-width:0;flex:1 1 100%}
+  .brand-logo-horizontal{width:64px;height:67px}
+  .brand-name{font-size:19px;letter-spacing:1px}
+  .tag{font-size:10px}
+  .top-actions{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  .top-actions button{width:100%;max-width:100%;min-height:42px;padding:8px 7px;font-size:12px;white-space:normal}
+  .intro{align-items:flex-start;gap:8px}
+  .intro&gt;div:first-child{width:100%;min-width:0}
+  .layout{grid-template-columns:minmax(0,1fr);gap:8px}
+  .layout&gt;*{min-width:0;max-width:100%}
+  .field-grid,.field-grid.three{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .product-row{grid-template-columns:minmax(0,1fr) 72px 42px 36px;gap:5px}
+  .product-row&gt;*{min-width:0}
+  .product-row input{min-width:0;width:100%;padding:7px 5px;font-size:16px}
+  .product-row select,.combo-control{min-width:0;max-width:100%;font-size:14px}
+  .combo-control input{font-size:16px}
+  .combo-menu{max-height:45vh;max-width:calc(100vw - 24px);overflow-y:auto;overscroll-behavior:contain}
+  .panel-head{padding:10px 12px!important;gap:8px!important}
+  .panel-body{padding:10px 12px!important}
+  .panel-head&gt;*{min-width:0;max-width:100%}
+  .panel-body&gt;*{min-width:0;max-width:100%}
+  .table-scroll{width:100%;max-width:100%;overflow-x:auto;scrollbar-width:thin}
+  .table-scroll table{min-width:650px}
+  .small-table{min-width:0}
+  .nutrient .value{font-size:clamp(18px,5vw,22px)}
+  .nutrient .name{overflow-wrap:anywhere}
+  .checkboxline{align-items:flex-start;line-height:1.45}
+  input,select,textarea{max-width:100%;min-width:0;font-size:16px}
+  input[type=checkbox],input[type=radio]{min-height:0}
+  button{min-height:42px}
+  .actions{gap:7px}
+  .actions button{flex:0 1 auto;max-width:100%;white-space:normal}
+  .water-live-result .water-table-wrap{width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .water-live-result table{min-width:440px}
+  .water-warning-dialog{width:100%;max-width:100%;padding:18px}
+  .water-warning-actions{display:grid;grid-template-columns:minmax(0,1fr)}
+  .water-warning-actions button{width:100%;min-height:44px}
+  #waterValuesPanel.water-modal-open{left:8px!important;right:8px!important;top:10px!important;transform:none!important;width:auto!important;max-width:none!important;max-height:calc(100vh - 20px)!important;max-height:calc(100dvh - 20px)!important}
+}
+
+@media(max-width:480px){
+  .wrap{padding:8px 10px 16px}
+  .brand-logo-horizontal{width:56px;height:59px}
+  .brand-name{font-size:17px}
+  .top-actions{grid-template-columns:minmax(0,1fr)}
+  .field-grid,.field-grid.three,.ion-grid{grid-template-columns:minmax(0,1fr)}
+  .summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .panel-body{padding:9px 10px!important}
+  .panel-head{padding:9px 10px!important}
+  .product-row{grid-template-columns:minmax(0,1fr) 64px 40px 34px;gap:4px}
+  .product-row .note{font-size:10px;white-space:normal;line-height:1.15;overflow-wrap:anywhere}
+  .product-row&gt;button{min-width:0;min-height:42px;padding:5px 3px}
+  .product-row input{min-height:42px;padding:6px 4px}
+  .combo-control{min-height:42px}
+  .combo-control input{padding:6px 5px}
+  .nutrient{padding:7px}
+  .nutrient .value{font-size:clamp(18px,5.5vw,21px)}
+  .table-scroll table{min-width:630px}
+  .water-live-result table{min-width:420px}
+}
+
+@media(max-width:360px){
+  .product-row{grid-template-columns:minmax(0,1fr) 58px 34px 32px;gap:3px}
+  .top-actions{grid-template-columns:minmax(0,1fr)}
+  .summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
@@ -771,8 +1071,22 @@ function updateWaterHardness(){const dilutionFactor=1-Math.max(0,Math.min(100,nu
 function renderLibrary(){const host=$(&#x27;#fertLibrary&#x27;);const own=fertilizers.filter(f=&gt;!f.originalDatabase&amp;&amp;!f.reference&amp;&amp;!f.verifiedSource&amp;&amp;!f.demo);const count=$(&#x27;#ownFertCount&#x27;);if(count)count.textContent=own.length===0?&#x27;Noch keine eigenen Dünger angelegt.&#x27;:`${own.length} eigene${own.length===1?&#x27;r Dünger&#x27;:&#x27; Dünger&#x27;} gespeichert.`;if(!own.length){host.innerHTML=&#x27;&lt;p class=&quot;note&quot;&gt;Du hast noch keinen eigenen Dünger angelegt. Klicke auf „Eigenen Dünger hinzufügen“, um zu beginnen.&lt;/p&gt;&#x27;;return;}host.innerHTML=own.map(f=&gt;{const meta=`${f.state===&#x27;solid&#x27;?&#x27;Feststoff&#x27;:&#x27;Flüssig&#x27;} · ${f.state===&#x27;solid&#x27;?&#x27;Dosierung in g/L&#x27;:`Dichte ${fmt(Number(f.density)||1,3)} · Dosierung in ml/L`}`;return `&lt;div style=&quot;border-bottom:1px solid var(--line);padding:9px 0;display:flex;gap:8px;justify-content:space-between;align-items:flex-start&quot;&gt;&lt;div&gt;&lt;div style=&quot;font-weight:bold&quot;&gt;${escapeHtml(f.name)}&lt;/div&gt;&lt;div class=&quot;note&quot;&gt;${escapeHtml(meta)}&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;actions&quot;&gt;&lt;button class=&quot;mini secondary&quot; data-edit-fert=&quot;${escapeHtml(f.id)}&quot;&gt;Bearbeiten&lt;/button&gt;&lt;button class=&quot;mini danger&quot; data-delete-fert=&quot;${escapeHtml(f.id)}&quot;&gt;Löschen&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;}).join(&#x27;&#x27;);$$(&#x27;[data-edit-fert]&#x27;,host).forEach(b=&gt;b.addEventListener(&#x27;click&#x27;,()=&gt;openFertModal(b.dataset.editFert)));$$(&#x27;[data-delete-fert]&#x27;,host).forEach(b=&gt;b.addEventListener(&#x27;click&#x27;,()=&gt;{const id=b.dataset.deleteFert;const target=fertilizers.find(f=&gt;f.id===id);if(!target||target.originalDatabase)return;fertilizers=fertilizers.filter(f=&gt;f.id!==id);doses=doses.filter(d=&gt;d.fertId!==id);if(!doses.length)doses=[{fertId:defaultFerts[0]?.id||&#x27;&#x27;,dose:0}];persistFerts();renderLibrary();renderDoseRows();updateAll();notify(&#x27;Eigener Dünger gelöscht.&#x27;)}));}
 function openFertModal(id=null){const existing=id?fert(id):null;const base=existing||{name:&#x27;&#x27;,state:&#x27;liquid&#x27;,density:1,values:{},nForms:{}};const val=k=&gt;Number(base.values?.[k])||0;const nf=k=&gt;Number(base.nForms?.[k])||0;const host=$(&#x27;#modalHost&#x27;);host.innerHTML=`&lt;div class=&quot;modal-backdrop&quot; role=&quot;presentation&quot;&gt;&lt;section class=&quot;modal&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;fertModalTitle&quot;&gt;&lt;div class=&quot;modal-head&quot;&gt;&lt;h2 id=&quot;fertModalTitle&quot;&gt;${existing?&#x27;Dünger bearbeiten&#x27;:&#x27;Neuen Dünger anlegen&#x27;}&lt;/h2&gt;&lt;button class=&quot;secondary&quot; data-close-modal&gt;Schließen&lt;/button&gt;&lt;/div&gt;&lt;form id=&quot;fertForm&quot;&gt;&lt;div class=&quot;modal-body&quot;&gt;&lt;div class=&quot;field-grid&quot;&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;fName&quot;&gt;Name *&lt;/label&gt;&lt;input id=&quot;fName&quot; required value=&quot;${escapeHtml(base.name)}&quot;&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;fState&quot;&gt;Zustand&lt;/label&gt;&lt;select id=&quot;fState&quot;&gt;&lt;option value=&quot;liquid&quot; ${base.state===&#x27;liquid&#x27;?&#x27;selected&#x27;:&#x27;&#x27;}&gt;Flüssig (ml/L)&lt;/option&gt;&lt;option value=&quot;solid&quot; ${base.state===&#x27;solid&#x27;?&#x27;selected&#x27;:&#x27;&#x27;}&gt;Fest (g/L)&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;fDensity&quot;&gt;Relative Dichte&lt;/label&gt;&lt;input id=&quot;fDensity&quot; type=&quot;number&quot; min=&quot;1&quot; max=&quot;10&quot; step=&quot;0.001&quot; value=&quot;${Number(base.density)||1}&quot;&gt;&lt;small&gt;Bei Feststoff wird 1 verwendet.&lt;/small&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;&lt;h3&gt;Makronährstoffe laut Etikett (%)&lt;/h3&gt;&lt;div class=&quot;field-grid three&quot;&gt;${[[&#x27;N&#x27;,&#x27;N&#x27;],[&#x27;P2O5&#x27;,&#x27;P₂O₅&#x27;],[&#x27;K2O&#x27;,&#x27;K₂O&#x27;],[&#x27;CaO&#x27;,&#x27;CaO&#x27;],[&#x27;MgO&#x27;,&#x27;MgO&#x27;],[&#x27;S&#x27;,&#x27;S&#x27;]].map(([k,l])=&gt;`&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;v-${k}&quot;&gt;${l} (%)&lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;v-${k}&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;0.001&quot; value=&quot;${val(k)}&quot;&gt;&lt;/div&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;&lt;h3&gt;Mikronährstoffe (%)&lt;/h3&gt;&lt;div class=&quot;field-grid three&quot;&gt;${[[&#x27;B&#x27;,&#x27;B&#x27;],[&#x27;Cu&#x27;,&#x27;Cu&#x27;],[&#x27;Fe&#x27;,&#x27;Fe&#x27;],[&#x27;Mn&#x27;,&#x27;Mn&#x27;],[&#x27;Mo&#x27;,&#x27;Mo&#x27;],[&#x27;Zn&#x27;,&#x27;Zn&#x27;]].map(([k,l])=&gt;`&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;v-${k}&quot;&gt;${l} (%)&lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;v-${k}&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;0.0001&quot; value=&quot;${val(k)}&quot;&gt;&lt;/div&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;&lt;h3&gt;Stickstoffformen (optional, als Prozentanteil des Dünger-N)&lt;/h3&gt;&lt;div class=&quot;field-grid three&quot;&gt;${[[&#x27;no3&#x27;,&#x27;Nitrat-N&#x27;],[&#x27;nh4&#x27;,&#x27;Ammonium-N&#x27;],[&#x27;urea&#x27;,&#x27;Harnstoff-N&#x27;],[&#x27;organic&#x27;,&#x27;Organischer N&#x27;]].map(([k,l])=&gt;`&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;nf-${k}&quot;&gt;${l} (%)&lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;nf-${k}&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;0.1&quot; value=&quot;${nf(k)}&quot;&gt;&lt;/div&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;p class=&quot;note&quot;&gt;Die Prozentangaben verteilen den Stickstoff dieses Düngers auf die bekannten Formen. Die Ergebnisanzeige zeigt deren Anteil am gesamten berechneten N.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;modal-foot&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;secondary&quot; data-close-modal&gt;Abbrechen&lt;/button&gt;&lt;button type=&quot;submit&quot; class=&quot;primary&quot; form=&quot;fertForm&quot;&gt;Speichern&lt;/button&gt;&lt;/div&gt;&lt;/form&gt;&lt;/section&gt;&lt;/div&gt;`;
 $$(&#x27;[data-close-modal]&#x27;,host).forEach(b=&gt;b.addEventListener(&#x27;click&#x27;,()=&gt;host.innerHTML=&#x27;&#x27;));$(&#x27;.modal-backdrop&#x27;,host).addEventListener(&#x27;click&#x27;,e=&gt;{if(e.target.classList.contains(&#x27;modal-backdrop&#x27;))host.innerHTML=&#x27;&#x27;});$(&#x27;#fertForm&#x27;).addEventListener(&#x27;submit&#x27;,e=&gt;{e.preventDefault();const get=k=&gt;Math.max(0,number($(&#x27;#v-&#x27;+k)));const state=$(&#x27;#fState&#x27;).value;const item={id:existing?existing.id:safeId(),name:$(&#x27;#fName&#x27;).value.trim(),state,density:state===&#x27;solid&#x27;?1:Math.min(10,Math.max(1,number($(&#x27;#fDensity&#x27;))||1)),values:{N:get(&#x27;N&#x27;),P2O5:get(&#x27;P2O5&#x27;),K2O:get(&#x27;K2O&#x27;),CaO:get(&#x27;CaO&#x27;),MgO:get(&#x27;MgO&#x27;),S:get(&#x27;S&#x27;),B:get(&#x27;B&#x27;),Cu:get(&#x27;Cu&#x27;),Fe:get(&#x27;Fe&#x27;),Mn:get(&#x27;Mn&#x27;),Mo:get(&#x27;Mo&#x27;),Zn:get(&#x27;Zn&#x27;)},nForms:{no3:getNF(&#x27;no3&#x27;),nh4:getNF(&#x27;nh4&#x27;),urea:getNF(&#x27;urea&#x27;),organic:getNF(&#x27;organic&#x27;)},demo:false};function getNF(k){return Math.min(100,Math.max(0,number($(&#x27;#nf-&#x27;+k))))}if(!item.name){notify(&#x27;Bitte einen Namen eingeben.&#x27;);return;}const sum=[&#x27;no3&#x27;,&#x27;nh4&#x27;,&#x27;urea&#x27;,&#x27;organic&#x27;].reduce((s,k)=&gt;s+item.nForms[k],0);if(sum&gt;100.001){notify(&#x27;Die Summe der Stickstoffformen darf 100 % nicht überschreiten.&#x27;);return;}const at=fertilizers.findIndex(f=&gt;f.id===item.id);if(at&gt;=0)fertilizers[at]=item;else fertilizers.push(item);persistFerts();host.innerHTML=&#x27;&#x27;;renderLibrary();renderDoseRows();updateAll();notify(&#x27;Dünger gespeichert.&#x27;);});}
-function renderContributionTable(r){const fields=keys.filter(k=&gt;micro||![&#x27;B&#x27;,&#x27;Cu&#x27;,&#x27;Fe&#x27;,&#x27;Mn&#x27;,&#x27;Mo&#x27;,&#x27;Zn&#x27;].includes(k));const showForms=$(&#x27;#showNitrogenForms&#x27;).checked;const formKeys=[&#x27;no3&#x27;,&#x27;nh4&#x27;,&#x27;urea&#x27;,&#x27;organic&#x27;];const formLabels={&#x27;no3&#x27;:&#x27;N-NO₃&#x27;,&#x27;nh4&#x27;:&#x27;N-NH₄&#x27;,&#x27;urea&#x27;:&#x27;N-NU&#x27;,&#x27;organic&#x27;:&#x27;N-org&#x27;};const headerCells=fields.map(k=&gt;`&lt;th&gt;&lt;button type=&quot;button&quot; class=&quot;nutrient-link-button&quot; data-nutrient-link=&quot;${k}&quot; aria-label=&quot;${escapeHtml(labels[k])} im Nährstofflexikon öffnen&quot; title=&quot;Im Nährstofflexikon nachlesen&quot;&gt;${k} ↗&lt;/button&gt;&lt;/th&gt;${k===&#x27;N&#x27;&amp;&amp;showForms?formKeys.map(f=&gt;`&lt;th&gt;${formLabels[f]}&lt;/th&gt;`).join(&#x27;&#x27;):&#x27;&#x27;}`).join(&#x27;&#x27;);const row=(name,dose,vals,forms={},known=keys,knownForms=true)=&gt;`&lt;tr&gt;&lt;td&gt;${name}&lt;/td&gt;&lt;td&gt;${dose}&lt;/td&gt;${fields.map(k=&gt;`&lt;td&gt;${known.includes(k)?fmt(vals[k]||0,nutrientDigits(k)):&#x27;n. a.&#x27;}&lt;/td&gt;${k===&#x27;N&#x27;&amp;&amp;showForms?formKeys.map(f=&gt;`&lt;td&gt;${knownForms?fmt(forms[f]||0,1):&#x27;n. a.&#x27;}&lt;/td&gt;`).join(&#x27;&#x27;):&#x27;&#x27;}`).join(&#x27;&#x27;)}&lt;/tr&gt;`;let out=`&lt;table class=&quot;small-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bestandteil&lt;/th&gt;&lt;th&gt;Dosierung&lt;/th&gt;${headerCells}&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;`;for(const d of r.details){const f=d.fert;out+=row(escapeHtml(f.name),`${fmt(d.dose,2)} ${f.state===&#x27;solid&#x27;?&#x27;g/L&#x27;:&#x27;ml/L&#x27;}`,d.contribution,d.nformContributions,f.knownNutrients||keys,!!f.knownNForms);}out+=row(&#x27;Leitungswasser&#x27;,`${fmt(100-r.water.dilution,0)} %`,r.water.nutrients,{});out+=`&lt;/tbody&gt;&lt;tfoot&gt;&lt;tr&gt;&lt;th colspan=&quot;2&quot;&gt;Gesamt (mg/L)&lt;/th&gt;${fields.map(k=&gt;`&lt;th&gt;${fmt(r.sum[k]||0,nutrientDigits(k))}&lt;/th&gt;${k===&#x27;N&#x27;&amp;&amp;showForms?formKeys.map(f=&gt;`&lt;th&gt;${fmt((Number(r.nforms[f])||0)/(Number(r.sum.N)||1)*100,0)} %&lt;/th&gt;`).join(&#x27;&#x27;):&#x27;&#x27;}`).join(&#x27;&#x27;)}&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Bestandteil&lt;/th&gt;&lt;th&gt;Dosierung&lt;/th&gt;${headerCells}&lt;/tr&gt;&lt;/tfoot&gt;&lt;/table&gt;`;$(&#x27;#contributionTable&#x27;).innerHTML=out;}
-function updateAll(){const r=calc();renderContributionTable(r);renderSummary(r);renderNitrogen(r);updateWaterHardness();renderChecklist();saveAppState();}
+function renderContributionTable(r){
+const fields=keys.filter(k=&gt;micro||![&#x27;B&#x27;,&#x27;Cu&#x27;,&#x27;Fe&#x27;,&#x27;Mn&#x27;,&#x27;Mo&#x27;,&#x27;Zn&#x27;].includes(k));
+const showForms=$(&#x27;#showNitrogenForms&#x27;).checked;
+const formKeys=[&#x27;no3&#x27;,&#x27;nh4&#x27;,&#x27;urea&#x27;,&#x27;organic&#x27;];
+const formLabels={&#x27;no3&#x27;:&#x27;N-NO₃&#x27;,&#x27;nh4&#x27;:&#x27;N-NH₄&#x27;,&#x27;urea&#x27;:&#x27;N-NU&#x27;,&#x27;organic&#x27;:&#x27;N-org&#x27;};
+const liters=Math.max(.1,number($(&#x27;#batchLiters&#x27;))||10);
+const headerCells=fields.map(k=&gt;`&lt;th&gt;&lt;button type=&quot;button&quot; class=&quot;nutrient-link-button&quot; data-nutrient-link=&quot;${k}&quot; aria-label=&quot;${escapeHtml(labels[k])} im Nährstofflexikon öffnen&quot; title=&quot;Im Nährstofflexikon nachlesen&quot;&gt;${k} ↗&lt;/button&gt;&lt;/th&gt;${k===&#x27;N&#x27;&amp;&amp;showForms?formKeys.map(f=&gt;`&lt;th&gt;${formLabels[f]}&lt;/th&gt;`).join(&#x27;&#x27;):&#x27;&#x27;}`).join(&#x27;&#x27;);
+const nutrientCell=(value,key,known=true)=&gt;known?`&lt;td&gt;&lt;span class=&quot;nutrient-per-liter&quot;&gt;${fmt(value||0,nutrientDigits(key))}&lt;/span&gt;&lt;small class=&quot;batch-amount&quot;&gt;${fmt((Number(value)||0)*liters,nutrientDigits(key))} mg / ${fmt(liters,1)} L&lt;/small&gt;&lt;/td&gt;`:`&lt;td&gt;n. a.&lt;/td&gt;`;
+const formCell=(value,known=true)=&gt;known?`&lt;td&gt;&lt;span class=&quot;nutrient-per-liter&quot;&gt;${fmt(value||0,1)}&lt;/span&gt;&lt;small class=&quot;batch-amount&quot;&gt;${fmt((Number(value)||0)*liters,1)} mg / ${fmt(liters,1)} L&lt;/small&gt;&lt;/td&gt;`:`&lt;td&gt;n. a.&lt;/td&gt;`;
+const row=(name,dose,vals,forms={},known=keys,knownForms=true)=&gt;`&lt;tr&gt;&lt;td&gt;${name}&lt;/td&gt;&lt;td&gt;${dose}&lt;/td&gt;${fields.map(k=&gt;`${nutrientCell(vals[k],k,known.includes(k))}${k===&#x27;N&#x27;&amp;&amp;showForms?formKeys.map(f=&gt;formCell(forms[f],knownForms)).join(&#x27;&#x27;):&#x27;&#x27;}`).join(&#x27;&#x27;)}&lt;/tr&gt;`;
+let out=`&lt;p class=&quot;note&quot; style=&quot;margin:0 0 6px&quot;&gt;Je Nährstoffspalte: oben die Konzentration in mg/L, darunter die Gesamtmenge dieses Nährstoffs für ${fmt(liters,1)} Liter.&lt;/p&gt;&lt;table class=&quot;small-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bestandteil&lt;/th&gt;&lt;th&gt;Dosierung&lt;/th&gt;${headerCells}&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;`;
+for(const d of r.details){const f=d.fert;out+=row(escapeHtml(f.name),`${fmt(d.dose,2)} ${f.state===&#x27;solid&#x27;?&#x27;g/L&#x27;:&#x27;ml/L&#x27;}`,d.contribution,d.nformContributions,f.knownNutrients||keys,!!f.knownNForms);}
+out+=row(&#x27;Leitungswasser&#x27;,`${fmt(100-r.water.dilution,0)} %`,r.water.nutrients,{});
+out+=`&lt;/tbody&gt;&lt;tfoot&gt;&lt;tr&gt;&lt;th colspan=&quot;2&quot;&gt;Konzentration (mg/L)&lt;/th&gt;${fields.map(k=&gt;`&lt;th&gt;${fmt(r.sum[k]||0,nutrientDigits(k))}&lt;/th&gt;${k===&#x27;N&#x27;&amp;&amp;showForms?formKeys.map(f=&gt;`&lt;th&gt;${fmt((Number(r.nforms[f])||0)/(Number(r.sum.N)||1)*100,0)} %&lt;/th&gt;`).join(&#x27;&#x27;):&#x27;&#x27;}`).join(&#x27;&#x27;)}&lt;/tr&gt;&lt;tr class=&quot;batch-total-row&quot;&gt;&lt;th colspan=&quot;2&quot;&gt;Gesamt im Ansatz (${fmt(liters,1)} L; mg)&lt;/th&gt;${fields.map(k=&gt;`&lt;th&gt;${fmt((Number(r.sum[k])||0)*liters,nutrientDigits(k))}&lt;/th&gt;${k===&#x27;N&#x27;&amp;&amp;showForms?formKeys.map(f=&gt;`&lt;th&gt;${fmt((Number(r.nforms[f])||0)*liters,1)}&lt;/th&gt;`).join(&#x27;&#x27;):&#x27;&#x27;}`).join(&#x27;&#x27;)}&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Bestandteil&lt;/th&gt;&lt;th&gt;Dosierung&lt;/th&gt;${headerCells}&lt;/tr&gt;&lt;/tfoot&gt;&lt;/table&gt;&lt;p class=&quot;note&quot; style=&quot;margin:8px 2px 0&quot;&gt;mg/L beschreibt die Konzentration und ändert sich nicht allein durch mehr Wasser. Die zweite Zahl pro Zelle und die Zeile „Gesamt im Ansatz“ zeigen die berechnete Gesamtmasse für die eingestellte Gießmenge. Bei nicht vollständig deklarierten Produkten werden nur bekannte Nährstoffbeiträge berücksichtigt.&lt;/p&gt;`;
+$(&#x27;#contributionTable&#x27;).innerHTML=out;
+}function updateAll(){const r=calc();renderContributionTable(r);renderSummary(r);renderNitrogen(r);updateWaterHardness();renderChecklist();saveAppState();}
 function checklistAmount(d,liters){const key=d._checkKey;const quality=Number(checklistForms.get(key)??1);const f=fert(d.fertId);const unit=quality===1?(f?.state===&#x27;solid&#x27;?&#x27;g&#x27;:&#x27;ml&#x27;):&#x27;ml&#x27;;return {amount:roundKeimwerk(Math.max(0,Number(d.dose)||0)*quality*liters,2),unit,quality};}
 function updateChecklistAmount(row){if(!row)return;const key=row.dataset.checkRow;const d=doses.find(x=&gt;x._checkKey===key);if(!d)return;const liters=Math.max(.1,number($(&#x27;#checkLiters&#x27;))||10);const {amount,unit,quality}=checklistAmount(d,liters);const f=fert(d.fertId);const amountHost=row.querySelector(&#x27;[data-check-amount]&#x27;);if(amountHost)amountHost.textContent=`${fmt(amount,2)} ${unit}`;const formulaHost=row.querySelector(&#x27;[data-check-formula]&#x27;);if(formulaHost)formulaHost.textContent=`${fmt(Number(d.dose)||0,2)} ${f?.state===&#x27;solid&#x27;&amp;&amp;quality===1?&#x27;g&#x27;:&#x27;ml&#x27;}/L × ${fmt(liters,1)} L × ${fmt(quality,0)}`;}
 function renderChecklist(){ensureDoseKeys();const liters=Math.max(.1,number($(&#x27;#checkLiters&#x27;))||10);const host=$(&#x27;#checkRows&#x27;);if(!host)return;host.innerHTML=doses.map((d,i)=&gt;{const f=fert(d.fertId);if(!f)return &#x27;&#x27;;const key=d._checkKey;const {amount,unit,quality}=checklistAmount(d,liters);const forms=[[&#x27;1&#x27;,&#x27;Rein&#x27;],[&#x27;100&#x27;,&#x27;Stammlösung 1%&#x27;],[&#x27;50&#x27;,&#x27;Stammlösung 2%&#x27;],[&#x27;20&#x27;,&#x27;Stammlösung 5%&#x27;],[&#x27;10&#x27;,&#x27;Stammlösung 10%&#x27;],[&#x27;5&#x27;,&#x27;Stammlösung 20%&#x27;],[&#x27;4&#x27;,&#x27;Stammlösung 25%&#x27;]];return `&lt;div class=&quot;check-row&quot; data-check-row=&quot;${escapeHtml(key)}&quot;&gt;&lt;label class=&quot;checkboxline&quot; style=&quot;min-width:150px&quot;&gt;&lt;input type=&quot;checkbox&quot; data-check=&quot;${escapeHtml(key)}&quot; ${checked.has(key)?&#x27;checked&#x27;:&#x27;&#x27;}&gt;&lt;span&gt;${escapeHtml(f.name)}&lt;/span&gt;&lt;/label&gt;&lt;label class=&quot;field&quot;&gt;&lt;span class=&quot;note&quot;&gt;Form&lt;/span&gt;&lt;select data-quality=&quot;${escapeHtml(key)}&quot;&gt;${forms.map(([v,l])=&gt;`&lt;option value=&quot;${v}&quot; ${Number(quality)===Number(v)?&#x27;selected&#x27;:&#x27;&#x27;}&gt;${l}&lt;/option&gt;`).join(&#x27;&#x27;)}&lt;/select&gt;&lt;/label&gt;&lt;div&gt;&lt;strong data-check-amount&gt;${fmt(amount,2)} ${unit}&lt;/strong&gt;&lt;div class=&quot;note&quot; data-check-formula&gt;${fmt(Number(d.dose)||0,2)} ${f.state===&#x27;solid&#x27;&amp;&amp;quality===1?&#x27;g&#x27;:&#x27;ml&#x27;}/L × ${fmt(liters,1)} L × ${fmt(quality,0)}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;`}).join(&#x27;&#x27;)||&#x27;&lt;p class=&quot;note&quot;&gt;Füge zuerst einen Dünger hinzu.&lt;/p&gt;&#x27;;$$(&#x27;[data-check]&#x27;,host).forEach(c=&gt;c.addEventListener(&#x27;change&#x27;,()=&gt;{if(c.checked)checked.add(c.dataset.check);else checked.delete(c.dataset.check);saveAppState();}));$$(&#x27;[data-quality]&#x27;,host).forEach(sel=&gt;sel.addEventListener(&#x27;change&#x27;,()=&gt;{checklistForms.set(sel.dataset.quality,Number(sel.value));updateChecklistAmount(sel.closest(&#x27;[data-check-row]&#x27;));saveAppState();}));}
@@ -2175,7 +2489,7 @@ window.addEventListener(&#x27;message&#x27;,e=&gt;{if(!e.data||!e.data.type)retu
 </section></main>
 <footer>Wissen, das Wurzeln schlägt.</footer>
 <script>
-(()=>{const home=document.getElementById('home'),cannabisFinder=document.getElementById('cannabis-finder'),pests=document.getElementById('pests'),beneficials=document.getElementById('beneficials'),nutrients=document.getElementById('nutrients'),about=document.getElementById('about'),calculator=document.getElementById('calculator'),contact=document.getElementById('contact'),diary=document.getElementById('grow-diary'),diaryNav=document.getElementById('diary-nav'),homeNav=document.getElementById('home-nav'),aboutNav=document.getElementById('about-nav'),contactNav=document.getElementById('contact-nav'),calculatorFrame=document.getElementById('calculator-frame');function show(page){home.hidden=page!=='home';cannabisFinder.hidden=page!=='cannabis-finder';pests.hidden=page!=='pests';beneficials.hidden=page!=='beneficials';nutrients.hidden=page!=='nutrients';about.hidden=page!=='about';calculator.hidden=page!=='calculator';contact.hidden=page!=='contact';diary.hidden=page!=='diary';homeNav.classList.toggle('active',page!=='about'&&page!=='calculator'&&page!=='contact'&&page!=='diary'&&page!=='cannabis-finder');aboutNav.classList.toggle('active',page==='about');contactNav.classList.toggle('active',page==='contact');diaryNav.classList.toggle('active',page==='diary');if(page==='calculator'&&!calculatorFrame.dataset.loaded){calculatorFrame.srcdoc=calculatorFrame.getAttribute('data-srcdoc');calculatorFrame.dataset.loaded='true';calculatorFrame.removeAttribute('data-srcdoc')}window.scrollTo({top:0,behavior:'smooth'})}window.keimwerkShowPage=show;document.getElementById('lex-select').addEventListener('change',e=>{document.getElementById('pest-card').hidden=e.target.value!=='pests';document.getElementById('beneficial-card').hidden=e.target.value!=='beneficials';document.getElementById('nutrients-card').hidden=e.target.value!=='nutrients';document.getElementById('cannabis-finder-card').hidden=e.target.value!=='cannabis-finder'});document.getElementById('open-pests').addEventListener('click',()=>show('pests'));document.getElementById('open-beneficials').addEventListener('click',()=>show('beneficials'));document.getElementById('open-nutrients').addEventListener('click',()=>show('nutrients'));document.getElementById('open-cannabis-finder').addEventListener('click',()=>show('cannabis-finder'));document.getElementById('cannabis-finder-back').addEventListener('click',()=>show('home'));document.getElementById('beneficials-back').addEventListener('click',()=>show('home'));document.getElementById('pests-back').addEventListener('click',()=>show('home'));document.getElementById('nutrients-back').addEventListener('click',()=>show('home'));document.getElementById('nutrients-to-calculator').addEventListener('click',()=>show('calculator'));document.getElementById('about-back').addEventListener('click',()=>show('home'));homeNav.addEventListener('click',()=>show('home'));aboutNav.addEventListener('click',()=>show('about'));contactNav.addEventListener('click',()=>show('contact'));document.getElementById('contact-back').addEventListener('click',()=>show('home'));document.getElementById('calculator-back').addEventListener('click',()=>show('home'));window.addEventListener('message',e=>{if(e.source!==calculatorFrame.contentWindow||!e.data)return;if(e.data.type==='keimwerk-schema-data'||e.data.type==='keimwerk-schema-error'||e.data.type==='keimwerk-schema-applied'){window.dispatchEvent(new CustomEvent('keimwerk-profile-bridge',{detail:e.data}));return;}if(e.data.type==='keimwerk-calculator-height'){const h=Number(e.data.height);if(Number.isFinite(h)&&h>0){const current=calculatorFrame.getBoundingClientRect().height;const next=Math.max(950,Math.ceil(h+8));/* Verhindert Scrollsprünge: die automatische Höhe darf wachsen, aber nicht durch schwankende Messwerte schrumpfen. */if(next>current+12)calculatorFrame.style.height=next+'px';}return;}if(e.data.type==='keimwerk-open-nutrient'){const profileIds={N:'nutrient-profile-n',P:'nutrient-profile-p',K:'nutrient-profile-k',Ca:'nutrient-profile-ca',Mg:'nutrient-profile-mg',S:'nutrient-profile-s',B:'nutrient-profile-b',Cu:'nutrient-profile-cu',Fe:'nutrient-profile-fe',Mn:'nutrient-profile-mn',Mo:'nutrient-profile-mo',Zn:'nutrient-profile-zn'};const targetId=profileIds[e.data.nutrient];if(!targetId)return;show('nutrients');requestAnimationFrame(()=>{const target=document.getElementById(targetId);if(target)target.scrollIntoView({behavior:'smooth',block:'start'});});}});document.getElementById('intro-button').addEventListener('click',()=>{show('home');document.getElementById('intro').scrollIntoView({behavior:'smooth'})});document.getElementById('calculator-hero-button').addEventListener('click',()=>show('calculator'));document.getElementById('diary-nav').addEventListener('click',()=>{show('diary');gdRefresh()});document.getElementById('grow-diary-back').addEventListener('click',()=>show('home'))})();
+(()=>{const home=document.getElementById('home'),cannabisFinder=document.getElementById('cannabis-finder'),knowledgeNetwork=document.getElementById('knowledge-network'),knowledgeAssistant=document.getElementById('knowledge-assistant'),growAnalysisPage=document.getElementById('grow-analysis'),pests=document.getElementById('pests'),beneficials=document.getElementById('beneficials'),nutrients=document.getElementById('nutrients'),about=document.getElementById('about'),calculator=document.getElementById('calculator'),contact=document.getElementById('contact'),diary=document.getElementById('grow-diary'),diaryNav=document.getElementById('diary-nav'),homeNav=document.getElementById('home-nav'),aboutNav=document.getElementById('about-nav'),contactNav=document.getElementById('contact-nav'),calculatorFrame=document.getElementById('calculator-frame');function show(page){home.hidden=page!=='home';cannabisFinder.hidden=page!=='cannabis-finder';knowledgeNetwork.hidden=page!=='knowledge-network';knowledgeAssistant.hidden=page!=='knowledge-assistant';growAnalysisPage.hidden=page!=='grow-analysis';if(page==='grow-analysis'&&typeof window.keimwerkRefreshGrowAnalysis==='function')window.keimwerkRefreshGrowAnalysis();pests.hidden=page!=='pests';beneficials.hidden=page!=='beneficials';nutrients.hidden=page!=='nutrients';about.hidden=page!=='about';calculator.hidden=page!=='calculator';contact.hidden=page!=='contact';diary.hidden=page!=='diary';if(page==='cannabis-finder'&&typeof window.cfRefreshGrowProjects==='function')window.cfRefreshGrowProjects();homeNav.classList.toggle('active',page!=='about'&&page!=='calculator'&&page!=='contact'&&page!=='diary'&&page!=='cannabis-finder'&&page!=='knowledge-assistant'&&page!=='grow-analysis');aboutNav.classList.toggle('active',page==='about');contactNav.classList.toggle('active',page==='contact');diaryNav.classList.toggle('active',page==='diary');if(page==='calculator'&&!calculatorFrame.dataset.loaded){calculatorFrame.srcdoc=calculatorFrame.getAttribute('data-srcdoc');calculatorFrame.dataset.loaded='true';calculatorFrame.removeAttribute('data-srcdoc')}window.scrollTo({top:0,behavior:'smooth'})}window.keimwerkShowPage=show;document.getElementById('lex-select').addEventListener('change',e=>{document.getElementById('pest-card').hidden=e.target.value!=='pests';document.getElementById('beneficial-card').hidden=e.target.value!=='beneficials';document.getElementById('nutrients-card').hidden=e.target.value!=='nutrients';document.getElementById('cannabis-finder-card').hidden=e.target.value!=='cannabis-finder';document.getElementById('knowledge-network-card').hidden=e.target.value!=='knowledge-network';document.getElementById('knowledge-assistant-card').hidden=e.target.value!=='knowledge-assistant';document.getElementById('grow-analysis-card').hidden=e.target.value!=='grow-analysis'});document.getElementById('open-pests').addEventListener('click',()=>show('pests'));document.getElementById('open-beneficials').addEventListener('click',()=>show('beneficials'));document.getElementById('open-nutrients').addEventListener('click',()=>show('nutrients'));document.getElementById('open-cannabis-finder').addEventListener('click',()=>show('cannabis-finder'));document.getElementById('open-knowledge-network').addEventListener('click',()=>show('knowledge-network'));document.getElementById('open-knowledge-assistant').addEventListener('click',()=>show('knowledge-assistant'));document.getElementById('open-grow-analysis').addEventListener('click',()=>show('grow-analysis'));document.getElementById('grow-analysis-back').addEventListener('click',()=>show('home'));document.getElementById('knowledge-assistant-back').addEventListener('click',()=>show('home'));document.getElementById('knowledge-network-back').addEventListener('click',()=>show('home'));document.getElementById('cannabis-finder-back').addEventListener('click',()=>show('home'));document.getElementById('beneficials-back').addEventListener('click',()=>show('home'));document.getElementById('pests-back').addEventListener('click',()=>show('home'));document.getElementById('nutrients-back').addEventListener('click',()=>show('home'));document.getElementById('nutrients-to-calculator').addEventListener('click',()=>show('calculator'));document.getElementById('about-back').addEventListener('click',()=>show('home'));homeNav.addEventListener('click',()=>show('home'));aboutNav.addEventListener('click',()=>show('about'));contactNav.addEventListener('click',()=>show('contact'));document.getElementById('contact-back').addEventListener('click',()=>show('home'));document.getElementById('calculator-back').addEventListener('click',()=>show('home'));window.addEventListener('message',e=>{if(e.source!==calculatorFrame.contentWindow||!e.data)return;if(e.data.type==='keimwerk-schema-data'||e.data.type==='keimwerk-schema-error'||e.data.type==='keimwerk-schema-applied'){window.dispatchEvent(new CustomEvent('keimwerk-profile-bridge',{detail:e.data}));return;}if(e.data.type==='keimwerk-calculator-height'){const h=Number(e.data.height);if(Number.isFinite(h)&&h>0){const current=calculatorFrame.getBoundingClientRect().height;const next=Math.max(950,Math.ceil(h+8));/* Verhindert Scrollsprünge: die automatische Höhe darf wachsen, aber nicht durch schwankende Messwerte schrumpfen. */if(next>current+12)calculatorFrame.style.height=next+'px';}return;}if(e.data.type==='keimwerk-open-nutrient'){const profileIds={N:'nutrient-profile-n',P:'nutrient-profile-p',K:'nutrient-profile-k',Ca:'nutrient-profile-ca',Mg:'nutrient-profile-mg',S:'nutrient-profile-s',B:'nutrient-profile-b',Cu:'nutrient-profile-cu',Fe:'nutrient-profile-fe',Mn:'nutrient-profile-mn',Mo:'nutrient-profile-mo',Zn:'nutrient-profile-zn'};const targetId=profileIds[e.data.nutrient];if(!targetId)return;show('nutrients');requestAnimationFrame(()=>{const target=document.getElementById(targetId);if(target)target.scrollIntoView({behavior:'smooth',block:'start'});});}});const kgSearch=document.getElementById('knowledge-search'),kgGrid=document.getElementById('knowledge-grid'),kgCards=[...kgGrid.querySelectorAll('.knowledge-node')],kgEmpty=document.getElementById('knowledge-empty'),kgCount=document.getElementById('knowledge-count');let kgFilter='all';function kgApplyFilter(){const q=(kgSearch.value||'').trim().toLocaleLowerCase('de');let shown=0;kgCards.forEach(card=>{const hay=(card.dataset.kgSearch+' '+card.innerText).toLocaleLowerCase('de');const matchText=!q||hay.includes(q);const matchCategory=kgFilter==='all'||card.dataset.kgCategory===kgFilter;const visible=matchText&&matchCategory;card.hidden=!visible;if(visible)shown++;});kgEmpty.hidden=shown!==0;kgCount.textContent=shown+' von '+kgCards.length+' Themen werden angezeigt.';}kgSearch.addEventListener('input',kgApplyFilter);document.getElementById('knowledge-clear').addEventListener('click',()=>{kgSearch.value='';kgFilter='all';document.querySelectorAll('[data-kg-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.kgFilter==='all')));kgApplyFilter();kgSearch.focus();});document.querySelectorAll('[data-kg-filter]').forEach(b=>b.addEventListener('click',()=>{kgFilter=b.dataset.kgFilter;document.querySelectorAll('[data-kg-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));kgApplyFilter();}));document.querySelectorAll('[data-kg-query]').forEach(b=>b.addEventListener('click',()=>{kgSearch.value=b.dataset.kgQuery;kgFilter='all';document.querySelectorAll('[data-kg-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.kgFilter==='all')));kgApplyFilter();kgSearch.focus();}));document.querySelectorAll('[data-kg-page]').forEach(b=>b.addEventListener('click',()=>{const target=b.dataset.kgPage;if(target==='diary'){show('diary');if(typeof gdRefresh==='function')gdRefresh();return;}show(target);if(target==='nutrients'&&b.closest('.knowledge-node')?.dataset.kgSearch.includes('calcium')){requestAnimationFrame(()=>document.getElementById('nutrient-profile-ca')?.scrollIntoView({behavior:'smooth',block:'start'}));}}));kgApplyFilter();document.getElementById('intro-button').addEventListener('click',()=>{show('home');document.getElementById('intro').scrollIntoView({behavior:'smooth'})});document.getElementById('calculator-hero-button').addEventListener('click',()=>show('calculator'));document.getElementById('diary-nav').addEventListener('click',()=>{show('diary');gdRefresh()});document.getElementById('grow-diary-back').addEventListener('click',()=>show('home'))})();
 </script>
 <script>
 (()=>{
@@ -2238,19 +2552,39 @@ function gdRefresh(){
 function saveProject(){(async()=>{const name=$('gd-name').value.trim();if(!name){$('gd-status').textContent='Bitte gib einen Projektnamen ein.';return}
  try{const all=read(),existing=all.find(p=>p.id===editingId),profileIndex=$('gd-profile').value,profile=profileIndex===''?null:readProfiles()[Number(profileIndex)];let photo=existing?.photo||'';const file=$('gd-photo').files?.[0];if(file)photo=await imageData(file,1000,.78);
  const p={id:editingId||('gd-'+Date.now()+'-'+Math.random().toString(36).slice(2,8)),name,strain:$('gd-strain').value.trim(),start:$('gd-start').value,stage:$('gd-stage').value,method:$('gd-method').value,fertilizer:$('gd-fertilizer').value.trim(),water:$('gd-water').value.trim(),notes:$('gd-notes').value.trim(),photo,profileName:profile?.name||'',profileSnapshot:profile?{name:profile.name,strain:profile.strain||'',method:profile.method||'',fertilizer:profile.fertilizer||'',water:profile.water||''}:null,entries:existing?.entries||[],created:existing?.created||new Date().toISOString(),updated:new Date().toISOString()};
- const i=all.findIndex(x=>x.id===p.id);if(i>=0)all[i]=p;else all.unshift(p);if(write(all)){clearForm();gdRefresh();$('gd-status').textContent='Projekt gespeichert.'}
+ const i=all.findIndex(x=>x.id===p.id);if(i>=0)all[i]=p;else all.unshift(p);if(write(all)){clearForm();gdRefresh();window.cfRefreshGrowProjects?.();$('gd-status').textContent='Projekt gespeichert.'}
  }catch(e){$('gd-status').textContent=e.message||'Das Projekt konnte nicht gespeichert werden.'}})()}
 function editProject(id){const p=read().find(x=>x.id===id);if(!p)return;editingId=id;$('gd-name').value=p.name||'';$('gd-strain').value=p.strain||'';$('gd-start').value=p.start||'';$('gd-stage').value=p.stage||'Keimung';$('gd-method').value=p.method||'';$('gd-fertilizer').value=p.fertilizer||p.profileSnapshot?.fertilizer||'';$('gd-water').value=p.water||p.profileSnapshot?.water||'';$('gd-notes').value=p.notes||'';$('gd-photo').value='';refreshProfiles();const idx=readProfiles().findIndex(x=>x.name===p.profileName);$('gd-profile').value=idx>=0?String(idx):'';$('gd-form-title').textContent='Grow-Projekt bearbeiten';$('gd-save').textContent='Änderungen speichern';$('gd-status').textContent=p.photo?'Vorhandenes Hauptfoto bleibt erhalten, wenn kein neues ausgewählt wird.':'';window.scrollTo({top:$('grow-diary').offsetTop,behavior:'smooth'})}
-function openProject(id){activeId=id;const p=read().find(x=>x.id===id);if(!p)return;const detail=$('gd-detail');detail.hidden=false;detail.innerHTML=`<h2>${esc(p.name)} – Tagebuch</h2><p>${esc(p.strain||'')} · ${esc(p.stage||'')}</p><p>${esc(p.notes||'')}</p><h3>Neuen Eintrag hinzufügen</h3><div class="gd-grid"><label>Datum<input id="gde-date" type="date" value="${new Date().toISOString().slice(0,10)}"></label><label>Entwicklungsstadium<select id="gde-stage"><option value="">Unverändert</option><option>Keimung</option><option>Jungpflanze</option><option>Wachstum</option><option>Blüte</option><option>Fruchtbildung</option><option>Ernte</option><option>Abgeschlossen</option></select></label><label>Pflanzenhöhe (cm)<input id="gde-height" type="number" min="0" step="0.1"></label><label>Gießmenge (ml)<input id="gde-water" type="number" min="0" step="1"></label><label>Dünger / Menge<input id="gde-fertilizer" placeholder="Produkt und Menge"></label><label>pH<input id="gde-ph" type="number" min="0" max="14" step="0.1"></label><label>EC (mS/cm)<input id="gde-ec" type="number" min="0" step="0.1"></label><label>Temperatur (°C)<input id="gde-temp" type="number" step="0.1"></label><label>Luftfeuchtigkeit (%)<input id="gde-humidity" type="number" min="0" max="100" step="1"></label><label class="gd-wide">Notizen<textarea id="gde-notes" rows="3" placeholder="Beobachtungen, Auffälligkeiten, Maßnahmen …"></textarea></label><label class="gd-wide">Foto zum Eintrag<input id="gde-photo" type="file" accept="image/*"></label></div><div class="gd-actions"><button class="back" type="button" id="gde-save">Eintrag speichern</button><button class="back" type="button" id="gde-close">Ansicht schließen</button></div><p id="gde-status" role="status"></p><h3>Verlauf</h3><div id="gde-list"></div>`;
+function openProject(id){activeId=id;const p=read().find(x=>x.id===id);if(!p)return;const detail=$('gd-detail');detail.hidden=false;detail.innerHTML=`<h2>${esc(p.name)} – Tagebuch</h2><p>${esc(p.strain||'')} · ${esc(p.stage||'')}</p><p>${esc(p.notes||'')}</p><h3>Neuen Eintrag hinzufügen</h3><div class="gd-grid"><label>Datum<input id="gde-date" type="date" value="${new Date().toISOString().slice(0,10)}"></label><label>Entwicklungsstadium<select id="gde-stage"><option value="">Unverändert</option><option>Keimung</option><option>Jungpflanze</option><option>Wachstum</option><option>Blüte</option><option>Fruchtbildung</option><option>Ernte</option><option>Abgeschlossen</option></select></label><label>Pflanzenhöhe (cm)<input id="gde-height" type="number" min="0" step="0.1"></label><label>Gießmenge (ml)<input id="gde-water" type="number" min="0" step="1"></label><label>Dünger / Menge<input id="gde-fertilizer" placeholder="Produkt und Menge"></label><label>pH<input id="gde-ph" type="number" min="0" max="14" step="0.1"></label><label>EC (mS/cm)<input id="gde-ec" type="number" min="0" step="0.1"></label><label>Temperatur (°C)<input id="gde-temp" type="number" step="0.1"></label><label>Luftfeuchtigkeit (%)<input id="gde-humidity" type="number" min="0" max="100" step="1"></label><label class="gd-wide">Notizen<textarea id="gde-notes" rows="3" placeholder="Beobachtungen, Auffälligkeiten, Maßnahmen …"></textarea></label><label class="gd-wide">Foto zum Eintrag<input id="gde-photo" type="file" accept="image/*"></label></div><div class="gd-actions"><button class="back" type="button" id="gde-save">Eintrag speichern</button><button class="back" type="button" id="gde-close">Ansicht schließen</button><button class="back" type="button" id="gde-report">Grow-Bericht erstellen / drucken</button><button class="back" type="button" id="gde-analysis">Grow-Analyse öffnen</button></div><p id="gde-status" role="status"></p><h3>Verlauf</h3><div id="gde-list"></div>`;
  const render=()=>{const latest=read().find(x=>x.id===id);if(!latest)return;const list=$('gde-list');list.innerHTML=(latest.entries||[]).slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')).map(e=>`<div class="gd-entry"><strong>${esc(e.date||'Ohne Datum')}</strong>${e.stage?` · ${esc(e.stage)}`:''}<p>${e.height?`Höhe: ${esc(e.height)} cm · `:''}${e.water?`Gießen: ${esc(e.water)} ml · `:''}${e.ph?`pH: ${esc(e.ph)} · `:''}${e.ec?`EC: ${esc(e.ec)} mS/cm · `:''}${e.temp?`Temperatur: ${esc(e.temp)} °C · `:''}${e.humidity?`Luftfeuchte: ${esc(e.humidity)} %`:''}</p>${e.fertilizer?`<p>Dünger: ${esc(e.fertilizer)}</p>`:''}${e.notes?`<p>${esc(e.notes)}</p>`:''}${e.photo?`<img src="${e.photo}" alt="Foto zum Eintrag vom ${esc(e.date)}">`:''}<button type="button" class="back" data-gde-delete="${esc(e.id)}">Eintrag löschen</button></div>`).join('')||'<p>Noch keine Einträge.</p>'};
  $('gde-save').addEventListener('click',async()=>{const all=read(),proj=all.find(x=>x.id===id);if(!proj)return;try{const photo=await imageData($('gde-photo').files?.[0],900,.75);const keys=['height','water','fertilizer','ph','ec','temp','humidity','notes'];const entry={id:'entry-'+Date.now(),date:$('gde-date').value,stage:$('gde-stage').value,...Object.fromEntries(keys.map(k=>[k,$('gde-'+k).value.trim()])) ,photo};proj.entries=proj.entries||[];proj.entries.push(entry);if(entry.stage)proj.stage=entry.stage;proj.updated=new Date().toISOString();if(write(all)){render();gdRefresh();$('gde-status').textContent='Eintrag gespeichert.';$('gde-photo').value='';$('gde-notes').value=''}}catch(e){$('gde-status').textContent=e.message||'Eintrag konnte nicht gespeichert werden.'}});
- $('gde-close').addEventListener('click',()=>{detail.hidden=true;activeId=null});render();detail.scrollIntoView({behavior:'smooth',block:'start'});
+ $('gde-close').addEventListener('click',()=>{detail.hidden=true;activeId=null});
+ $('gde-analysis').addEventListener('click',()=>{if(typeof window.keimwerkShowPage==='function')window.keimwerkShowPage('grow-analysis');setTimeout(()=>{const sel=document.getElementById('ga-project-select');if(sel){sel.value=id;window.keimwerkRefreshGrowAnalysis?.();}},0);});
+ $('gde-report').addEventListener('click',()=>{
+   const latest=read().find(x=>x.id===id);if(!latest)return;
+   const reportWindow=window.open('','_blank');
+   if(!reportWindow){alert('Der Bericht konnte nicht geöffnet werden. Bitte erlaube Pop-ups für diese Website und versuche es erneut.');return}
+   const val=(v)=>v!==undefined&&v!==null&&String(v).trim()!==''?esc(v):'—';
+   const entries=(latest.entries||[]).slice().sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+   const entryCards=entries.map((e,i)=>{
+     const metrics=[['Pflanzenhöhe',e.height,'cm'],['Gießmenge',e.water,'ml'],['pH',e.ph,''],['EC',e.ec,'mS/cm'],['Temperatur',e.temp,'°C'],['Luftfeuchtigkeit',e.humidity,'%']];
+     const filled=metrics.filter(([label,v])=>v!==undefined&&v!==null&&String(v).trim()!=='').map(([label,v,unit])=>`<div class="metric"><span>${label}</span><strong>${esc(v)} ${unit}</strong></div>`).join('');
+     return `<section class="entry"><div class="entry-head"><span>Eintrag ${i+1}</span><strong>${val(e.date)}</strong></div>${e.stage?`<p class="stage">Entwicklungsstadium: ${val(e.stage)}</p>`:''}${filled?`<div class="metrics">${filled}</div>`:''}${e.fertilizer?`<p><b>Dünger / Menge:</b> ${val(e.fertilizer)}</p>`:''}${e.notes?`<div class="notes"><b>Beobachtungen und Maßnahmen</b><p>${val(e.notes).replace(/\n/g,'<br>')}</p></div>`:''}${e.photo?`<img class="entry-photo" src="${e.photo}" alt="Foto zum Eintrag ${val(e.date)}">`:''}</section>`;
+   }).join('')||'<p class="empty">Für dieses Projekt wurden noch keine Tagebucheinträge gespeichert.</p>';
+   const htmlReport=`<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Grow-Bericht – ${esc(latest.name)}</title><style>
+   :root{color-scheme:light}*{box-sizing:border-box}body{font:15px/1.55 Arial,sans-serif;color:#202820;background:#f3f5f1;margin:0}.toolbar{position:sticky;top:0;background:#203b2a;color:white;padding:12px max(18px,calc((100% - 900px)/2));display:flex;justify-content:space-between;align-items:center;gap:12px}.toolbar button{border:0;border-radius:7px;padding:10px 14px;background:#d9ead8;color:#183020;font-weight:bold;cursor:pointer}.wrap{max-width:900px;margin:24px auto;padding:0 18px}.cover,.entry{background:white;border:1px solid #d8e0d6;border-radius:12px;padding:22px;margin-bottom:18px;break-inside:avoid}.eyebrow{color:#4d7052;text-transform:uppercase;letter-spacing:.08em;font-size:12px;font-weight:bold}.cover h1{font-size:30px;line-height:1.2;margin:6px 0 16px}.meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.metric,.meta div{background:#f2f6f0;padding:10px;border-radius:7px;overflow-wrap:anywhere}.meta span,.metric span{display:block;color:#536253;font-size:12px}.meta strong,.metric strong{font-size:14px}.cover-photo{display:block;max-width:100%;max-height:360px;object-fit:contain;border-radius:8px;margin:18px auto 0}.intro-notes{white-space:normal;margin-top:16px}.entry-head{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e1e7df;padding-bottom:10px;margin-bottom:12px}.entry-head span{color:#4d7052;font-size:12px;text-transform:uppercase;letter-spacing:.05em}.stage{font-weight:bold;color:#36553a}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}.notes{background:#f7f8f5;border-left:3px solid #9ab49a;padding:12px;margin-top:12px;overflow-wrap:anywhere}.notes p{margin:5px 0 0;white-space:normal}.entry-photo{display:block;max-width:100%;max-height:440px;object-fit:contain;margin:14px auto 0;border-radius:8px}.empty{color:#566456}.footer{text-align:center;color:#647164;font-size:12px;margin:24px 0}@media(max-width:560px){.meta,.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.cover,.entry{padding:15px}.cover h1{font-size:25px}}@media print{body{background:white;font-size:11pt}.toolbar{display:none}.wrap{max-width:none;margin:0;padding:0}.cover,.entry{border:1px solid #ccc;border-radius:0;margin:0 0 12mm;padding:10mm;box-shadow:none}.cover{break-after:page}.entry{break-inside:avoid}.cover-photo,.entry-photo{max-height:220mm}.footer{margin-top:10mm}}
+   </style></head><body><div class="toolbar"><strong>Keimwerk · Grow-Bericht</strong><button onclick="window.print()">Drucken / als PDF speichern</button></div><main class="wrap"><section class="cover"><div class="eyebrow">Keimwerk · Grow-Tagebuch</div><h1>${esc(latest.name)}</h1><div class="meta"><div><span>Sorte / Pflanzenart</span><strong>${val(latest.strain)}</strong></div><div><span>Startdatum</span><strong>${val(latest.start)}</strong></div><div><span>Aktuelles Stadium</span><strong>${val(latest.stage)}</strong></div><div><span>Anbaumethode</span><strong>${val(latest.method)}</strong></div><div><span>Verknüpftes Grow-Profil</span><strong>${val(latest.profileName)}</strong></div><div><span>Bericht erstellt</span><strong>${new Date().toLocaleDateString('de-DE')}</strong></div></div>${latest.photo?`<img class="cover-photo" src="${latest.photo}" alt="Hauptfoto des Grow-Projekts">`:''}${latest.fertilizer?`<p><b>Hinterlegte Düngerangabe:</b> ${val(latest.fertilizer)}</p>`:''}${latest.water?`<p><b>Hinterlegte Wasserangabe:</b> ${val(latest.water)}</p>`:''}${latest.notes?`<div class="intro-notes"><h2>Projektbeschreibung / Notizen</h2><p>${val(latest.notes).replace(/\n/g,'<br>')}</p></div>`:''}</section><h2>Chronologischer Verlauf</h2>${entryCards}<div class="footer">Erstellt aus den im Keimwerk-Grow-Tagebuch gespeicherten Angaben. Nicht eingetragene Werte werden nicht ergänzt.</div></main>
+
+</body></html>`;
+   reportWindow.document.open();reportWindow.document.write(htmlReport);reportWindow.document.close();
+ });
+ render();detail.scrollIntoView({behavior:'smooth',block:'start'});
 }
 document.addEventListener('click',e=>{const v=e.target.closest('[data-gd-view]');if(v)openProject(v.dataset.gdView);const ed=e.target.closest('[data-gd-edit]');if(ed)editProject(ed.dataset.gdEdit);const del=e.target.closest('[data-gd-delete]');if(del){const id=del.dataset.gdDelete;if(confirm('Dieses Grow-Projekt einschließlich aller Tagebucheinträge und Fotos löschen?')){write(read().filter(p=>p.id!==id));$('gd-detail').hidden=true;gdRefresh()}}const edel=e.target.closest('[data-gde-delete]');if(edel&&activeId){if(confirm('Diesen Tagebucheintrag löschen?')){const all=read(),p=all.find(x=>x.id===activeId);if(p){p.entries=(p.entries||[]).filter(x=>x.id!==edel.dataset.gdeDelete);write(all);openProject(activeId)}}}});
 $('gd-save').addEventListener('click',saveProject);$('gd-reset').addEventListener('click',clearForm);
 $('gd-export').addEventListener('click',()=>{const data={format:'keimwerk-grow-diary',version:1,exportedAt:new Date().toISOString(),projects:read()};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='keimwerk-grow-tagebuch.json';a.click();URL.revokeObjectURL(url)});
 $('gd-import-btn').addEventListener('click',()=>$('gd-import-file').click());
-$('gd-import-file').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{const data=JSON.parse(await file.text()),projects=Array.isArray(data)?data:data.projects;if(!Array.isArray(projects)||projects.some(p=>!p||typeof p.id!=='string'||typeof p.name!=='string'||!Array.isArray(p.entries||[])))throw new Error('Die Datei hat kein gültiges Grow-Tagebuch-Format.');if(!confirm('Importiert werden '+projects.length+' Projekte. Gleichnamige oder gleich-ID-Projekte werden ersetzt. Fortfahren?'))return;const existing=read();for(const p of projects){const idx=existing.findIndex(x=>x.id===p.id);if(idx>=0)existing[idx]=p;else existing.push(p)}if(write(existing)){gdRefresh();alert('Grow-Tagebuch importiert.')}}catch(err){alert('Import fehlgeschlagen: '+err.message)}finally{e.target.value=''}});
+$('gd-import-file').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{const data=JSON.parse(await file.text()),projects=Array.isArray(data)?data:data.projects;if(!Array.isArray(projects)||projects.some(p=>!p||typeof p.id!=='string'||typeof p.name!=='string'||!Array.isArray(p.entries||[])))throw new Error('Die Datei hat kein gültiges Grow-Tagebuch-Format.');if(!confirm('Importiert werden '+projects.length+' Projekte. Gleichnamige oder gleich-ID-Projekte werden ersetzt. Fortfahren?'))return;const existing=read();for(const p of projects){const idx=existing.findIndex(x=>x.id===p.id);if(idx>=0)existing[idx]=p;else existing.push(p)}if(write(existing)){gdRefresh();window.cfRefreshGrowProjects?.();alert('Grow-Tagebuch importiert.')}}catch(err){alert('Import fehlgeschlagen: '+err.message)}finally{e.target.value=''}});
 window.gdRefresh=gdRefresh;refreshProfiles();
 
 // Cannabis-Mängel-Finder: Regeln verknüpfen Symptome mit vorhandenen Lexikonprofilen.
@@ -2275,6 +2609,86 @@ const cfRules=[
  {name:'Schädlinge',id:null,sym:['pests','spots','curl','yellow-new'],why:'Saugende oder fressende Schädlinge können Punkte, Verformungen, Gespinste oder Fraßspuren verursachen.',checks:['Untersuche Blattunterseiten und Triebspitzen mit einer Lupe.','Prüfe benachbarte Pflanzen.']},
  {name:'Mögliche Blattkrankheit',id:null,sym:['spots','mold','wilting'],why:'Flecken oder Beläge können Krankheitserreger anzeigen, aber auch durch Verletzungen oder Umweltstress entstehen.',checks:['Prüfe, ob Flecken sich ausbreiten.','Vermeide Kontakt zwischen nassen Pflanzen und dokumentiere die Entwicklung.']}
 ];
+const cfGrowKey='keimwerk-grow-diary-v1';
+let cfImportedGrowProjects=[];
+let cfGrowLastSources=[];
+function cfProjectArray(value){if(Array.isArray(value))return value;if(value&&Array.isArray(value.projects))return value.projects;if(value&&value.data&&Array.isArray(value.data.projects))return value.data.projects;return []}
+function cfLooksLikeGrowProject(project){return Boolean(project&&typeof project==='object'&&String(project.id||'').trim()&&String(project.name||'').trim()&&(Array.isArray(project.entries)||'strain' in project||'stage' in project||'start' in project))}
+function cfReadGrowProjects(){
+ const merged=new Map(),sources=[];
+ const addProjects=(items,source)=>{let added=0;for(const project of items){if(!cfLooksLikeGrowProject(project))continue;const id=String(project.id||project.name).trim();merged.set(id,project);added++}if(added)sources.push(source+' ('+added+')')};
+ try{
+  const primary=cfProjectArray(JSON.parse(localStorage.getItem(cfGrowKey)||'[]'));
+  addProjects(primary,'Grow-Tagebuch');
+  // Frühere Keimwerk-Versionen konnten einen abweichenden Speicher-Schlüssel nutzen.
+  // Nur passend benannte Schlüssel werden gelesen; andere App-Daten bleiben unberührt.
+  for(let i=0;i<localStorage.length;i++){
+   const key=localStorage.key(i);if(!key||key===cfGrowKey||!/(grow.*(diary|tagebuch|project|projekt)|(diary|tagebuch).*grow|keimwerk.*(diary|tagebuch))/i.test(key))continue;
+   try{addProjects(cfProjectArray(JSON.parse(localStorage.getItem(key)||'null')),'älterer Speicher: '+key)}catch(_){/* ungültiger/anderer Eintrag */}
+  }
+ }catch(_){/* localStorage kann im Browser eingeschränkt sein */}
+ addProjects(cfImportedGrowProjects,'geladener JSON-Export');
+ cfGrowLastSources=sources;
+ return [...merged.values()];
+}
+function cfLatestEntry(project){return (Array.isArray(project?.entries)?project.entries:[]).slice().sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')))[0]||null}
+function cfRefreshGrowProjects(){
+ const select=document.getElementById('cf-grow-project');if(!select)return;
+ const previous=select.value,projects=cfReadGrowProjects();
+ select.innerHTML='<option value="">Kein Grow-Projekt verwenden</option>';
+ projects.forEach((project,index)=>{const option=document.createElement('option');option.value=String(project.id||('grow-project-'+index));option.textContent=String(project.name||'Unbenanntes Projekt')+(project.strain?' · '+project.strain:'');option.dataset.projectName=String(project.name||'');select.appendChild(option)});
+ if(projects.some((project,index)=>String(project.id||('grow-project-'+index))===previous))select.value=previous;
+ const status=document.getElementById('cf-grow-status');
+ if(status){
+  if(projects.length){status.textContent=projects.length+' Grow-Projekt(e) gefunden'+(cfGrowLastSources.length?': '+cfGrowLastSources.join(', '):'')+'. Wähle ein Projekt und klicke auf „Daten aus Projekt übernehmen“';}
+  else status.textContent='Noch keine Projekte gefunden. Lade mit „Grow-Tagebuch-Export laden“ die JSON-Datei aus deinem Grow-Tagebuch. Unterschiedliche Website-Adressen (z. B. file://, GitHub Pages oder ein anderer localhost-Port) haben getrennte Browser-Speicher.';
+ }
+}
+function cfGetSelectedGrow(){const id=document.getElementById('cf-grow-project')?.value;if(!id)return null;return cfReadGrowProjects().find((project,index)=>String(project.id||('grow-project-'+index))===id)||null}
+window.cfGetSelectedGrow=cfGetSelectedGrow;window.cfLatestEntry=cfLatestEntry;window.cfRefreshGrowProjects=cfRefreshGrowProjects;
+document.getElementById('cf-refresh-grow')?.addEventListener('click',cfRefreshGrowProjects);
+window.addEventListener('storage',e=>{if(!e.key||e.key===cfGrowKey||/(grow.*(diary|tagebuch|project|projekt)|(diary|tagebuch).*grow|keimwerk.*(diary|tagebuch))/i.test(e.key))cfRefreshGrowProjects()});
+document.getElementById('cf-grow-import-btn')?.addEventListener('click',()=>document.getElementById('cf-grow-import-file')?.click());
+document.getElementById('cf-grow-import-file')?.addEventListener('change',async e=>{
+ const file=e.target.files?.[0];if(!file)return;
+ try{
+  const parsed=JSON.parse(await file.text()),projects=cfProjectArray(parsed).filter(cfLooksLikeGrowProject);
+  if(!projects.length)throw new Error('Die Datei enthält keine erkennbaren Grow-Projekte. Bitte im Grow-Tagebuch „Export sichern“ verwenden.');
+  cfImportedGrowProjects=projects;cfRefreshGrowProjects();
+  const select=document.getElementById('cf-grow-project');if(select&&projects.length===1)select.value=String(projects[0].id);
+  const status=document.getElementById('cf-grow-status');if(status)status.textContent=projects.length+' Grow-Projekt(e) aus „'+file.name+'“ geladen. Wähle ein Projekt und klicke auf „Daten aus Projekt übernehmen“. Die Datei wird nur für diese geöffnete Sitzung verwendet; dein ursprüngliches Tagebuch wird nicht verändert.';
+ }catch(err){const status=document.getElementById('cf-grow-status');if(status)status.textContent='Import fehlgeschlagen: '+(err.message||'Datei konnte nicht gelesen werden.');}
+ finally{e.target.value=''}
+});
+function cfApplyGrowContext(){
+ const project=cfGetSelectedGrow(),status=document.getElementById('cf-grow-status'),panel=document.getElementById('cf-grow-context');
+ if(!project){if(status)status.textContent='Bitte wähle zuerst ein Grow-Projekt aus.';if(panel)panel.hidden=true;return}
+ const entries=(Array.isArray(project.entries)?project.entries:[]).slice().sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))),latest=entries[0]||null;
+ const setIfBlank=(id,value)=>{const el=document.getElementById(id);if(el&&value!==undefined&&value!==null&&String(value)!==''&&(el.value===''||el.value==='Nicht angegeben'||el.value==='unknown'))el.value=String(value)};
+ if(latest){setIfBlank('cf-ph',latest.ph);setIfBlank('cf-ec',latest.ec);}
+ const stageMap={'Keimung':'Keimling','Jungpflanze':'Keimling','Wachstum':'Wachstum','Vorblüte':'Vorblüte','Blüte':'Blüte'};
+ const stageValue=stageMap[latest?.stage||project.stage]||'';if(stageValue)document.getElementById('cf-stage').value=stageValue;
+ const method=String(project.method||'');const substrateMap={'Erde':'Erde','Kokos':'Kokos','DWC':'DWC','Hydroponik':'Hydroponik'};
+ const substrateValue=substrateMap[method]||'';if(substrateValue)document.getElementById('cf-substrate').value=substrateValue;
+ const detail=[];
+ detail.push('Grow-Projekt: '+String(project.name||'Ohne Namen'));
+ if(project.strain)detail.push('Sorte/Pflanze: '+project.strain);
+ if(project.method)detail.push('Anbaumethode: '+project.method);
+ if(project.stage)detail.push('Projektstadium: '+project.stage);
+ if(project.water)detail.push('Hinterlegte Wasserangaben: '+project.water);
+ if(project.fertilizer)detail.push('Hinterlegte Dünger: '+project.fertilizer);
+ if(latest){detail.push('Letzter Tagebucheintrag: '+(latest.date||'ohne Datum'));
+  [['pH',latest.ph],['EC (mS/cm)',latest.ec],['Temperatur (°C)',latest.temp],['Luftfeuchte (%)',latest.humidity],['Gießmenge (ml)',latest.water],['Dünger/Menge',latest.fertilizer],['Beobachtungen',latest.notes]].forEach(([label,value])=>{if(value!==undefined&&value!==null&&String(value)!=='')detail.push(label+': '+value)});
+ }
+ if(panel){panel.hidden=false;panel.textContent='Übernommene Projekthinweise: '+detail.join(' · ')}
+ const notes=document.getElementById('cf-notes');
+ const contextText='Kontext aus Grow-Tagebuch (nur als Hinweis, keine bestätigte Ursache):\n'+detail.join('\n');
+ if(notes&&!notes.value.includes('Kontext aus Grow-Tagebuch'))notes.value=notes.value.trim()?(notes.value.trim()+'\n\n'+contextText):contextText;
+ if(status)status.textContent='Projekthinweise übernommen. Bitte Werte und Aktualität prüfen; die ursprünglichen Tagebucheinträge bleiben unverändert.';
+}
+document.getElementById('cf-grow-project')?.addEventListener('change',()=>{const panel=document.getElementById('cf-grow-context');if(panel)panel.hidden=true;const status=document.getElementById('cf-grow-status');if(status)status.textContent='Projekt ausgewählt. Klicke auf „Daten aus Projekt übernehmen“, um die Hinweise einzulesen.'});
+document.getElementById('cf-load-grow')?.addEventListener('click',cfApplyGrowContext);
+cfRefreshGrowProjects();
 const cfLabels={'yellow-old':'ältere Blätter gelb','yellow-new':'junge Blätter gelb','interveinal':'gelb zwischen Blattadern','burn':'verbrannte Spitzen/Ränder','spots':'Flecken / Nekrosen','curl':'Blattrollen / Verformung','wilting':'Welken','slow':'langsames Wachstum','purple':'violette Färbung','edge':'gelbe Blattränder','pests':'Schädlingsspuren','mold':'Belag / Schimmel'};
 const cfEsc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function cfAnalyze(){
@@ -2344,7 +2758,8 @@ document.getElementById('cf-analyze').addEventListener('click',cfAnalyze);
 document.getElementById('cf-result-list').addEventListener('click',e=>{const b=e.target.closest('[data-cf-lex]');if(!b)return;const page=b.dataset.cfLex;if(typeof window.keimwerkShowPage!=='function'){console.error('Keimwerk-Navigation ist nicht verfügbar.');return;}window.keimwerkShowPage(page);if(b.dataset.cfIndex!==undefined&&Number(b.dataset.cfIndex)>=0){const index=Number(b.dataset.cfIndex);requestAnimationFrame(()=>requestAnimationFrame(()=>{const articles=[...document.querySelectorAll('#'+page+' article.pest')];const target=articles[index];if(target)target.scrollIntoView({behavior:'smooth',block:'start'});}));}});
 document.getElementById('cf-reset').addEventListener('click',()=>{
  document.querySelectorAll('#cannabis-finder .cf-checks input').forEach(x=>x.checked=false);
- ['cf-where','cf-water','cf-change','cf-stage','cf-substrate'].forEach(id=>{const el=document.getElementById(id);if(el)el.selectedIndex=0;});
+ ['cf-where','cf-water','cf-change','cf-stage','cf-substrate','cf-grow-project'].forEach(id=>{const el=document.getElementById(id);if(el)el.selectedIndex=0;});
+ const growContext=document.getElementById('cf-grow-context');if(growContext)growContext.hidden=true;const growStatus=document.getElementById('cf-grow-status');if(growStatus)growStatus.textContent='';
  ['cf-ph','cf-ec','cf-notes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
  const photo=document.getElementById('cf-photo');if(photo)photo.value='';
  const ruleResults=document.getElementById('cf-results');if(ruleResults)ruleResults.hidden=true;
@@ -2407,7 +2822,7 @@ $('gd-profile').addEventListener('change',()=>{
    if(!container||!finder||finder.hidden||!window.turnstile||turnstileWidgetId!==null)return;
    turnstileWidgetId=window.turnstile.render(container,{sitekey:turnstileSiteKey,theme:'auto',callback:()=>{},'expired-callback':()=>{},'error-callback':()=>{}});
  }
- window.keimwerkTurnstileReady=()=>{renderTurnstile();};
+ window.keimwerkTurnstileReady=()=>{renderTurnstile();window.keimwerkAssistantTurnstileReady?.();window.keimwerkGrowAnalysisTurnstileReady?.();};
  const finder=document.getElementById('cannabis-finder');
  if(finder&&'MutationObserver'in window){new MutationObserver(renderTurnstile).observe(finder,{attributes:true,attributeFilter:['hidden']});}
  document.addEventListener('DOMContentLoaded',renderTurnstile);
@@ -2453,7 +2868,8 @@ $('gd-profile').addEventListener('change',()=>{
        substrate:$('cf-substrate').value,
        watering:waterMap[$('cf-water').value]||'Nicht angegeben',
        ph:$('cf-ph').value===''?null:Number($('cf-ph').value.replace(',','.')),
-       ec:$('cf-ec').value===''?null:Number($('cf-ec').value.replace(',','.'))
+       ec:$('cf-ec').value===''?null:Number($('cf-ec').value.replace(',','.')),
+       growProject:(()=>{const project=window.cfGetSelectedGrow?.();if(!project)return null;const latest=window.cfLatestEntry?.(project);return {name:project.name||'',strain:project.strain||'',stage:project.stage||'',method:project.method||'',fertilizer:project.fertilizer||'',water:project.water||'',latestEntry:latest?{date:latest.date||'',ph:latest.ph??null,ec:latest.ec??null,temp:latest.temp??null,humidity:latest.humidity??null,water:latest.water??null,fertilizer:latest.fertilizer||'',notes:latest.notes||''}:null}})()
      };
      if(photo) body.image={mimeType:photo.type,data:await fileToBase64(photo)};
      const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
@@ -2486,6 +2902,274 @@ $('gd-profile').addEventListener('change',()=>{
      status.textContent='KI-Diagnose fehlgeschlagen: '+(error?.message||'Unbekannter Fehler');
    }finally{button.disabled=false;try{if(window.turnstile&&turnstileWidgetId!==null)window.turnstile.reset(turnstileWidgetId);}catch(_){}}
  });
+})();
+</script>
+
+<script>
+/* Projekt 4: Keimwerk Cannabis-Wissensassistent. Nutzt Textauszüge aus vorhandenen Seiten als Kontext. */
+(()=>{
+ 'use strict';
+ const endpoint='https://keimwerk-ai-diagnose.chrisvoigt17.workers.dev/assistant';
+ const siteKey='0x4AAAAAAFWmKE7A6QR8afTG';
+ const $=id=>document.getElementById(id);
+ const page=$('knowledge-assistant'),form=$('ka-form'),questionEl=$('ka-question'),messages=$('ka-messages'),status=$('ka-status'),submit=$('ka-submit');
+ if(!page||!form||!questionEl||!messages||!status||!submit)return;
+ let widgetId=null;
+ let history=[];
+ const corpus=[];
+ const stopWords=new Set(('aber als also am an ander auch auf aus bei bin bis das dass dem den der des die dies diese dieser doch dort du durch ein eine einem einen einer eines er es etwas für gegen hier ich im in ist ja kann kein keine mit nicht noch oder sein sich sie sind so über um und uns unser unter vom von vor warum was wie wieder wir wird wo zu zum zur').split(' '));
+ const norm=s=>String(s||'').toLocaleLowerCase('de').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ß/g,'ss').replace(/[^a-z0-9]+/g,' ').trim();
+ const clean=s=>String(s||'').replace(/\s+/g,' ').trim();
+ function addSource(pageId,el,label){
+   if(!el)return;
+   const text=clean(el.textContent||'');
+   if(text.length<45)return;
+   const heading=label||clean(el.querySelector('h2,h3,h4,.nutrient-card-head')?.textContent||'').slice(0,100)||pageId;
+   corpus.push({pageId,el,label:heading,text:text.slice(0,1800),normalized:norm(heading+' '+text)});
+ }
+ function buildCorpus(){
+   corpus.length=0;
+   document.querySelectorAll('#knowledge-network .knowledge-node').forEach(el=>addSource('knowledge-network',el,el.querySelector('h2')?.textContent));
+   document.querySelectorAll('#nutrients .nutrient-card').forEach(el=>addSource('nutrients',el,el.querySelector('.nutrient-card-head,h2,h3')?.textContent));
+   document.querySelectorAll('#nutrients .nutrient-info-card, #nutrients .nutrient-callout, #nutrients .nutrient-warning, #nutrients .nutrient-guidance, #nutrients .nutrient-steps').forEach(el=>addSource('nutrients',el));
+   document.querySelectorAll('#pests .pest').forEach(el=>addSource('pests',el,el.querySelector('h3')?.textContent));
+   document.querySelectorAll('#beneficials .pest').forEach(el=>addSource('beneficials',el,el.querySelector('h3')?.textContent));
+   const overview=$('#cannabis-finder .subhead'); if(overview)addSource('cannabis-finder',overview,'Cannabis-Mängel-Finder');
+   const knowledgeIntro=$('#knowledge-network .subhead'); if(knowledgeIntro)addSource('knowledge-network',knowledgeIntro,'Cannabis-Wissensnetz');
+ }
+ function tokens(s){return norm(s).split(/\s+/).filter(t=>t.length>2&&!stopWords.has(t));}
+ function retrieve(question){
+   const q=norm(question), terms=new Set(tokens(question));
+   const expansions=[
+    [['gelb','verfarb','chlorose','blattfarbe'],'nahrstoff mangel stickstoff magnesium eisen pH wurzel wasser'],
+    [['blattsitze','spitze','braun','nekrose'],'kalium salzstress EC nahrstoff uberschuss wurzel'],
+    [['calmag','calcium','magnesium'],'calcium magnesium wasser harte nahrstoff aufnahme'],
+    [['pH','ph','saure','alkalin','hartes wasser'],'pH alkalinitat wasser nahrstoffverfugbarkeit wurzelraum'],
+    [['EC','ec','leitfahigkeit'],'EC salzstress salze nahrstofflosung'],
+    [['thrips','thripse'],'thrips silbrige punkte schaden schadenbild'],
+    [['spinnmilbe','spinnmilben','gespinst'],'spinnmilben punktformige blattschaden blattunterseite'],
+    [['trauermucke','trauermucken'],'trauermucken larven substrat wurzel'],
+    [['schimmel','pilz','luftfeuchte'],'luftfeuchtigkeit krankheit beluftung feuchte'],
+    [['wurzel','wurzeln','wurzelfaule'],'wurzelraum substrat staunasse bewasserung'],
+    [['dunger','dungung','dungergabe','uberdugung'],'nahrstoff mangel uberschuss dosierung EC'],
+    [['wachstum','blute','bluhte','stadium'],'entwicklungsstadium wachstum blute pflanzenphysiologie']
+   ];
+   for(const [triggers,adds] of expansions){if(triggers.some(t=>q.includes(norm(t))))tokens(adds).forEach(t=>terms.add(t));}
+   const phrase=q.split(' ').filter(Boolean).join(' ');
+   const scored=corpus.map(item=>{
+     let score=0;
+     if(phrase.length>5&&item.normalized.includes(phrase))score+=8;
+     for(const term of terms){
+       if(item.normalized.includes(term))score+=1+(term.length>=7?0.4:0);
+       const count=(item.normalized.match(new RegExp('(?:^| )'+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(?: |$)','g'))||[]).length;
+       if(count>1)score+=Math.min(count-1,3)*0.3;
+     }
+     return {...item,score};
+   }).filter(item=>item.score>0).sort((a,b)=>b.score-a.score);
+   return scored.slice(0,5);
+ }
+ function message(role,text,sources=[]){
+   const article=document.createElement('article');article.className='ka-message '+role;
+   const label=document.createElement('div');label.className='ka-message-label';label.textContent=role==='user'?'Du':'Keimwerk-Assistent';article.appendChild(label);
+   const body=document.createElement('p');body.className='ka-message-body';body.textContent=text;article.appendChild(body);
+   if(role==='assistant'&&sources.length){
+     const wrap=document.createElement('div');wrap.className='ka-sources';
+     const title=document.createElement('span');title.className='ka-message-label';title.textContent='Passende Keimwerk-Inhalte';wrap.appendChild(title);
+     sources.forEach(source=>{const btn=document.createElement('button');btn.type='button';btn.className='ka-source-button';btn.textContent=source.label;btn.addEventListener('click',()=>{if(typeof window.keimwerkShowPage==='function')window.keimwerkShowPage(source.pageId);setTimeout(()=>{try{source.el.scrollIntoView({behavior:'smooth',block:'center'});}catch(_){}},120);});wrap.appendChild(btn);});
+     article.appendChild(wrap);
+   }
+   messages.appendChild(article);messages.scrollTop=messages.scrollHeight;
+ }
+ function renderTurnstile(){
+   const container=$('ka-turnstile-widget');
+   if(!container||page.hidden||!window.turnstile||widgetId!==null)return;
+   widgetId=window.turnstile.render(container,{sitekey:siteKey,theme:'auto',callback:()=>{status.textContent='Sicherheitsprüfung abgeschlossen. Du kannst deine Frage senden.';},'expired-callback':()=>{status.textContent='Die Sicherheitsprüfung ist abgelaufen. Bitte erneut bestätigen.';},'error-callback':()=>{status.textContent='Die Sicherheitsprüfung konnte nicht geladen werden.';}});
+ }
+ window.keimwerkAssistantTurnstileReady=renderTurnstile;
+ if('MutationObserver'in window)new MutationObserver(renderTurnstile).observe(page,{attributes:true,attributeFilter:['hidden']});
+ document.addEventListener('DOMContentLoaded',renderTurnstile);
+ setTimeout(renderTurnstile,600);
+ buildCorpus();
+ document.querySelectorAll('[data-ka-prompt]').forEach(button=>button.addEventListener('click',()=>{questionEl.value=button.dataset.kaPrompt||'';questionEl.focus();}));
+ $('knowledge-assistant-back')?.addEventListener('click',()=>window.keimwerkShowPage?.('home'));
+ form.addEventListener('submit',async event=>{
+   event.preventDefault();
+   const question=clean(questionEl.value);
+   if(!question){status.textContent='Bitte gib eine Frage ein.';return;}
+   if(!window.turnstile||widgetId===null){renderTurnstile();status.textContent='Die Sicherheitsprüfung lädt noch. Warte kurz und versuche es erneut.';return;}
+   const turnstileToken=window.turnstile.getResponse(widgetId);
+   if(!turnstileToken){status.textContent='Bitte bestätige zuerst die Sicherheitsprüfung.';return;}
+   const matches=retrieve(question);
+   const context=matches.map((source,i)=>`QUELLE ${i+1}: ${source.label}\nBEREICH: ${source.pageId}\nINHALT: ${source.text}`).join('\n\n').slice(0,10000);
+   message('user',question);
+   submit.disabled=true;status.textContent='Keimwerk-Inhalte werden abgeglichen und eine Antwort wird erstellt…';
+   try{
+     const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({turnstileToken,question,context,history:history.slice(-8)})});
+     let data;try{data=await response.json();}catch{throw new Error('Der KI-Dienst hat keine gültige Antwort geliefert.');}
+     if(!response.ok||!data.success||!data.answer)throw new Error(data.details||data.error||`Anfrage fehlgeschlagen (HTTP ${response.status}).`);
+     const answer=String(data.answer).slice(0,12000);
+     message('assistant',answer,matches.slice(0,4));
+     history.push({role:'user',content:question},{role:'assistant',content:answer});history=history.slice(-8);
+     status.textContent='Antwort erstellt. Nutze die Quellen-Schaltflächen, um passende Keimwerk-Inhalte zu öffnen.';
+     questionEl.value='';
+   }catch(error){status.textContent='Assistent nicht erreichbar: '+(error?.message||'Unbekannter Fehler');}
+   finally{submit.disabled=false;try{if(window.turnstile&&widgetId!==null)window.turnstile.reset(widgetId);}catch(_){} }
+ });
+})();
+</script>
+
+<script>
+/* Projekt 5: Cannabis-Grow-Analyse. Nutzt vorhandene lokale Tagebuch-Daten. */
+(()=>{
+ 'use strict';
+ const endpoint='https://keimwerk-ai-diagnose.chrisvoigt17.workers.dev/grow-analysis';
+ const siteKey='0x4AAAAAAFWmKE7A6QR8afTG';
+ const storeKey='keimwerk-grow-diary-v1';
+ const $=id=>document.getElementById(id);
+ const page=$('grow-analysis'),select=$('ga-project-select'),status=$('ga-status'),run=$('ga-run');
+ if(!page||!select||!status||!run)return;
+ let widgetId=null;
+ const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const clean=s=>String(s??'').trim();
+ const num=v=>{if(v===null||v===undefined||clean(v)==='')return null;const n=Number(String(v).replace(',','.'));return Number.isFinite(n)?n:null;};
+ const readProjects=()=>{try{const x=JSON.parse(localStorage.getItem(storeKey)||'[]');return Array.isArray(x)?x:[];}catch(_){return [];}};
+ const dateSort=(a,b)=>String(a.date||'').localeCompare(String(b.date||''));
+ function refreshProjects(preselect=''){
+   const projects=readProjects();const previous=preselect||select.value;
+   select.replaceChildren(new Option('Grow-Projekt auswählen …',''));
+   projects.forEach(p=>select.add(new Option((p.name||'Unbenanntes Projekt')+(p.strain?' · '+p.strain:''),String(p.id))));
+   if(previous&&projects.some(p=>String(p.id)===String(previous)))select.value=String(previous);
+   if(!projects.length){status.textContent='In diesem Browser-Speicher wurden keine Grow-Projekte gefunden. Öffne das Tagebuch unter derselben Adresse oder importiere zuerst deine JSON-Sicherung.'; $('ga-overview').hidden=true;return;}
+   if(select.value)renderPreview();else{status.textContent='Grow-Projekte geladen. Wähle ein Projekt für die lokale Verlaufsübersicht.';$('ga-overview').hidden=true;}
+ }
+ function getProject(){return readProjects().find(p=>String(p.id)===String(select.value))||null;}
+ const metrics=[
+  {key:'height',label:'Pflanzenhöhe',unit:'cm'},
+  {key:'water',label:'Gießmenge',unit:'ml'},
+  {key:'ph',label:'pH',unit:''},
+  {key:'ec',label:'EC',unit:'mS/cm'},
+  {key:'temp',label:'Temperatur',unit:'°C'},
+  {key:'humidity',label:'Luftfeuchtigkeit',unit:'%'},
+ ];
+ function series(entries,key){return entries.map((e,i)=>({date:String(e.date||''),value:num(e[key]),stage:e.stage||''})).filter(x=>x.value!==null).sort((a,b)=>a.date.localeCompare(b.date));}
+ function fmt(n,unit=''){return n===null||n===undefined||!Number.isFinite(n)?'–':(Math.round(n*100)/100).toLocaleString('de-DE')+(unit?' '+unit:'');}
+ function stats(values){if(!values.length)return null;const v=values.map(x=>x.value),sum=v.reduce((a,b)=>a+b,0);return {n:v.length,min:Math.min(...v),avg:sum/v.length,max:Math.max(...v),first:values[0],last:values[values.length-1],delta:values[values.length-1].value-values[0].value};}
+ function chartMarkup(metric,values){
+   if(values.length<2)return `<div class="ga-chart"><h4>${escape(metric.label)}</h4><p class="ga-chart-note">Für eine Verlaufskurve werden mindestens zwei Messpunkte benötigt; vorhanden: ${values.length}.</p></div>`;
+   const w=500,h=100,pad=12,nums=values.map(x=>x.value),min=Math.min(...nums),max=Math.max(...nums),span=max-min||1;
+   const points=values.map((x,i)=>({x:pad+i*(w-2*pad)/(values.length-1),y:h-pad-(x.value-min)/span*(h-2*pad)}));
+   const path=points.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+','+p.y.toFixed(1)).join(' ');
+   const circles=points.map(p=>`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3" fill="#b0c2a6"/>`).join('');
+   return `<div class="ga-chart"><h4>${escape(metric.label)} (${escape(metric.unit||'ohne Einheit')})</h4><svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Verlauf ${escape(metric.label)}"><path d="M${pad} ${h-pad} H${w-pad}" stroke="#435246" stroke-width="1" fill="none"/><path d="${path}" stroke="#b0c2a6" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>${circles}</svg><p class="ga-chart-note">${escape(values[0].date||'Erster Punkt')}: ${escape(fmt(values[0].value,metric.unit))} → ${escape(values[values.length-1].date||'Letzter Punkt')}: ${escape(fmt(values[values.length-1].value,metric.unit))}; Differenz ${escape(fmt(values[values.length-1].value-values[0].value,metric.unit))}.</p></div>`;
+ }
+ function renderPreview(){
+   const p=getProject();const overview=$('ga-overview');$('ga-ai-panel').hidden=true;if(!p){overview.hidden=true;return;}
+   const entries=Array.isArray(p.entries)?p.entries.slice().sort(dateSort):[];const dates=entries.map(e=>e.date).filter(Boolean).sort();const days=dates.length?Math.max(1,Math.round((new Date(dates[dates.length-1]+'T12:00:00')-new Date(dates[0]+'T12:00:00'))/86400000)+1):null;
+   const measurementCount=entries.filter(e=>metrics.some(m=>num(e[m.key])!==null)).length;
+   const photoCount=(p.photo?1:0)+entries.filter(e=>!!e.photo).length;
+   const filledMeasurements=metrics.reduce((n,m)=>n+entries.filter(e=>num(e[m.key])!==null).length,0);
+   $('ga-project-meta').textContent=[p.strain||'Keine Sorte angegeben',p.method||'Keine Anbaumethode',p.stage||'Kein Stadium',p.start?'Start: '+p.start:''].filter(Boolean).join(' · ');
+   $('ga-stats').innerHTML=[['Tagebucheinträge',entries.length],['Einträge mit Messwerten',measurementCount],['Tage dokumentiert',days===null?'–':days],['Gespeicherte Fotos',photoCount]].map(([a,b])=>`<div class="ga-stat"><span>${escape(a)}</span><strong>${escape(b)}</strong></div>`).join('');
+   $('ga-metrics-body').innerHTML=metrics.map(m=>{const s=stats(series(entries,m.key));return `<tr><td>${escape(m.label)}</td><td>${s?s.n:0}</td><td>${s?escape(fmt(s.min,m.unit)):'–'}</td><td>${s?escape(fmt(s.avg,m.unit)):'–'}</td><td>${s?escape(fmt(s.max,m.unit)):'–'}</td><td>${s?escape(fmt(s.first.value,m.unit))+' → '+escape(fmt(s.last.value,m.unit)):'–'}</td></tr>`}).join('');
+   $('ga-charts').innerHTML=metrics.filter(m=>series(entries,m.key).length>0).map(m=>chartMarkup(m,series(entries,m.key))).join('')||'<p class="ga-muted">Es sind noch keine numerischen Messwerte vorhanden.</p>';
+   const notes=[];
+   if(!entries.length)notes.push('Das Projekt enthält noch keine Tagebucheinträge. Die Analyse kann dann nur Stammdaten und Projektbeschreibung auswerten.');
+   if(entries.length&&filledMeasurements===0)notes.push('In den Tagebucheinträgen wurden keine numerischen Werte für Höhe, Gießmenge, pH, EC, Temperatur oder Luftfeuchtigkeit gefunden.');
+   metrics.forEach(m=>{const n=series(entries,m.key).length;if(entries.length&&n===0)notes.push('Für '+m.label+' liegen keine Messwerte vor.');else if(n===1)notes.push('Für '+m.label+' gibt es nur einen Messpunkt; eine Veränderung über die Zeit lässt sich nicht beurteilen.');});
+   if(dates.length>1){let maxGap=0;for(let i=1;i<dates.length;i++){const gap=Math.round((new Date(dates[i]+'T12:00:00')-new Date(dates[i-1]+'T12:00:00'))/86400000);maxGap=Math.max(maxGap,gap);}if(maxGap>14)notes.push('Zwischen zwei dokumentierten Einträgen liegt eine Lücke von bis zu '+maxGap+' Tagen. Veränderungen in dieser Zeit sind nicht dokumentiert.');}
+   if(dates.length){const lastDate=new Date(dates[dates.length-1]+'T12:00:00');const age=Math.max(0,Math.round((new Date()-lastDate)/86400000));notes.push('Der jüngste datierte Tagebucheintrag ist '+age+' Tag(e) alt ('+dates[dates.length-1]+').');}
+   if(p.notes)notes.push('Zusätzliche Projektbeschreibung/Notizen sind vorhanden und werden bei der KI-Analyse berücksichtigt.');
+   if(p.fertilizer)notes.push('Im Projekt sind Düngerinformationen hinterlegt; einzelne Düngeereignisse werden zusätzlich aus den Einträgen ausgewertet.');
+   $('ga-data-notes').innerHTML=notes.map(n=>`<li>${escape(n)}</li>`).join('');
+   $('ga-timeline').innerHTML=entries.slice(-10).reverse().map(e=>{const values=metrics.filter(m=>num(e[m.key])!==null).map(m=>m.label+': '+fmt(num(e[m.key]),m.unit));const notesText=clean(e.notes);return `<article class="ga-entry"><header><h4>${escape(e.date||'Ohne Datum')}${e.stage?' · '+escape(e.stage):''}</h4><span class="ga-muted">${e.photo?'Foto vorhanden':''}</span></header><p>${escape(values.join(' · ')||'Keine numerischen Messwerte in diesem Eintrag.')}</p>${e.fertilizer?`<p><strong>Dünger:</strong> ${escape(e.fertilizer)}</p>`:''}${notesText?`<p>${escape(notesText.slice(0,700))}</p>`:''}</article>`;}).join('')||'<p class="ga-muted">Noch keine Einträge im Tagebuch.</p>';
+   overview.hidden=false;status.textContent='Lokale Übersicht aktualisiert. Für die KI-Auswertung bestätige die Sicherheitsprüfung und starte danach die Analyse.';
+ }
+ function dataUrlPhoto(date,label,dataUrl){const m=String(dataUrl||'').match(/^data:(image\/(?:jpeg|png|webp));base64,([A-Za-z0-9+/=]+)$/i);if(!m)return null;return {date:String(date||''),label:String(label||'Foto'),mimeType:m[1].toLowerCase(),data:m[2]};}
+ function analysisPayload(p,includePhotos){
+   const entries=Array.isArray(p.entries)?p.entries.slice().sort(dateSort):[];
+   const cleanedEntries=entries.slice(-60).map(e=>({date:String(e.date||''),stage:String(e.stage||''),height:clean(e.height).slice(0,30),water:clean(e.water).slice(0,30),fertilizer:clean(e.fertilizer).slice(0,300),ph:clean(e.ph).slice(0,30),ec:clean(e.ec).slice(0,30),temp:clean(e.temp).slice(0,30),humidity:clean(e.humidity).slice(0,30),notes:clean(e.notes).slice(0,800),hasPhoto:!!e.photo}));
+   const project={name:String(p.name||'').slice(0,150),strain:String(p.strain||'').slice(0,150),start:String(p.start||''),stage:String(p.stage||''),method:String(p.method||''),fertilizer:String(p.fertilizer||'').slice(0,1000),water:String(p.water||'').slice(0,1000),notes:String(p.notes||'').slice(0,2500),profileName:String(p.profileName||''),totalEntries:entries.length,entries:cleanedEntries};
+   const photos=[];
+   if(includePhotos){const main=dataUrlPhoto(p.start,'Hauptfoto des Projekts',p.photo);if(main)photos.push(main);for(const e of entries.slice().reverse()){if(photos.length>=3)break;const photo=dataUrlPhoto(e.date,'Tagebuchfoto '+(e.date||''),e.photo);if(photo)photos.push(photo);} }
+   return {project,photos};
+ }
+ function renderTurnstile(){const cont=$('ga-turnstile-widget');if(!cont||page.hidden||!window.turnstile||widgetId!==null)return;widgetId=window.turnstile.render(cont,{sitekey:siteKey,theme:'auto',callback:()=>{status.textContent='Sicherheitsprüfung abgeschlossen. Du kannst die Grow-Analyse starten.';},'expired-callback':()=>{status.textContent='Sicherheitsprüfung abgelaufen. Bitte erneut bestätigen.';},'error-callback':()=>{status.textContent='Sicherheitsprüfung konnte nicht geladen werden.';}});}
+ window.keimwerkGrowAnalysisTurnstileReady=renderTurnstile;
+ if('MutationObserver'in window)new MutationObserver(()=>{if(!page.hidden){refreshProjects();renderTurnstile();}}).observe(page,{attributes:true,attributeFilter:['hidden']});
+ $('ga-refresh').addEventListener('click',()=>refreshProjects());select.addEventListener('change',renderPreview);
+ $('grow-analysis-back')?.addEventListener('click',()=>window.keimwerkShowPage?.('home'));
+ $('ga-print').addEventListener('click',()=>{if(!$('ga-overview').hidden)window.print();else status.textContent='Wähle zuerst ein Projekt aus.';});
+ run.addEventListener('click',async()=>{
+   const p=getProject();if(!p){status.textContent='Bitte wähle zuerst ein Grow-Projekt aus.';return;}
+   renderTurnstile();if(!window.turnstile||widgetId===null){status.textContent='Die Sicherheitsprüfung lädt noch. Warte kurz und versuche es erneut.';return;}
+   const turnstileToken=window.turnstile.getResponse(widgetId);if(!turnstileToken){status.textContent='Bitte bestätige zuerst die Sicherheitsprüfung.';return;}
+   const includePhotos=$('ga-include-photos').checked;
+   const payload=analysisPayload(p,includePhotos);
+   const ok=confirm('Die Grow-Analyse übermittelt Projektangaben, Notizen, Messwerte und bis zu 60 letzte Tagebucheinträge an den Keimwerk-KI-Dienst. '+(includePhotos?'Zusätzlich werden bis zu drei Pflanzenfotos übertragen. ':'')+'Fortfahren?');
+   if(!ok){try{window.turnstile.reset(widgetId)}catch(_){};return;}
+   run.disabled=true;$('ga-ai-panel').hidden=true;status.textContent='Grow-Daten werden ausgewertet. Das kann einen Moment dauern.';
+   try{
+     const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({turnstileToken,...payload})});
+     let data;try{data=await response.json();}catch{throw new Error('Der KI-Dienst hat keine gültige Antwort geliefert.');}
+     if(!response.ok||!data.success||!data.analysis)throw new Error(data.details||data.error||`Anfrage fehlgeschlagen (HTTP ${response.status}).`);
+     $('ga-ai-result').textContent=String(data.analysis).slice(0,25000);$('ga-ai-date').textContent='Erstellt '+new Date().toLocaleString('de-DE');$('ga-ai-panel').hidden=false;status.textContent='Analyse abgeschlossen. Die KI-Einschätzung steht unter der lokalen Verlaufsübersicht.';$('ga-ai-panel').scrollIntoView({behavior:'smooth',block:'start'});
+   }catch(error){status.textContent='Grow-Analyse fehlgeschlagen: '+(error?.message||'Unbekannter Fehler');}
+   finally{run.disabled=false;try{if(window.turnstile&&widgetId!==null)window.turnstile.reset(widgetId)}catch(_){} }
+ });
+ window.keimwerkRefreshGrowAnalysis=refreshProjects;
+ document.addEventListener('DOMContentLoaded',()=>{refreshProjects();renderTurnstile();});
+ setTimeout(()=>{refreshProjects();renderTurnstile();},700);
+})();
+</script>
+
+
+<script id="keimwerk-calculator-autoheight">
+(function(){
+  const frame=document.getElementById('calculator-frame');
+  if(!frame)return;
+  let observer=null, mutationObserver=null, pending=false;
+  function resizeFrame(){
+    pending=false;
+    try{
+      const doc=frame.contentDocument;
+      if(!doc||!doc.body||frame.dataset.loaded!=='true')return;
+      // Use the inner body's content height, not documentElement.scrollHeight:
+      // the latter includes the iframe viewport and could cause repeated +12px growth.
+      const body=doc.body;
+      const contentHeight=Math.ceil(Math.max(body.scrollHeight,body.offsetHeight));
+      const currentHeight=frame.clientHeight;
+      if(contentHeight>currentHeight+8){
+        frame.style.height=(contentHeight+12)+'px';
+      }
+    }catch(_){/* Cross-origin frames are intentionally left at their CSS height. */}
+  }
+  function scheduleResize(){
+    if(pending)return;
+    pending=true;
+    requestAnimationFrame(resizeFrame);
+  }
+  frame.addEventListener('load',function(){
+    if(observer)observer.disconnect();
+    if(mutationObserver)mutationObserver.disconnect();
+    scheduleResize();
+    try{
+      const doc=frame.contentDocument;
+      if(!doc||!doc.documentElement)return;
+      if('ResizeObserver' in window){
+        observer=new ResizeObserver(scheduleResize);
+        observer.observe(doc.documentElement);
+        if(doc.body)observer.observe(doc.body);
+      }
+      if(doc.body){
+        mutationObserver=new MutationObserver(scheduleResize);
+        mutationObserver.observe(doc.body,{subtree:true,childList:true,attributes:true,characterData:true});
+      }
+    }catch(_){}
+    setTimeout(scheduleResize,100);
+    setTimeout(scheduleResize,400);
+    setTimeout(scheduleResize,1000);
+  });
+  window.addEventListener('resize',scheduleResize,{passive:true});
 })();
 </script>
 </body>
