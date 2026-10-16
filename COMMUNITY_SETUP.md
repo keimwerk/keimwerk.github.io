@@ -10,6 +10,20 @@ Diese Ergänzung legt eine separate Community-Seite unter `/community.html` an. 
 - `community-config.js`: öffentliche Supabase-URL und Publishable Key.
 - `supabase/community_public_view_patch.sql`: kleiner Sicherheits-Patch für die öffentliche Antworten-Ansicht.
 
+## Lokale Testversion starten
+
+Die Community kann vor dem Merge lokal geprüft werden, ohne die veröffentlichte Keimwerk-Website zu ändern.
+
+1. Lade den ZIP-Stand dieses Branches herunter: https://github.com/keimwerk/keimwerk.github.io/archive/refs/heads/feature/keimwerk-community.zip
+2. Entpacke die ZIP-Datei auf deinem PC.
+3. Supabase → Authentication → URL Configuration: Lass die **Site URL** auf `https://keimwerk.github.io`. Ergänze bei **Redirect URLs** zusätzlich `http://localhost:8000/**`.
+4. Öffne den entpackten Projektordner in Windows PowerShell/Terminal. Starte dort `py -m http.server 8000`.
+5. Öffne im Browser `http://localhost:8000/community.html`. Das Terminalfenster muss während des Tests offen bleiben.
+
+Die E-Mail-Bestätigung und der Passwort-Reset leiten zurück auf die URL, unter der die Community gerade läuft. Auf GitHub Pages bleibt es `https://keimwerk.github.io/community.html`; lokal wird `http://localhost:8000/community.html` verwendet.
+
+**Wichtig:** Diese lokale Vorschau verwendet aktuell dasselbe Supabase-Projekt wie die geplante Community, nicht eine isolierte Testdatenbank. Benutze daher einen eigens für den Test gewählten Namen (z. B. `kw_test_2026)); reservierte Testnamen bleiben dauerhaft gesperrt, auch nach einer späteren Kontolöschung. Das Supabase-Publishable-Key im öffentlichen Repository ist kein Geheimnis; die Sicherheit muss über RLS und die Datenbankfunktionen gewährleistet sein. Vor dem Test sollten wir die Registrierung nur dann aktivieren, wenn du direkt testest, und sie danach wieder deaktivieren, bis du die Community bewusst freigibst.
+
 ## 1. Supabase-Konfiguration
 
 In `community-config.js` ist bereits die Projekt-URL eingetragen. Prüfe diese im Dashboard. Trage anschließend den **Publishable Key** des richtigen Supabase-Projekts ein (normalerweise Präfix `sb_publishable_`; alternativ den Legacy-`anon`-Key). Diese Schlüssel sind für Browsernutzung bestimmt, wenn die RLS-Regeln richtig gesetzt sind.
