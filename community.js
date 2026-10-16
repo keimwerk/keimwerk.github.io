@@ -13,7 +13,7 @@ if(!cfg.url||!key||/PASTE_YOUR_SUPABASE|YOUR_SUPABASE|PLACEHOLDER/i.test(key)||!
   return;
 }
 var client=window.supabase.createClient(cfg.url,key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
-var session=null,canPost=false,isAdmin=false,loadingFeed=false;
+var session=null,canPost=false,isAdmin=false,loadingFeed=false,currentUsername='';
 function el(tag,className,text){var n=document.createElement(tag);if(className)n.className=className;if(text!==undefined&&text!==null)n.textContent=String(text);return n;}
 function setStatus(id,text,isError){var n=$(id);if(!n)return;n.textContent=text||'';n.classList.toggle('error',!!isError);}
 function formatDate(value){if(!value)return 'Unbekanntes Datum';var date=new Date(value);return Number.isNaN(date.getTime())?String(value):date.toLocaleString('de-DE',{dateStyle:'medium',timeStyle:'short'});}
@@ -58,13 +58,22 @@ $('password-recovery-form').addEventListener('submit',async function(event){
 });
 $('signout-button').addEventListener('click',async function(){var result=await client.auth.signOut();if(result.error)setStatus('account-status',friendlyError(result.error),true);else setStatus('auth-status','Du wurdest abgemeldet.');});
 async function checkPermissions(){
-  canPost=false;isAdmin=false;if(!session){renderPermissionState();return;}
-  var results=await Promise.all([client.rpc('community_can_post'),client.rpc('community_is_admin')]);
-  canPost=!results[0].error&&results[0].data===true;isAdmin=!results[1].error&&results[1].data===true;renderPermissionState();
+  canPost=false;isAdmin=false;currentUsername='';
+  if(!session){renderPermissionState();return;}
+  var results=await Promise.all([
+    client.rpc('community_can_post'),
+    client.rpc('community_is_admin'),
+    client.rpc('community_my_username')
+  ]);
+  canPost=!results[0].error&&results[0].data===true;
+  isAdmin=!results[1].error&&results[1].data===true;
+  var rpcUsername=results[2]&&!results[2].error&&typeof results[2].data==='string'?results[2].data.trim():'';
+  currentUsername=rpcUsername||String(session.user.user_metadata&&session.user.user_metadata.username||'Community-Nutzer');
+  renderPermissionState();
 }
 function renderPermissionState(){
   $('auth-shell').hidden=!!session;$('account-panel').hidden=!session;
-  $('user-greeting').textContent=session?'Angemeldet als '+String(session.user.user_metadata&&session.user.user_metadata.username||'Community-Nutzer'):'';
+  $('user-greeting').textContent=session?'Angemeldet als '+String(currentUsername||session.user.user_metadata&&session.user.user_metadata.username||'Community-Nutzer'):'';
   $('post-question-panel').hidden=!session||!canPost;$('post-locked').hidden=!session||canPost;$('admin-panel').hidden=!session||!isAdmin;
   if(session&&!canPost)setStatus('account-status','Dein Konto darf momentan keine Beiträge veröffentlichen. Das kann an einer Moderationssperre oder einer noch nicht abgeschlossenen Einrichtung liegen.',true);
   else if(session)setStatus('account-status','Deine E-Mail-Adresse und interne Konto-ID werden anderen Community-Nutzern nicht angezeigt.');
@@ -174,7 +183,12 @@ async function loadAdmin(){
     });
     list=$('admin-reports');list.replaceChildren();if(!reports.length)list.appendChild(el('p','muted','Noch keine Meldungen.'));
     reports.forEach(function(report){
-      var card=el('div','admin-item');appendAdminText(card,'strong','',report.target_type+' · '+report.status);appendAdminText(card,'p','',report.target_summary||'Beitrag');appendAdminText(card,'p','',report.target_body||'');appendAdminText(card,'p','','Meldung von '+(report.reporter_username||'gelöschter Nutzer')+': '+report.reason);appendAdminText(card,'code','admin-id','Meldungs-ID: '+report.report_id+' · Ziel-ID: '+report.target_id);
+      var card=el('div','admin-item');appendAdminText(card,'strong','',report.target_type+' · '+report.status);
+      var reportSummary=String(report.target_summary||'').trim(),reportBody=String(report.target_body||'').trim();
+      if(reportSummary)appendAdminText(card,'p','',reportSummary);
+      if(reportBody&&reportBody!==reportSummary)appendAdminText(card,'p','',reportBody);
+      if(!reportSummary&&!reportBody)appendAdminText(card,'p','','Beitrag');
+      appendAdminText(card,'p','','Meldung von '+(report.reporter_username||'gelöschter Nutzer')+': '+report.reason);appendAdminText(card,'code','admin-id','Meldungs-ID: '+report.report_id+' · Ziel-ID: '+report.target_id);
       var buttons=el('div','admin-buttons');actionButton(buttons,'In Prüfung',function(){resolveReport(report,'reviewing');});actionButton(buttons,'Erledigt',function(){resolveReport(report,'resolved');});actionButton(buttons,'Verwerfen',function(){resolveReport(report,'dismissed');});card.appendChild(buttons);list.appendChild(card);
     });
     list=$('admin-actions');list.replaceChildren();if(!actions.length)list.appendChild(el('p','muted','Noch keine Moderationsmaßnahmen protokolliert.'));
