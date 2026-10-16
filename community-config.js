@@ -3,5 +3,5 @@
 // der Legacy anon key stehen. Niemals service_role- oder Secret-Keys eintragen.
 window.KEIMWERK_SUPABASE_CONFIG = {
   url: "https://ocmbbqbjzuazkdlynsys.supabase.co",
-  publishableKey: "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE"
+  publishableKey: "sb_publishable_uCvNK_SaGh43JQygwD7Ewg_FF3q0bcN"
 };
