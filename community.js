@@ -162,10 +162,12 @@ async function loadAdmin(){
       client.from('community_admin_questions').select('*').order('created_at',{ascending:false}).limit(150),
       client.from('community_admin_answers').select('*').order('created_at',{ascending:false}).limit(250),
       client.from('community_admin_reports').select('*').order('created_at',{ascending:false}).limit(150),
-      client.from('community_admin_moderation_actions').select('*').order('created_at',{ascending:false}).limit(50)
+      client.from('community_admin_moderation_actions').select('*').order('created_at',{ascending:false}).limit(50),
+      client.from('community_admin_content_actions').select('*').order('created_at',{ascending:false}).limit(100)
     ]);
     var failed=res.find(function(x){return x.error;});if(failed)throw failed.error;
-    var users=res[0].data||[],questions=res[1].data||[],answers=res[2].data||[],reports=res[3].data||[],actions=res[4].data||[],list;
+    var users=res[0].data||[],questions=res[1].data||[],answers=res[2].data||[],reports=res[3].data||[],
+      actions=res[4].data||[],contentActions=res[5].data||[],list;
     list=$('admin-users');list.replaceChildren();if(!users.length)list.appendChild(el('p','muted','Noch keine Profile.'));
     users.forEach(function(user){
       var card=el('div','admin-item');appendAdminText(card,'strong','',user.username+' · '+user.status);appendAdminText(card,'code','admin-id',user.user_id);appendAdminText(card,'p','',user.question_count+' Fragen · '+user.answer_count+' Antworten · registriert '+formatDate(user.created_at));
@@ -191,8 +193,24 @@ async function loadAdmin(){
       appendAdminText(card,'p','','Meldung von '+(report.reporter_username||'gelöschter Nutzer')+': '+report.reason);appendAdminText(card,'code','admin-id','Meldungs-ID: '+report.report_id+' · Ziel-ID: '+report.target_id);
       var buttons=el('div','admin-buttons');actionButton(buttons,'In Prüfung',function(){resolveReport(report,'reviewing');});actionButton(buttons,'Erledigt',function(){resolveReport(report,'resolved');});actionButton(buttons,'Verwerfen',function(){resolveReport(report,'dismissed');});card.appendChild(buttons);list.appendChild(card);
     });
-    list=$('admin-actions');list.replaceChildren();if(!actions.length)list.appendChild(el('p','muted','Noch keine Moderationsmaßnahmen protokolliert.'));
-    actions.forEach(function(a){var card=el('div','admin-item');appendAdminText(card,'strong','',a.action+' · '+(a.target_username||a.target_user_id||'Unbekannter Nutzer'));appendAdminText(card,'p','',a.reason+' · '+formatDate(a.created_at));appendAdminText(card,'code','admin-id','Nutzer-ID: '+(a.target_user_id||'nicht mehr verknüpft'));list.appendChild(card);});
+    list=$('admin-actions');list.replaceChildren();
+    var moderationLog=actions.map(function(a){return Object.assign({log_kind:'user'},a);})
+      .concat(contentActions.map(function(a){return Object.assign({log_kind:'content'},a);}))
+      .sort(function(a,b){return new Date(b.created_at).getTime()-new Date(a.created_at).getTime();});
+    if(!moderationLog.length)list.appendChild(el('p','muted','Noch keine Moderationsmaßnahmen protokolliert.'));
+    moderationLog.forEach(function(a){
+      var card=el('div','admin-item');
+      if(a.log_kind==='content'){
+        appendAdminText(card,'strong','', 'Beitrag · '+(a.target_type||'unbekannter Typ')+' · '+a.action);
+        appendAdminText(card,'p','',String(a.reason||'Keine Begründung angegeben')+' · '+formatDate(a.created_at));
+        appendAdminText(card,'code','admin-id','Beitrags-ID: '+(a.target_post_id||'unbekannt')+' · Admin-ID: '+(a.admin_id||'unbekannt'));
+      }else{
+        appendAdminText(card,'strong','',a.action+' · '+(a.target_username||a.target_user_id||'Unbekannter Nutzer'));
+        appendAdminText(card,'p','',String(a.reason||'Keine Begründung angegeben')+' · '+formatDate(a.created_at));
+        appendAdminText(card,'code','admin-id','Nutzer-ID: '+(a.target_user_id||'nicht mehr verknüpft'));
+      }
+      list.appendChild(card);
+    });
     setStatus('admin-status','Admin-Bereich aktualisiert: '+users.length+' Nutzer, '+reports.length+' Meldungen.');
   }catch(error){setStatus('admin-status','Admin-Daten konnten nicht geladen werden: '+friendlyError(error),true);}
 }
