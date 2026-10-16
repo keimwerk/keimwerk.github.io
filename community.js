@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-var SITE_URL='https://keimwerk.github.io/community.html';
+var SITE_URL=window.location.origin+window.location.pathname;
 var cfg=window.KEIMWERK_SUPABASE_CONFIG||{};
 var $=function(id){return document.getElementById(id);};
 var setupNotice=$('setup-notice');
