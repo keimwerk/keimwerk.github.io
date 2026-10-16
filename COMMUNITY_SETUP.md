@@ -8,7 +8,9 @@ Diese Ergänzung legt eine separate Community-Seite unter `/community.html` an. 
 - `community.css`: Gestaltung im vorhandenen Keimwerk-Farbschema.
 - `community.js`: Supabase Auth und Community-Funktionen.
 - `community-config.js`: öffentliche Supabase-URL und Publishable Key.
-- `supabase/community_public_view_patch.sql`: kleiner Sicherheits-Patch für die öffentliche Antworten-Ansicht.
+- `supabase/community_public_view_patch.sql`: Sicherheits-Patch für die öffentliche Antworten-Ansicht.
+- `supabase/community_username_reservations.sql`: reserviert Benutzernamen auch nach Kontolöschung dauerhaft.
+- `supabase/community_my_username.sql`: sicherer Abruf des eigenen festen Benutzernamens für die Kontoanzeige.
 
 ## Lokale Testversion starten
 
@@ -22,7 +24,7 @@ Die Community kann vor dem Merge lokal geprüft werden, ohne die veröffentlicht
 
 Die E-Mail-Bestätigung und der Passwort-Reset leiten zurück auf die URL, unter der die Community gerade läuft. Auf GitHub Pages bleibt es `https://keimwerk.github.io/community.html`; lokal wird `http://localhost:8000/community.html` verwendet.
 
-**Wichtig:** Diese lokale Vorschau verwendet aktuell dasselbe Supabase-Projekt wie die geplante Community, nicht eine isolierte Testdatenbank. Benutze daher einen eigens für den Test gewählten Namen (z. B. `kw_test_2026)); reservierte Testnamen bleiben dauerhaft gesperrt, auch nach einer späteren Kontolöschung. Das Supabase-Publishable-Key im öffentlichen Repository ist kein Geheimnis; die Sicherheit muss über RLS und die Datenbankfunktionen gewährleistet sein. Vor dem Test sollten wir die Registrierung nur dann aktivieren, wenn du direkt testest, und sie danach wieder deaktivieren, bis du die Community bewusst freigibst.
+**Wichtig:** Diese lokale Vorschau verwendet aktuell dasselbe Supabase-Projekt wie die geplante Community, nicht eine isolierte Testdatenbank. Benutze daher einen eigens für den Test gewählten Namen (z. B. `kw_test_2026`); reservierte Testnamen bleiben dauerhaft gesperrt, auch nach einer späteren Kontolöschung. Das Supabase-Publishable-Key im öffentlichen Repository ist kein Geheimnis; die Sicherheit muss über RLS und die Datenbankfunktionen gewährleistet sein. Vor dem Test sollten wir die Registrierung nur dann aktivieren, wenn du direkt testest, und sie danach wieder deaktivieren, bis du die Community bewusst freigibst.
 
 ## 1. Supabase-Konfiguration
 
@@ -36,11 +38,15 @@ Im Supabase SQL Editor den Inhalt von `supabase/community_username_reservations.
 
 Das ist eine bewusste Datenschutzentscheidung: In der Reservierungstabelle bleibt der normalisierte Benutzername ohne Kontoverknüpfung bestehen. Vor dem öffentlichen Start muss dies in den Datenschutzhinweisen erklärt werden.
 
+## 3. Eigenen Benutzernamen im Konto anzeigen
+
+Im Supabase SQL Editor den Inhalt von `supabase/community_my_username.sql` ausführen. Diese RPC-Funktion gibt ausschließlich den festen Benutzernamen des aktuell angemeldeten Kontos zurück. Dadurch zeigt die Kontoübersicht auch bei älteren Konten den Profilnamen an, ohne Zugriff auf fremde Profile oder E-Mail-Adressen zu geben.
+
 ## 3. Öffentliche Antworten-Ansicht härten
 
 Da `community_answers_public` eine View mit Eigentümerrechten ist, wird empfohlen, im Supabase SQL Editor den Inhalt von `supabase/community_public_view_patch.sql` auszuführen. Die Abfrage ändert die View-Definition, keine bestehenden Beiträge. Sie stellt sicher, dass Antworten von Nutzern mit Status `banned` auch dann nicht angezeigt werden, wenn ihre Frage selbst noch den Status `published` hat.
 
-## 4. E-Mail-Versand
+## 5. E-Mail-Versand
 
 Supabase Authentication → Sign In / Providers: E-Mail-Anmeldung und Confirm email eingeschaltet lassen. Authentication → URL Configuration:
 - Site URL: `https://keimwerk.github.io`
@@ -48,7 +54,7 @@ Supabase Authentication → Sign In / Providers: E-Mail-Anmeldung und Confirm em
 
 Für eine öffentliche Registrierung sollte ein eigener SMTP-Anbieter eingerichtet und getestet werden. Der Standardversand ist sehr eingeschränkt und für öffentliche Registrierung nicht zuverlässig genug.
 
-## 5. Ersten Admin freischalten
+## 6. Ersten Admin freischalten
 
 1. Erst nachdem die Konfiguration stimmt und SMTP funktioniert, auf der Community-Seite ein eigenes Konto mit der persönlichen E-Mail-Adresse, Passwort und einem festen Benutzernamen registrieren.
 2. Die Bestätigungs-E-Mail über den Link bestätigen.
@@ -64,7 +70,7 @@ on conflict (user_id) do nothing;
 
 Die Tabelle `community_admins` darf niemals für normale Besucher beschreibbar sein. Der Admin-Bereich wird durch `community_is_admin()` und serverseitige RPC-Prüfungen geschützt; das Verstecken der Oberfläche allein ist keine Sicherheitsmaßnahme.
 
-## 6. Funktionsprüfung vor dem öffentlichen Start
+## 7. Funktionsprüfung vor dem öffentlichen Start
 
 - Registrierungsbestätigung und Passwort-Reset funktionieren wirklich per E-Mail.
 - Ein bereits vergebener Benutzername kann nicht erneut registriert werden.
