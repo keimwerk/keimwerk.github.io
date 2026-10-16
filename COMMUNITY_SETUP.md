@@ -5,6 +5,7 @@ Diese Ergänzung legt eine separate Community-Seite unter `/community.html` an. 
 ## Dateien
 
 - `community.html`: Benutzeroberfläche für Registrierung, Anmeldung, Fragen, Antworten, Meldungen und Admin-Moderation.
+- `community-regeln.html`: eigene Seite mit den Community-Regeln; in der Registrierung verlinkt.
 - `community.css`: Gestaltung im vorhandenen Keimwerk-Farbschema.
 - `community.js`: Supabase Auth und Community-Funktionen.
 - `community-config.js`: öffentliche Supabase-URL und Publishable Key.
@@ -81,6 +82,8 @@ Die Tabelle `community_admins` darf niemals für normale Besucher beschreibbar s
 - Ausgeblendete/entfernte Inhalte erscheinen nicht in öffentlichen Views.
 - Die übrigen Keimwerk-Funktionen sind weiterhin ohne Community-Login nutzbar.
 
-## Datenschutz
+## Datenschutz und Anbieterkennzeichnung
+
+Vor dem Merge und der öffentlichen Freigabe müssen echte Datenschutz- und Anbieterkennzeichnungsseiten mit vollständigen Betreiberangaben ergänzt und von dir geprüft werden. Diese Angaben dürfen nicht erfunden werden.
 
 Die Community ist pseudonym, nicht technisch vollständig anonym: Andere Besucher sehen den selbst gewählten Benutzernamen, nicht die E-Mail-Adresse. Vor dem öffentlichen Start Datenschutzhinweise, Community-Regeln, Melde-/Kontaktmöglichkeit, angemessene Aufbewahrungsfristen und Löschprozess für Moderationsdaten ergänzen.
