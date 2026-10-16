@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1e2a21">
+  <meta name="description" content="Stelle Pflanzenfragen, teile Erfahrungen und tausche dich anonym unter einem festen Benutzernamen mit der Keimwerk-Community aus.">
+  <title>Keimwerk Community – Fragen und Antworten</title>
+  <link rel="icon" href="./assets/keimwerk-logo-full.webp">
+  <link rel="stylesheet" href="./community.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="./community-config.js"></script>
+  <script defer src="./community.js"></script>
+</head>
+<body>
+  <header class="kw-header">
+    <a class="kw-brand" href="./index.html" aria-label="Zur Keimwerk-Startseite">
+      <img src="./assets/keimwerk-logo-full.webp" alt="">
+      <span class="kw-brand-text"><strong>KEIMWERK</strong><span>Wissen, das Wurzeln schlägt.</span></span>
+    </a>
+    <nav class="kw-nav" aria-label="Hauptnavigation">
+      <a href="./index.html">Zur Website</a>
+      <a href="#fragen">Community</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">KEIMWERK COMMUNITY</div>
+      <h1>Fragen stellen.<br><span>Gemeinsam wachsen.</span></h1>
+      <p class="lede">Tausche dich über Pflanzen, Pflege, Dünger und Gartenwissen aus. Du trittst öffentlich mit deinem selbst gewählten Benutzernamen auf. Deine E-Mail-Adresse und interne Konto-ID bleiben verborgen.</p>
+      <div class="notice" id="setup-notice" role="status" hidden></div>
+      <div class="notice"><strong>Dein Benutzername bleibt fest.</strong> Wähle ihn bei der Registrierung sorgfältig aus: Er ist dauerhaft reserviert und kann derzeit nicht geändert werden. Für die Community brauchst du ein Konto; die übrige Keimwerk-Website bleibt weiterhin ohne Registrierung nutzbar.</div>
+    </section>
+
+    <div class="columns">
+      <aside>
+        <section class="card" id="auth-shell" aria-labelledby="auth-heading">
+          <div class="card-heading"><div><h2 id="auth-heading">Community-Konto</h2><p class="muted">Registrierung nur für Fragen und Antworten</p></div></div>
+          <div class="tabs" role="tablist" aria-label="Anmeldung oder Registrierung">
+            <button type="button" id="show-login" role="tab" aria-selected="true">Anmelden</button>
+            <button type="button" id="show-signup" role="tab" aria-selected="false">Registrieren</button>
+          </div>
+          <form id="login-form" class="form-grid">
+            <div class="field"><label for="login-email">E-Mail-Adresse</label><input id="login-email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+            <div class="field"><label for="login-password">Passwort</label><input id="login-password" name="password" type="password" autocomplete="current-password" required minlength="8"></div>
+            <button class="primary" type="submit">Anmelden</button>
+            <button class="btn" id="forgot-password" type="button">Passwort zurücksetzen</button>
+          </form>
+          <form id="signup-form" class="form-grid" hidden>
+            <div class="field"><label for="signup-username">Fester Benutzername</label><input id="signup-username" name="username" autocomplete="nickname" minlength="3" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" required aria-describedby="username-help"><p class="help" id="username-help">3–24 Zeichen; Buchstaben, Zahlen und Unterstriche. Später nicht änderbar.</p></div>
+            <div class="field"><label for="signup-email">E-Mail-Adresse (privat)</label><input id="signup-email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+            <div class="field"><label for="signup-password">Passwort</label><input id="signup-password" name="password" type="password" autocomplete="new-password" required minlength="8"><p class="help">Mindestens 8 Zeichen. Verwende ein einzigartiges Passwort.</p></div>
+            <button class="primary" type="submit">Konto erstellen</button>
+            <p class="help">Mit der Registrierung bestätigst du, die Community-Regeln und Datenschutzhinweise gelesen zu haben. Vor dem öffentlichen Start müssen die entsprechenden Seiten/Angaben ergänzt sein.</p>
+          </form>
+          <div class="status" id="auth-status" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="card" id="account-panel" hidden>
+          <div class="account-row"><div><h2>Dein Konto</h2><p id="user-greeting" class="muted"></p></div><div class="account-actions"><button class="btn" id="signout-button" type="button">Abmelden</button></div></div>
+          <p class="small">Deine E-Mail-Adresse und interne Konto-ID werden nicht öffentlich angezeigt. Die Konto-ID kann der Betreiber im geschützten Moderationsbereich zur Zuordnung von Beiträgen verwenden.</p>
+          <div class="status" id="account-status" role="status"></div>
+        </section>
+
+        <section class="card" id="password-recovery-panel" hidden>
+          <h2>Neues Passwort festlegen</h2>
+          <form id="password-recovery-form" class="form-grid">
+            <div class="field"><label for="recovery-password">Neues Passwort</label><input id="recovery-password" type="password" autocomplete="new-password" minlength="8" required></div>
+            <button class="primary" type="submit">Passwort speichern</button>
+          </form>
+          <div class="status" id="recovery-status" role="status"></div>
+        </section>
+
+        <section class="card" id="post-question-panel" hidden>
+          <h2>Eine Frage stellen</h2>
+          <p class="muted">Beschreibe dein Anliegen so konkret wie möglich.</p>
+          <form id="question-form" class="form-grid">
+            <div class="field"><label for="question-title">Titel</label><input id="question-title" name="title" maxlength="180" minlength="5" required placeholder="Worum geht es?"></div>
+            <div class="field"><label for="question-category">Themenbereich</label><select id="question-category" name="category"><option>Allgemein</option><option>Pflanzenprobleme</option><option>Gießen und Wasser</option><option>Erde und Nährstoffe</option><option>Schädlinge und Nützlinge</option><option>Garten und Anbau</option><option>Technik und Ausstattung</option></select></div>
+            <div class="field"><label for="question-body">Deine Frage</label><textarea id="question-body" name="body" minlength="10" maxlength="10000" required placeholder="Erkläre, was du beobachtest und was du bereits ausprobiert hast."></textarea></div>
+            <button class="primary" type="submit">Frage veröffentlichen</button>
+          </form>
+          <div id="question-status" class="status" role="status"></div>
+        </section>
+        <section class="card" id="post-locked" hidden>
+          <h2>Schreibrechte pausiert</h2>
+          <p>Dein Konto kann derzeit keine neuen Beiträge veröffentlichen. Das kann an einer Moderationsmaßnahme oder einer noch nicht abgeschlossenen Einrichtung liegen.</p>
+        </section>
+
+        <section class="card">
+          <h2>Gemeinsam fair bleiben</h2>
+          <ul class="rules">
+            <li>Respektvoll und sachlich miteinander umgehen.</li>
+            <li>Keine persönlichen Daten anderer veröffentlichen.</li>
+            <li>Illegale oder gefährliche Inhalte nicht unterstützen.</li>
+            <li>Problematische Beiträge über „Beitrag melden“ melden.</li>
+          </ul>
+          <p class="help">Meldungen werden von der Betreiberseite geprüft; sie führen nicht automatisch zu einer Sperre.</p>
+        </section>
+      </aside>
+
+      <section id="fragen" aria-labelledby="feed-heading">
+        <div class="card">
+          <div class="card-heading">
+            <div><div class="kicker">AUSTAUSCH</div><h2 id="feed-heading">Fragen aus der Community</h2><p class="muted">Öffentliche Fragen und Antworten sind auch ohne Konto lesbar.</p></div>
+            <button id="refresh-feed" class="btn" type="button">Aktualisieren</button>
+          </div>
+          <div id="feed-status" class="status" role="status" aria-live="polite">Community wird vorbereitet …</div>
+          <div id="question-list" class="question-list" aria-live="polite"><div class="empty">Die Fragen erscheinen hier, sobald die Supabase-Verbindung eingerichtet und die Community-Datenbank bereit ist.</div></div>
+        </div>
+      </section>
+    </div>
+
+    <details class="card admin-panel" id="admin-panel" hidden>
+      <summary>Keimwerk Admin – Moderation und Nutzerverwaltung</summary>
+      <div class="admin-content">
+        <p>Dieser Bereich wird erst sichtbar, wenn dein Konto in <code>community_admins</code> eingetragen ist. Jede Maßnahme erfordert eine Begründung und wird serverseitig geprüft.</p>
+        <button class="btn" type="button" id="refresh-admin">Admin-Daten aktualisieren</button>
+        <div class="status" id="admin-status" role="status" aria-live="polite"></div>
+        <div class="admin-grid">
+          <section><h3>Nutzer und feste IDs</h3><div class="admin-list" id="admin-users"></div></section>
+          <section><h3>Meldungen</h3><div class="admin-list" id="admin-reports"></div></section>
+          <section><h3>Fragen moderieren</h3><div class="admin-list" id="admin-questions"></div></section>
+          <section><h3>Antworten moderieren</h3><div class="admin-list" id="admin-answers"></div></section>
+          <section><h3>Moderationsprotokoll</h3><div class="admin-list" id="admin-actions"></div></section>
+        </div>
+      </div>
+    </details>
+  </main>
+
+  <footer>Keimwerk Community · Respektvoll fragen. Gemeinsam lernen.</footer>
+</body>
+</html>
