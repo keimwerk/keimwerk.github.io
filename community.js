@@ -211,7 +211,7 @@ async function loadAdmin(){
       }
       list.appendChild(card);
     });
-    setStatus('admin-status','Admin-Bereich aktualisiert: '+users.length+' Nutzer, '+reports.length+' Meldungen.');
+    setStatus('admin-status','Admin-Bereich aktualisiert: '+users.length+' Nutzer, '+reports.length+' Meldungen, '+actions.length+' Nutzermaßnahmen und '+contentActions.length+' Inhaltsmaßnahmen geladen.');
   }catch(error){setStatus('admin-status','Admin-Daten konnten nicht geladen werden: '+friendlyError(error),true);}
 }
 $('refresh-admin').addEventListener('click',loadAdmin);
