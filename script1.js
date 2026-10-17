@@ -1,2 +1,0 @@
-
-(()=>{const send=()=>{try{parent.postMessage({type:'keimwerk-calculator-height',height:Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0)},'*')}catch(e){}};window.addEventListener('load',()=>{send();setTimeout(send,250);setTimeout(send,900)});window.addEventListener('resize',send);if('ResizeObserver'in window)new ResizeObserver(send).observe(document.body);if('MutationObserver'in window)new MutationObserver(()=>requestAnimationFrame(send)).observe(document.body,{subtree:true,childList:true,attributes:true});})();
