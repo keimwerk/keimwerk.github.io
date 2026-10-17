@@ -1,0 +1,23 @@
+KEIMWERK — FOTOQUELLEN UND LIZENZEN
+=================================
+
+1. „Cannabis leaves.jpg“ (Hero-Foto und Grow-Journal-Hintergrund)
+   Fotograf: Brett Levin / Brett Levin Photography
+   Lizenz: Creative Commons Attribution 2.0 Generic (CC BY 2.0)
+   Quelle: https://commons.wikimedia.org/wiki/File:Cannabis_leaves.jpg
+   Lizenz: https://creativecommons.org/licenses/by/2.0/
+   Anpassungen im Design: Bildausschnitt, Farbton, Helligkeit, Kontrast und
+   darüberliegende Farbverläufe via CSS. Quelldatei nicht verändert.
+
+2. „Marijuana Cannabis leaves.jpg“ (Bild im Wissensbereich)
+   Fotograf: Cannabis Tours
+   Lizenz: Creative Commons Attribution-ShareAlike 4.0 International
+   (CC BY-SA 4.0)
+   Quelle: https://commons.wikimedia.org/wiki/File:Marijuana_Cannabis_leaves.jpg
+   Lizenz: https://creativecommons.org/licenses/by-sa/4.0/
+   Anpassungen im Design: Bildausschnitt, Farbton, Helligkeit, Kontrast und
+   darüberliegende Farbverläufe via CSS. Quelldatei nicht verändert.
+
+Die beiden Fotografien werden von Wikimedia Commons direkt eingebunden,
+nicht neu veröffentlicht, verändert oder mitgeliefert. Internet erforderlich.
+Bitte die Lizenzbedingungen vor einer späteren Veröffentlichung erneut prüfen.
