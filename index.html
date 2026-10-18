@@ -8,6 +8,8 @@
   <title>Keimwerk – Wissen, das Wurzeln schlägt.</title>
   <link rel="stylesheet" href="css/style.css?v=6">
   <script src="js/script.js?v=6" defer></script>
+  <link rel="stylesheet" href="css/keimwerk-v24.css?v=24">
+  <script src="js/keimwerk-v24.js?v=24" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
@@ -30,6 +32,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"></circle><path d="m16 16 5 5"></path></svg>
         <span>Suche</span><span class="search-key">/</span>
       </button>
+      <button class="kw24-header-button" type="button" data-kw24-backup aria-label="Datensicherung öffnen"><span aria-hidden="true">↧</span><span class="kw24-backup-label"> Sicherung</span></button>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menü öffnen">
         <span></span><span></span>
       </button>
@@ -172,18 +175,8 @@
     </section>
   </main>
 
-  <footer class="footer"><div class="container-wide footer-top"><span class="footer-brand">KEIMWERK<span>.</span></span><span>WISSEN. WACHSTUM. ZUSAMMENHÄNGE.</span></div><div class="container-wide footer-bottom"><span>© 2026 Keimwerk · V2</span><span>Fotos: <a href="BILDQUELLEN.txt" target="_blank" rel="noopener">Bildnachweise</a></span><a href="#oben">NACH OBEN ↑</a></div></footer>
+  <footer class="footer"><div class="container-wide footer-top"><span class="footer-brand">KEIMWERK<span>.</span></span><span>WISSEN. WACHSTUM. ZUSAMMENHÄNGE.</span></div><div class="container-wide footer-bottom"><span>© 2026 Keimwerk · V2.5.3</span><span>Fotos: <a href="BILDQUELLEN.txt" target="_blank" rel="noopener">Bildnachweise</a> · <a href="README.txt" target="_blank" rel="noopener">Projektinformationen</a></span><a href="#oben">NACH OBEN ↑</a></div></footer>
 
-  <div class="search-modal" id="search-modal" hidden>
-    <div class="search-backdrop" id="search-backdrop"></div>
-    <div class="search-dialog" role="dialog" aria-modal="true" aria-labelledby="search-title">
-      <div class="search-top"><span>KEIMWERK / ENTDECKEN</span><button type="button" id="close-search" class="close-search" aria-label="Suche schließen">×</button></div>
-      <h2 id="search-title">Was möchtest du <em>wissen?</em></h2>
-      <label for="search-input">Begriff eingeben</label>
-      <input id="search-input" type="search" placeholder="z. B. Nährstoffe, Tagebuch, Schädlinge ..." autocomplete="off">
-      <div id="search-results" class="search-results" aria-live="polite"></div>
-      <p class="search-help">Die Suche zeigt die vorhandenen Bereiche und öffnet die lokalen Module. Suchanfragen werden nicht gesendet.</p>
-    </div>
-  </div>
+
 </body>
 </html>

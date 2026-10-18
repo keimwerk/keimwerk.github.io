@@ -1,0 +1,36 @@
+/* Keimwerk v2.4: kompakte Werkzeuge, gut erreichbare Suche, mobile und barrierearme Dialoge */
+.kw24-header-button{font:600 12px/1.3 inherit;display:inline-flex;align-items:center;justify-content:center;min-height:41px;padding:9px 13px;color:#d8e5d1;background:transparent;border:1px solid #516753;border-radius:6px;white-space:nowrap;cursor:pointer}
+.kw24-header-button:hover,.kw24-header-button:focus-visible{color:white;background:#25402b;border-color:#9db89a}
+.kw24-modal-open{overflow:hidden}
+#kw24-overlay[hidden]{display:none!important}
+#kw24-overlay{position:fixed;z-index:100001;inset:0;display:flex;align-items:flex-start;justify-content:center;padding:clamp(12px,6vh,66px) 12px;overflow-y:auto}
+.kw24-backdrop{position:fixed;inset:0;background:rgba(2,12,6,.83);backdrop-filter:blur(4px)}
+.kw24-dialog{position:relative;z-index:1;width:min(100%,750px);background:#172a1d;color:#f0f5ed;padding:clamp(18px,3vw,34px);border:1px solid #69816b;border-radius:15px;box-shadow:0 30px 90px #0009;max-height:90vh;overflow-y:auto}
+.kw24-dialog-head{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#b6c9ac;font-size:11px;letter-spacing:.08em}
+.kw24-dialog .kw24-close{background:transparent;color:#eef3e8;font-size:28px;line-height:1;padding:6px 12px;border:1px solid #5c765e;cursor:pointer;border-radius:7px}
+.kw24-dialog h2{margin:17px 0 19px;font-size:clamp(24px,4vw,35px);font-family:inherit;line-height:1.18;color:#eff8e8}
+.kw24-dialog h3{font-size:16px;margin:0 0 12px}
+.kw24-field-label{display:block;margin:10px 0 8px;color:#dce9d4;font-size:13px}
+.kw24-dialog input[type=search],.kw24-dialog input[type=file]{width:100%;max-width:100%;background:#0f2015;color:#fff;border:1px solid #6f9170;border-radius:9px;padding:13px;font-size:16px;min-height:46px}
+.kw24-results{display:grid;gap:8px;margin:15px 0;max-height:48vh;overflow-y:auto}
+.kw24-result{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:13px 16px;border:1px solid #405b46;background:#1b3023;border-radius:8px;color:#eef4e9;text-decoration:none;font-size:14px;line-height:1.35;overflow-wrap:anywhere}
+.kw24-result:hover,.kw24-result:focus-visible{border-color:#9dbf9a;background:#284633}
+.kw24-result small{font-size:11px;color:#bdd4b5;text-align:right;flex:0 0 auto}
+.kw24-help{font-size:13px;line-height:1.6;color:#bfd2b9;overflow-wrap:anywhere}
+.kw24-backup-block{padding:17px;margin:16px 0;background:#102318;border:1px solid #405843;border-radius:11px}
+.kw24-primary{display:inline-flex;justify-content:center;align-items:center;max-width:100%;min-height:45px;background:#a9d19e;color:#142619;border:1px solid #d1ecd0;border-radius:8px;padding:11px 17px;font-size:14px;font-weight:700;cursor:pointer}
+.kw24-primary:disabled{opacity:.5;cursor:not-allowed}
+.kw24-check{display:flex;align-items:flex-start;gap:9px;margin:12px 0;font-size:13px;line-height:1.5;color:#e6eee0}
+.kw24-check input{margin-top:4px;flex:0 0 auto}
+@media(max-width:900px){.work-header .kw24-header-button{padding:7px 9px;font-size:11px}}
+@media(max-width:660px){.kw24-header-button{padding:9px;font-size:11px}.work-header .kw24-header-button{min-height:40px}.kw24-dialog{padding:19px 15px}.kw24-result{display:grid;gap:4px}.kw24-result small{text-align:left}.kw24-dialog-head{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.kw24-result{scroll-behavior:auto}}
+
+@media(max-width:660px){
+  .site-header .header-inner{gap:7px}
+  .kw24-backup-label{display:none}
+  .kw24-header-button[data-kw24-backup]{min-width:39px;padding:8px 9px}
+  .work-page .header-inner{gap:7px}
+  .work-page .brand{margin-right:auto}
+  .work-page .kw24-header-button{min-height:41px}
+}
