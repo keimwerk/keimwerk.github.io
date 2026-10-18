@@ -6703,7 +6703,7 @@
       "state": "flüssig",
       "npk": "0-0-0",
       "declaredNutrients": {
-        "N": 0.0,
+        "N": 6,
         "P2O5": 0.0,
         "K2O": 0.0,
         "Ca": 12
