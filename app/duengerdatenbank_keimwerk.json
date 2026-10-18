@@ -6701,25 +6701,29 @@
       "name": "Canna Mono Calcium",
       "brand": "Canna",
       "state": "flüssig",
-      "npk": "0-0-0",
+      "npk": "6-0-0",
       "declaredNutrients": {
-        "N": 6,
+        "N": 6.0,
         "P2O5": 0.0,
         "K2O": 0.0,
-        "Ca": 12
+        "CaO": 12.0
       },
       "referencePerUnit": {
-        "N": 0.0,
+        "N": 76.98,
         "P": 0.0,
         "K": 0.0,
-        "Ca": 153.96
+        "Ca": 110.0814
       },
-      "nitrogenFormsPerUnit": {},
-      "nForms": {},
+      "nitrogenFormsPerUnit": {
+        "no3": 76.98
+      },
+      "nForms": {
+        "no3": 6.0
+      },
       "density": 1.283,
       "calculatorReady": true,
       "sourceName": "Keimwerk – eigene, im Chat erfasste Produktdatenbank",
-      "sourceNote": "Rohangaben aus der eigenen Erfassung. Oxiddeklarationen und elementare Angaben sind getrennt gespeichert. Rechnerkoeffizienten: mg/L je 1 g/L (Feststoff) bzw. je 1 ml/L (Flüssigkeit, vorläufige Dichte 1,0 g/ml). Nicht übermittelte Werte bleiben unbekannt. Dichte V14: 1.28 g/ml; Status: Vorläufig / nicht unabhängig bestätigt. Angabe aus vom Nutzer übermittelter PDF; noch kein unabhängiger produktgleicher Herstellerbeleg. Änderung der mg/L-Rechenkoeffizienten gegenüber V13 ×1.28000000. V16 Nutzerabgleich: Rechenwert 1.283 g/ml; V15 1.280 g/ml; Faktor 1.00234375; geändert. Nutzerwert ist ohne gesonderten Beleg nicht als Herstellerdichte bestätigt.",
+      "sourceNote": "Rohangaben aus der eigenen Erfassung. Oxiddeklarationen und elementare Angaben sind getrennt gespeichert. Rechnerkoeffizienten: mg/L je 1 g/L (Feststoff) bzw. je 1 ml/L (Flüssigkeit, vorläufige Dichte 1,0 g/ml). Nicht übermittelte Werte bleiben unbekannt. Dichte V14: 1.28 g/ml; Status: Vorläufig / nicht unabhängig bestätigt. Angabe aus vom Nutzer übermittelter PDF; noch kein unabhängiger produktgleicher Herstellerbeleg. Änderung der mg/L-Rechenkoeffizienten gegenüber V13 ×1.28000000. V16 Nutzerabgleich: Rechenwert 1.283 g/ml; V15 1.280 g/ml; Faktor 1.00234375; geändert. Nutzerwert ist ohne gesonderten Beleg nicht als Herstellerdichte bestätigt. Korrektur 18.10.2026: 12 % CaO (Calciumoxid) statt 12 % elementarem Calcium. Zusätzlich 6 % Nitrat-Stickstoff in die Berechnung aufgenommen (vom Nutzer festgelegter, aus Calciumnitrat abgeleiteter Schätzwert; keine explizit verifizierte Herstellerdeklaration von 6 % N). Die Dichte 1,283 g/ml bleibt ein bislang nicht unabhängig bestätigter Nutzerwert.",
       "variantNotes": {
         "densityVerificationStatus": "user_supplied_not_independently_verified_v16",
         "densityUnit": "g/ml",
@@ -6747,7 +6751,7 @@
         "K",
         "Ca"
       ],
-      "knownNForms": false
+      "knownNForms": true
     },
     {
       "id": "KW-DNG-00141",
