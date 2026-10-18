@@ -58,7 +58,7 @@
   try{
    if(!searchData.length){const response=await fetch(prefix+'js/keimwerk-v24-search-index.json',{cache:'force-cache'});if(!response.ok)throw Error('index');searchData=await response.json();}
    if(!root.hidden)render();
-  }catch(_){status.textContent='Der Suchindex konnte nicht geladen werden. Bitte Seite neu laden und Verbindung prüfen.';}
+  }catch(_){status.textContent='Der Suchindex konnte nicht geladen werden. Starte Keimwerk über start.bat und lade neu.';}
  }
  // Sichert bewusst nur die Benutzer-Daten, niemals die fest eingebauten 227 Produktdatensätze.
  const approved=['keimwerk-grow-diary-v1','keimwerk-grow-profiles-v1','keimwerkCalculatorState','keimwerkFertilizers','keimwerk-v22-schema-favorites','keimwerk-v24-personal-si-range'];
