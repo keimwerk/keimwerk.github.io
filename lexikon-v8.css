@@ -1,0 +1,95 @@
+/* Keimwerk V8 | Bildorientierte Lexika. Nur Anzeige; bestehende Inhalte und Daten bleiben. */
+body.kw-integrated #pests,
+body.kw-integrated #beneficials,
+body.kw-integrated #nutrients { --lex-cream:#f3f1e6; --lex-muted:#b4c6b1; }
+
+/* Ruhiger Auftakt statt langer Infokästen */
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .subhead{margin-bottom:12px!important;border-bottom:0!important;padding-bottom:10px!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .subhead h1{margin-bottom:8px!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .subhead p{max-width:610px;color:#b9cbb8!important;line-height:1.6}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .subhead .pill{display:none!important}
+
+/* Filter und Bildkatalog */
+body.kw-integrated .kw-lex-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:0 0 24px;padding:0 0 17px;border-bottom:1px solid rgba(185,209,178,.2)}
+body.kw-integrated .kw-lex-toolbar-copy{display:grid;gap:3px}
+body.kw-integrated .kw-lex-toolbar-copy strong{font:400 clamp(20px,2vw,27px)/1.3 Georgia,serif;color:var(--lex-cream)}
+body.kw-integrated .kw-lex-count{font-size:12px;color:var(--lex-muted)}
+body.kw-integrated .kw-lex-search-wrap{position:relative;width:min(100%,330px);display:flex;align-items:center}
+body.kw-integrated .kw-lex-search-symbol{position:absolute;left:15px;pointer-events:none;color:#b8d4af;font-size:19px;line-height:1}
+body.kw-integrated .kw-lex-search-wrap input{width:100%;padding:12px 15px 12px 43px!important;background:#14271b!important;border:1px solid #466149!important;border-radius:50px!important;font-size:14px!important;min-height:46px!important;color:#f0f4e8!important;box-shadow:none!important}
+body.kw-integrated .kw-lex-empty{padding:24px;color:#cbdccc;border:1px dashed #55705a;border-radius:12px;margin:10px 0 20px}
+body.kw-integrated :is(#pests,#beneficials) .pest-grid.kw-lex-grid,
+body.kw-integrated #nutrients .nutrient-grid.kw-lex-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important;align-items:start;margin:0 0 38px}
+
+/* Bild als prägendes Element, keine Textwand in der Übersicht */
+body.kw-integrated #pests .pest-grid.kw-lex-grid > article.kw-lex-card,
+body.kw-integrated #beneficials .pest-grid.kw-lex-grid > article.kw-lex-card,
+body.kw-integrated #nutrients .nutrient-grid.kw-lex-grid > article.kw-lex-card{
+  min-width:0;display:block;padding:0!important;overflow:hidden;border:1px solid #37503b!important;
+  border-radius:16px!important;background:#142219!important;box-shadow:0 11px 26px #0002!important;
+  transition:border-color .17s,transform .17s,box-shadow .17s;
+}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) article.kw-lex-card:hover{transform:translateY(-2px);border-color:#769b72!important;box-shadow:0 15px 38px #0004!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) article.kw-lex-card.kw-open{grid-column:1/-1;transform:none;border-color:#98b892!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) article.kw-lex-card[hidden]{display:none!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-trigger{
+  display:block;text-align:left;width:100%;cursor:pointer;border:0!important;border-radius:0!important;
+  padding:0!important;min-height:0!important;line-height:1.3!important;background:transparent!important;
+  color:#f4f3ea!important;box-shadow:none!important;font-family:inherit!important;
+}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-trigger:focus-visible{outline:3px solid #cbe8af!important;outline-offset:-3px!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-cover{position:relative;display:block;width:100%;aspect-ratio:1.38;overflow:hidden;background:radial-gradient(ellipse at 60% 10%,#31533a,#0c1d14 70%)}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,17,10,.12),transparent 52%);pointer-events:none}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-cover img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .28s ease;filter:saturate(.96);}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) article.kw-lex-card:hover .kw-lex-cover img{transform:scale(1.045)}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-no-photo{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px;height:100%;color:#adccaa;text-align:center;background:radial-gradient(circle at 25% 25%,#305039,#112418)}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-no-photo .kw-lex-no-icon{font-size:38px;line-height:1}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-no-photo small{color:#b9c7b6;font-size:12px}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-caption{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:17px 19px 18px;min-height:108px}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-caption-main{min-width:0;flex:1}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-caption-label{display:block;font:700 10px/1.4 'Segoe UI',sans-serif;letter-spacing:1.7px;text-transform:uppercase;color:#a8c89f;margin-bottom:6px}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-caption h3{margin:0 0 5px!important;font:400 clamp(20px,2vw,25px)/1.12 Georgia,serif!important;letter-spacing:-.45px;color:#f3f0e6!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-caption p{font:12px/1.5 'Segoe UI',sans-serif!important;color:#b2c5b0!important;margin:0;max-width:100%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-arrow{display:grid;place-items:center;width:34px;height:34px;flex:none;border:1px solid #426149;border-radius:50%;color:#d4e4c9;font-size:22px;transition:transform .18s,background .18s}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) article.kw-open .kw-lex-arrow{transform:rotate(45deg);background:#2d4933}
+
+/* Klick => ausführliche vorhandene Texte und Bildfolgen zeigen */
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-detail[hidden]{display:none!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) article.kw-open .kw-lex-detail{padding:21px clamp(18px,3vw,34px) 28px;border-top:1px solid #38543d;background:#182b1e}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-detail .kw-lex-detail-intro{display:flex;flex-wrap:wrap;gap:9px;align-items:baseline;justify-content:space-between;margin-bottom:11px}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-detail .kw-lex-detail-intro h3{font:400 clamp(23px,2.6vw,32px)/1.25 Georgia,serif!important;margin:0!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-detail .kw-lex-detail-intro .latin{font-size:13px}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-detail :is(p,.nutrient-intro){font-size:14px!important;line-height:1.75;max-width:980px;margin:9px 0;color:#d9e4d5!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-detail .pest-images,
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-detail .nutrient-images{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))!important;gap:12px!important;margin:17px 0 21px!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-detail :is(.pest-images,.nutrient-images) figure{width:auto!important;max-width:none!important;margin:0!important;min-width:0}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-detail :is(.pest-images,.nutrient-images) img{width:100%!important;height:auto!important;aspect-ratio:1.4!important;object-fit:cover!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-detail .nutrient-detail{max-width:1050px;border-color:#39543d;margin-top:10px;padding-top:12px}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-dismiss{margin-top:20px;background:#25412d!important;border:1px solid #57775a!important;color:#f0f5eb!important;border-radius:8px;padding:10px 15px!important;min-height:44px;cursor:pointer}
+
+/* Der lange Nährstoff-Ratgeber bleibt vorhanden, aber über ein Element zugänglich. */
+body.kw-integrated #nutrients .kw-lex-reference{margin:32px 0 25px;border:1px solid #426247;border-radius:16px;background:#15271b;overflow:hidden}
+body.kw-integrated #nutrients .kw-lex-reference>summary{cursor:pointer;padding:22px clamp(16px,2.6vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;color:#f4f0e3;font:400 clamp(20px,2vw,28px)/1.3 Georgia,serif;list-style:none}
+body.kw-integrated #nutrients .kw-lex-reference>summary::-webkit-details-marker{display:none}
+body.kw-integrated #nutrients .kw-lex-reference>summary::after{content:"+";font:28px/1 'Segoe UI',sans-serif;color:#cbe0b8}
+body.kw-integrated #nutrients .kw-lex-reference[open]>summary::after{content:"−"}
+body.kw-integrated #nutrients .kw-lex-reference>.kw-lex-reference-content{padding:6px clamp(15px,2.6vw,30px) 30px;border-top:1px solid #37563d}
+body.kw-integrated #nutrients .kw-lex-reference .nutrient-toc{padding:15px!important;margin:18px 0!important}
+body.kw-integrated #nutrients .kw-lex-reference .nutrient-toc-title{font-size:22px!important}
+body.kw-integrated #nutrients .kw-lex-reference .nutrient-extra{margin-top:26px!important}
+body.kw-integrated #nutrients .kw-lex-caution{font:12px/1.6 'Segoe UI',sans-serif;color:#bed0b6;margin:0 0 22px}
+@media(min-width:900px){body.kw-integrated :is(#pests,#beneficials,#nutrients) article.kw-open .kw-lex-trigger{display:grid;grid-template-columns:minmax(260px,37%) 1fr;align-items:stretch}
+ body.kw-integrated :is(#pests,#beneficials,#nutrients) article.kw-open .kw-lex-cover{height:225px;aspect-ratio:auto}
+ body.kw-integrated :is(#pests,#beneficials,#nutrients) article.kw-open .kw-lex-caption{align-self:center;padding:24px 34px}
+}
+@media(max-width:1030px){body.kw-integrated :is(#pests,#beneficials) .pest-grid.kw-lex-grid,body.kw-integrated #nutrients .nutrient-grid.kw-lex-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:660px){
+ body.kw-integrated :is(#pests,#beneficials) .pest-grid.kw-lex-grid,body.kw-integrated #nutrients .nutrient-grid.kw-lex-grid{grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
+ body.kw-integrated .kw-lex-toolbar{align-items:stretch;gap:13px;margin-bottom:18px}
+ body.kw-integrated .kw-lex-search-wrap{width:100%}
+ body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-cover{aspect-ratio:1.7}
+ body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-caption{min-height:88px;padding:15px 16px}
+ body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-caption h3{font-size:23px!important}
+ body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-detail :is(.pest-images,.nutrient-images){grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(prefers-reduced-motion:reduce){body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-cover img,body.kw-integrated :is(#pests,#beneficials,#nutrients) article.kw-lex-card{transition:none}}
