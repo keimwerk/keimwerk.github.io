@@ -1,0 +1,21 @@
+/* Keimwerk v2.4 – Si und SiO2 wie regulaere Naehrstoffe darstellen */
+.kw24-silicon-integrated #silicateDetails{display:none!important}
+.kw24-silicon-integrated #summary .kw24-si-card{border-color:#55795c}
+.kw24-silicon-integrated #summary .kw24-si-card .name .nutrient-link-button{max-width:100%;white-space:normal;text-align:left}
+.kw24-silicon-integrated #summary .kw24-si-card .status{margin-top:9px}
+.kw24-silicon-integrated .kw24-si-card .kw24-status-neutral{background:rgba(173,187,169,.12);color:#d1dfcb;border:1px solid #637869}
+.kw24-silicon-integrated .kw24-si-card .kw24-status-ok{background:#1f432b;color:#c1e4be;border:1px solid #4b8054}
+.kw24-silicon-integrated .kw24-si-card .kw24-status-near{background:#453f27;color:#f1d999;border:1px solid #977b39}
+.kw24-silicon-integrated .kw24-si-card .kw24-status-low,.kw24-silicon-integrated .kw24-si-card .kw24-status-high{background:#4b2d2b;color:#f4b1a9;border:1px solid #a15e56}
+.kw24-silicon-integrated #kw24-silicon-note{line-height:1.55;font-size:12px;margin:10px 0 7px;color:#bdd3b9}
+.kw24-silicon-integrated #kw24-si-goal{border:1px solid #486450;border-radius:9px;background:rgba(142,181,149,.045);margin:8px 0 12px;max-width:100%}
+.kw24-silicon-integrated #kw24-si-goal>summary{padding:10px 12px;cursor:pointer;color:#e0eadb;font-size:12px;font-weight:600}
+.kw24-silicon-integrated #kw24-si-goal>summary small{font-weight:400;color:#b7c8b1}
+.kw24-silicon-integrated #kw24-si-goal .kw24-goal-body{padding:0 12px 13px}
+.kw24-silicon-integrated .kw24-goal-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) auto;align-items:end;gap:8px;margin:10px 0 7px}
+.kw24-silicon-integrated .kw24-goal-inputs label{font-size:12px;display:grid;gap:5px;min-width:0}
+.kw24-silicon-integrated .kw24-goal-inputs input{width:100%;min-width:0;padding:10px;background:#192a20;color:#e6eee1;border:1px solid #678368;border-radius:7px;font-size:15px;min-height:42px}
+.kw24-silicon-integrated .kw24-goal-inputs button{min-height:42px}
+.kw24-silicon-integrated #kw24-goal-message{margin:8px 0 2px}
+@media(max-width:550px){.kw24-silicon-integrated .kw24-goal-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}.kw24-silicon-integrated .kw24-goal-inputs button{grid-column:1/-1}}
+@media print{.kw24-silicon-integrated #kw24-si-goal{display:none!important}.kw24-silicon-integrated #kw24-silicon-note{display:block!important}}

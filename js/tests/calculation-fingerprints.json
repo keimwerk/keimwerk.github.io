@@ -1,0 +1,13 @@
+{
+  "description": "Fingerprints der Keimwerk-v2.1-Datensätze und Berechnungsfunktionen. UI-Änderungen dürfen diese nicht verändern.",
+  "algorithm": "SHA-256",
+  "spans": {
+    "defaultFerts": "343873f1adc59a81338790ce22ba196fed63fad1e872dcf07ad6422c9b3fac98",
+    "waterContrib": "4e20b89276e8193f453eb32171dc72903ee12f5c8f42c9aeef5046713ab8f65c",
+    "silicatePerUnit": "c4d0dbb2088392ebba52ed80d7c48002af86cf42a916d1235168d045326ff2be",
+    "withSilicates": "931d018f20b3cbb3a5b6ee96ef1a8da6817b0354cd86ff602ff7811b3f3435cc",
+    "fertilizerContribution": "1976dcf93bd5375b79fc91ca3851026b61acb432f008a140f0ff1d9cb2e28572",
+    "calc": "31db40996574e06aa0dea6b5ab194a42c6094c04465ee5317a27a7e625ea24bb"
+  },
+  "databaseJson": "7084609bf7af6bca3f6dccea4efcc8b50aa532cac5b0e95cde777e8c9a065616"
+}

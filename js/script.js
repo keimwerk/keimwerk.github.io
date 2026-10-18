@@ -39,35 +39,5 @@
     if(current<0 || !['ArrowRight','ArrowLeft','ArrowUp','ArrowDown'].includes(event.key))return;
     event.preventDefault();const next=tabs[(current+(event.key==='ArrowRight'||event.key==='ArrowDown'?1:-1)+tabs.length)%tabs.length];next.focus();next.click();
   });
-  const modal=document.getElementById('search-modal'), open=document.getElementById('open-search'), close=document.getElementById('close-search'),backdrop=document.getElementById('search-backdrop'),input=document.getElementById('search-input'),results=document.getElementById('search-results');
-  const targets=[
-    {label:'Wissenswelt',meta:'Artikel & Lexika',href:'#wissen',terms:'wissen lexikon schädlinge nützlinge nährstoffe pflanzen physiologie blatt'},
-    {label:'Düngerrechner',meta:'Rechner öffnen',href:'bereiche.html?view=calculator',terms:'dünger rechner n p k magnesium calcium calmag ec ph nährstoffe'},
-    {label:'Mängel-Finder',meta:'Diagnose öffnen',href:'bereiche.html?view=cannabis-finder',terms:'mangel mängel finder symptome diagnose gelb blätter'},
-    {label:'Wasserwerte',meta:'Im Düngerrechner',href:'bereiche.html?view=calculator',terms:'wasser werte wasseranalyse calcium magnesium leitungswasser'},
-    {label:'Grow-Tagebuch',meta:'Tagebuch öffnen',href:'bereiche.html?view=diary',terms:'tagebuch grow journal pflanze projekt foto blüte wachstum'},
-    {label:'Über Keimwerk',meta:'Unsere Idee',href:'#philosophie',terms:'keimwerk info über idee wissen'}
-  ];
-  targets.push(
-    {label:'Schädlingslexikon',meta:'Wissensbereich',href:'bereiche.html?view=pests',terms:'schädlinge milben thripse blattläuse trauermücken'},
-    {label:'Nützlingslexikon',meta:'Wissensbereich',href:'bereiche.html?view=beneficials',terms:'nützlinge raubmilben schwebfliegen marienkäfer'},
-    {label:'Nährstofflexikon',meta:'Wissensbereich',href:'bereiche.html?view=nutrients',terms:'nährstoffe calcium magnesium unterdüngung überdüngung'},
-    {label:'Grow-Analyse',meta:'Daten & Verlauf',href:'bereiche.html?view=grow-analysis',terms:'analyse messwerte chart trends grow ki'},
-    {label:'Wissensnetz',meta:'Verknüpftes Wissen',href:'bereiche.html?view=knowledge-network',terms:'wissensnetz zusammenhänge graf'},
-    {label:'Wissensassistent',meta:'KI-Fragen',href:'bereiche.html?view=knowledge-assistant',terms:'assistent chatbot künstliche intelligenz ki'},
-    {label:'Grow-Profile',meta:'Setups speichern',href:'bereiche.html?view=profiles',terms:'profile anbau setup dünger'}
-  );
-  let lastFocus=null;
-  function renderSearch(){const q=input.value.toLocaleLowerCase('de').trim();const found=targets.filter(t=>(t.label+' '+t.terms).toLocaleLowerCase('de').includes(q));results.replaceChildren();if(!found.length){const p=document.createElement('p');p.className='search-empty';p.textContent='Kein passender Bereich gefunden.';results.appendChild(p);return;}
-    for(const t of found){const a=document.createElement('a');a.href=t.href;a.className='search-result';const name=document.createElement('span');name.textContent=t.label;const meta=document.createElement('small');meta.textContent=t.meta+' ↗';a.append(name,meta);a.addEventListener('click',hideSearch);results.appendChild(a);}
-  }
-  function showSearch(){lastFocus=document.activeElement;modal.hidden=false;document.body.classList.add('modal-open');input.value='';renderSearch();input.focus();closeMenu();}
-  function hideSearch(){modal.hidden=true;document.body.classList.remove('modal-open');if(lastFocus&&typeof lastFocus.focus==='function')lastFocus.focus();}
-  open.addEventListener('click',showSearch);close.addEventListener('click',hideSearch);backdrop.addEventListener('click',hideSearch);input.addEventListener('input',renderSearch);
-  document.addEventListener('keydown',event=>{
-    if(event.key==='/' && modal.hidden && !['INPUT','TEXTAREA'].includes(document.activeElement?.tagName||'')){event.preventDefault();showSearch();return;}
-    if(event.key==='Escape'&&!modal.hidden){event.preventDefault();hideSearch();return;}
-    if(event.key==='Escape')closeMenu();
-    if(event.key==='Tab'&&!modal.hidden){const items=[...modal.querySelectorAll('button,input,a[href]')].filter(e=>e.getClientRects().length);if(!items.length)return;const first=items[0],last=items[items.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}
-  });
+  // Die gemeinsame, datenschutzfreundliche v2.4-Suche wird extern geladen.
 })();

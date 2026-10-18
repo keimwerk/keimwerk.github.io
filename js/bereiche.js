@@ -58,6 +58,13 @@
       else link.removeAttribute('aria-current');
     }
   }
+  function openQueryTarget(){
+    if(!ready)return;
+    const params=new URLSearchParams(location.search);
+    const entry=params.get('entry'),product=params.get('product');
+    if(entry && /^[a-z][a-z0-9-]{1,100}$/.test(entry))iframe.contentWindow?.postMessage({type:'kw24-open-entry',view:current,entry},location.origin);
+    if(product && /^KW-DNG-\d{5}$/.test(product))iframe.contentWindow?.postMessage({type:'kw24-open-product',product},location.origin);
+  }
   function go(view, push = true) {
     if (!valid(view)) return;
     if (view === current && ready) return;
@@ -81,6 +88,7 @@
     loader.hidden=true;
     iframe.classList.add('is-loaded');
     send('kw-switch-view',current); // Auch schnell geklickte Wechsel während des Starts übernehmen.
+    setTimeout(openQueryTarget,130);
   }
   iframe.addEventListener('load',()=>{
     // Wait for the explicit ready message from the app, not a blank/failed load.
@@ -98,6 +106,7 @@
   window.addEventListener('message', event=>{
     if(event.source!==iframe.contentWindow || event.origin!==location.origin || !event.data)return;
     if(event.data.type==='kw-integrated-ready')onReady();
+    if(event.data.type==='kw-integrated-switched' && valid(event.data.view) && event.data.view!==current)go(event.data.view,true);
     if(event.data.type==='kw-integrated-error')showLoadError(event.data.message||'Modulfehler');
     if(event.data.type==='kw-integrated-height'){
       const h=Number(event.data.height);
@@ -115,9 +124,13 @@
     const view=url.searchParams.get('view');
     if(!valid(view))return;
     event.preventDefault();
-    go(view);
+    if(url.searchParams.has('entry')||url.searchParams.has('product')){
+      history.pushState({view},'',url.search);
+      go(view,false);
+      setTimeout(openQueryTarget,120);
+    }else go(view);
   });
-  window.addEventListener('popstate',()=>go(pageFromUrl(),false));
+  window.addEventListener('popstate',()=>{go(pageFromUrl(),false);setTimeout(openQueryTarget,160);});
   const menu=document.getElementById('menu-toggle');
   const nav=document.getElementById('main-nav');
   menu.addEventListener('click',()=>{
