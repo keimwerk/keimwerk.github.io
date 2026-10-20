@@ -1,0 +1,6 @@
+/* Keimwerk v2.4 – Kontextverweise in den bestehenden Lexikokarten */
+.kw24-related{border-top:1px solid #4e7057;margin:19px 0 5px;padding:15px 0 2px;color:#e2ecdf}
+.kw24-related>strong{display:block;font-size:13px;margin-bottom:9px;color:#ddeed3}
+.kw24-related-links{display:flex;gap:8px;flex-wrap:wrap}
+.kw24-related-links a{font-size:12px;line-height:1.4;border:1px solid #68826a;color:#e3f1dc;background:#253e2d;text-decoration:none;padding:9px 11px;border-radius:8px;max-width:100%;overflow-wrap:anywhere}
+.kw24-related-links a:hover,.kw24-related-links a:focus-visible{background:#34593c;border-color:#b5d2a9}
