@@ -1,0 +1,20 @@
+/* Vergleichswerte aus dem Nutzer-Diagramm – keine wissenschaftlichen Düngeoptima */
+.kw27-target-panel{margin:20px 0 0;padding:18px;border:1px solid var(--line,#607061);border-radius:14px;background:rgba(135,167,136,.07)}
+.kw27-target-panel h3{margin:0 0 8px}.kw27-target-panel h4{margin:0 0 4px}
+.kw27-target-panel p{line-height:1.55}.kw27-target-panel table{width:100%;border-collapse:collapse}
+.kw27-target-panel th,.kw27-target-panel td{padding:8px 10px;text-align:left;border-bottom:1px solid rgba(147,172,147,.22);font-variant-numeric:tabular-nums;white-space:nowrap}
+.kw27-target-panel thead{background:rgba(119,153,119,.14)}
+.kw27-target-panel .kw27-plus{color:#ce8f58}.kw27-target-panel .kw27-minus{color:#72aaa4}
+.kw27-suggestion{margin-top:16px;padding:14px;border:1px solid rgba(147,172,147,.32);border-radius:10px}
+.kw27-suggestion button{margin:9px 0;max-width:100%}
+.kw27-suggestion table{margin:10px 0}
+.kw27-evidence{margin-top:15px;font-size:.85em}
+#kw27-suggest-result .kw27-result-actions{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:640px){.kw27-target-panel{padding:11px}.kw27-target-panel th,.kw27-target-panel td{padding:7px 8px;font-size:.86rem}}
+
+/* Vier Phasen als aus den 16 Wochen gemittelte Referenzpunkte. */
+.kw28-phases{margin:15px 0;padding:12px;border:1px solid rgba(147,172,147,.25);border-radius:10px}
+.kw28-phases h4{margin:0 0 8px}
+.kw28-phases .kw28-current-phase{background:rgba(117,168,108,.2);font-weight:650}
+.kw28-phases td{font-variant-numeric:tabular-nums}
+.kw28-phases .note{margin:9px 0 0;font-size:.85em}

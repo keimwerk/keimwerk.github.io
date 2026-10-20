@@ -1,0 +1,87 @@
+
+/* Gestaltung der eingebundenen Keimwerk-Module. */
+:root{--bg:#0d1511!important;--panel:#17281e!important;--line:#344b3a!important;--muted:#adbbab!important;--sage:#c9d7a8!important}
+html{scroll-behavior:auto!important;overflow-x:hidden}
+body{background:#0d1511!important;color:#e9e7dc!important;overflow-x:hidden;font-family:'Segoe UI',Arial,Helvetica,sans-serif!important;min-height:250px}
+body>header,body>footer,#welcome-overlay,#home{display:none!important}
+main.page{max-width:1320px!important;margin:0 auto!important;padding:12px 22px 45px!important;overflow:visible}
+main.page[hidden]{display:none!important}
+main.page h1{color:#f5f2e8!important;font-family:Georgia,'Times New Roman',serif!important;font-size:clamp(34px,4.5vw,62px)!important;line-height:1.08!important;font-weight:400!important;letter-spacing:-1.4px!important}
+main.page h2{color:#e9e7dc!important;font-family:Georgia,'Times New Roman',serif!important}
+main.page h3{color:#edf2e6!important}
+main.page p{color:#cad5c8}
+main.page .section-label,main.page .eyebrow{color:#bed3b0}
+/* Nur die alten Navigations-Zurueck-Buttons ausblenden – NIE Formularaktionen! */
+main.page button[id$="-back"],#nutrients #nutrients-back{display:none!important}
+main.page .pest,main.page .nutrient-card,main.page .cf-panel,main.page .ga-panel,
+main.page .feature, main.page .nutrient-info-card, main.page .contact-panel{background:#17271d!important;border-color:#344938!important;border-radius:10px!important}
+main.page input, main.page select,main.page textarea{border-color:#4c654f!important;background:#102016!important;color:#edf2e7!important}
+main.page button:not(.back){transition:filter .15s}
+main.page button:not(.back):hover{filter:brightness(1.13)}
+main.page button:focus-visible,main.page a:focus-visible,main.page input:focus-visible,main.page select:focus-visible{outline:2px solid #bed6a6!important;outline-offset:2px}
+#calculator.page{width:100%!important;max-width:none!important;padding:0!important}
+#calculator .subhead{padding:8px 22px 24px!important;max-width:1200px!important}
+#calculator .calculator-frame-shell{width:100%!important;max-width:none!important}
+#calculator-frame{width:100%!important;border-radius:10px!important;min-height:1040px;background:#102017!important}
+#grow-diary.page{max-width:1320px!important}
+#nutrients{padding-top:10px!important}
+#nutrients #nutrients-to-calculator{position:relative!important;top:auto!important;left:auto!important;max-width:none!important;margin:0 0 10px!important}
+#knowledge-assistant.page,#grow-analysis.page,#cannabis-finder.page{max-width:1320px!important}
+@media(max-width:700px){main.page{padding:6px 8px 30px!important}#calculator .subhead{padding:4px 8px 16px!important}.pest-grid,.nutrient-grid{grid-template-columns:1fr!important}main.page h1{font-size:clamp(31px,8vw,46px)!important}}
+
+/* V3: stabile Form-Bedienung ohne überlagernde Elemente. */
+#grow-diary input[type="date"] { cursor:pointer; min-height:44px; color-scheme:dark; }
+#grow-diary label:has(input[type="date"]) { cursor:pointer; }
+#grow-diary input[type="date"]::-webkit-calendar-picker-indicator { cursor:pointer; }
+
+/* V5: Profile und Tagebuch als getrennte Ansichten – dasselbe alte Datenmodell. */
+body.kw-integrated.kw-profiles-view #grow-diary > section.section:not(#grow-profile-area){display:none!important}
+body.kw-integrated.kw-diary-view #grow-profile-area{display:none!important}
+body.kw-integrated #grow-profile-toggle{display:none!important}
+body.kw-integrated #grow-profile-area{margin:0 auto 25px!important;padding:0!important;border-top:0!important}
+body.kw-integrated #grow-profile-area > div{padding:0!important}
+body.kw-integrated #grow-profile-panel{background:#14251a!important;border:1px solid #38503e!important;border-radius:14px!important;padding:clamp(18px,3vw,30px)!important}
+body.kw-integrated #grow-profile-panel h2{font-size:clamp(27px,3vw,38px)!important;margin-top:0!important}
+/* Only app-internal BACK navigation gets hidden. Save/edit/delete actions are
+   real buttons and should be visible when their enclosing data view is visible. */
+body.kw-integrated #grow-diary .gd-actions button.back,
+body.kw-integrated #grow-diary .gd-entry-actions button.back,
+body.kw-integrated #grow-diary #gp-save,
+body.kw-integrated #grow-diary #gp-update,
+body.kw-integrated #grow-diary #gp-duplicate,
+body.kw-integrated #grow-diary #gp-load,
+body.kw-integrated #grow-diary #gp-delete,
+body.kw-integrated #grow-diary #gd-save,
+body.kw-integrated #grow-diary #gd-reset,
+body.kw-integrated #grow-diary #gd-export,
+body.kw-integrated #grow-diary #gd-import-btn,
+body.kw-integrated #grow-diary #gde-save,
+body.kw-integrated #grow-diary #gde-cancel-edit {
+ display:inline-flex!important;align-items:center;justify-content:center;
+ position:static!important;min-height:42px;padding:10px 15px!important;
+ margin:3px 4px 3px 0!important;max-width:100%!important;
+ background:#253b2b!important;color:#f3f5ed!important;border:1px solid #648069!important;
+ border-radius:8px!important;box-shadow:none!important;
+ font:600 14px/1.3 'Segoe UI',Arial,sans-serif!important;white-space:normal!important;
+ cursor:pointer!important;
+}
+/* Hidden conditional controls MUST remain hidden (new vs edit modes). */
+body.kw-integrated #grow-diary button[hidden],
+body.kw-integrated #grow-diary [hidden] {display:none!important;}
+body.kw-integrated #grow-diary button:disabled {opacity:.45!important;cursor:not-allowed!important;}
+body.kw-integrated #grow-diary #gp-save,
+body.kw-integrated #grow-diary #gd-save,
+body.kw-integrated #grow-diary #gde-save {
+ background:#c1d8ad!important;color:#102318!important;border-color:#c1d8ad!important;font-weight:800!important;
+}
+body.kw-integrated #grow-diary #gp-save:hover:not(:disabled),
+body.kw-integrated #grow-diary #gd-save:hover:not(:disabled),
+body.kw-integrated #grow-diary #gde-save:hover:not(:disabled){background:#e1eccf!important}
+body.kw-integrated #grow-diary button[data-gd-delete],
+body.kw-integrated #grow-diary button[data-gde-delete],
+body.kw-integrated #grow-diary #gp-delete{border-color:#af817b!important}
+body.kw-integrated #grow-diary .kw-v6-action-help{font-size:13px;color:#d3e3cf;background:#1a3021;border-left:3px solid #8db189;padding:10px 14px;margin:12px 0 15px}
+body.kw-integrated #grow-diary #gp-status:not(:empty),
+body.kw-integrated #grow-diary #gd-status:not(:empty){padding:9px 12px;border-left:3px solid #a9c99b;background:rgba(116,149,104,.12);color:#e7f2db!important;margin-top:12px}
+body.kw-integrated #grow-diary .kw-view-note{padding:12px 15px;margin:0 0 17px;color:#c9dec6;border-left:3px solid #a2c78f;background:#192f21;border-radius:0 8px 8px 0;font-size:14px;line-height:1.65}
+@media(max-width:650px){body.kw-integrated #grow-diary .gd-actions{gap:9px!important}body.kw-integrated #grow-diary button.back:not(#grow-diary-back):not(#grow-profile-toggle){font-size:13px!important}}
