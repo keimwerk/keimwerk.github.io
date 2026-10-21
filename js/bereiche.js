@@ -20,6 +20,8 @@
   let ready = false;
   const iframe = document.getElementById('work-frame');
   const loader = document.getElementById('frame-loading');
+  loader.hidden=true; // avoid flashing a loader for quick cached starts
+  setTimeout(()=>{if(!ready)loader.hidden=false;},450);
   const loadError = document.getElementById('frame-error');
   const sidebarLinks = [...document.querySelectorAll('.work-sidebar nav a[data-view]')];
   const send = (type, view) => iframe.contentWindow?.postMessage({type,view},location.origin);

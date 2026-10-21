@@ -1,0 +1,20 @@
+/* Keimwerk v2.9: vernetzte Lexika + mobile Zugänglichkeit */
+body.kw-integrated #pests .kw29-counterparts{margin:20px 0;padding:16px;border:1px solid #5a7860;border-radius:12px;background:#213c2a}
+body.kw-integrated #pests .kw29-counterparts h4{font-size:17px;color:#edf4e8;margin:0 0 8px}
+body.kw-integrated #pests .kw29-counterparts p{font-size:13px!important;line-height:1.55;margin:7px 0 12px!important}
+body.kw-integrated #pests .kw29-counterpart-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,205px),1fr));gap:9px}
+body.kw-integrated #pests .kw29-counterpart-link{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:6px;padding:12px 14px;min-height:65px;background:#2e5138;color:#f4f7ee;border:1px solid #769878;border-radius:9px;white-space:normal;cursor:pointer}
+body.kw-integrated #pests .kw29-counterpart-link:hover,body.kw-integrated #pests .kw29-counterpart-link:focus-visible{background:#3b6347;outline-offset:2px}
+body.kw-integrated #pests .kw29-counterpart-link small{font-size:11px;line-height:1.4;color:#d4e8d0}
+body.kw-integrated #pests .kw29-counterpart-caution{color:#c6d7c1!important;font-size:12px!important}
+body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-trigger:focus-visible{outline:3px solid #dfc47d;outline-offset:2px}
+@media(max-width:660px){
+ body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-trigger{min-height:65px;touch-action:manipulation}
+ body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-dismiss{min-height:46px;max-width:100%}
+ body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-search{min-height:46px;font-size:16px}
+ body.kw-integrated #pests .kw29-counterparts{padding:12px}
+ body.kw-integrated #pests .kw29-counterpart-list{grid-template-columns:1fr}
+ body.kw-integrated #pests .kw29-counterpart-link{min-height:57px}
+ body.kw-integrated :is(#pests,#beneficials,#nutrients) .kw-lex-detail :is(.pest-images,.nutrient-images) figcaption{overflow-wrap:anywhere}
+}
+@media(prefers-reduced-motion:reduce){body.kw-integrated :is(#pests,#beneficials,#nutrients) *{scroll-behavior:auto!important}}

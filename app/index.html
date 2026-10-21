@@ -420,6 +420,7 @@ button,input,select,textarea{touch-action:manipulation}
 <link rel="stylesheet" href="integration.css?v=6" />
 <link rel="stylesheet" href="modules-v7.css?v=7" />
 <link rel="stylesheet" href="lexikon-v8.css?v=9" />
+<link rel="stylesheet" href="keimwerk-v29.css?v=29" />
 <style id="kw-critical-integrated-css">
   #welcome-overlay, #home, body>header, body>footer { display:none!important; }
   body:not(.kw-integrated) main.page { display:none!important; }
@@ -790,7 +791,14 @@ main.page[hidden], #grow-profile-panel[hidden], [hidden] {display:none!important
 </main>
 <main class="page" hidden="" id="calculator">
 <button class="back" id="calculator-back">← Zurück zur Startseite</button>
-<div class="calculator-frame-shell"><iframe id="calculator-frame" data-module="calculator" title="Keimwerk-Düngerrechner"></iframe></div>
+<div class="calculator-frame-shell"><iframe id="calculator-frame" data-module="calculator" title="Keimwerk-Düngerrechner"></iframe></div><script id="kw-early-calculator-start">
+// Start the calculator while the outer lexicon page is still parsing; only when
+// the calculator is requested. Other modules remain lazy and unchanged.
+if(new URLSearchParams(location.search).get('view')==='calculator'){
+ const frame=document.getElementById('calculator-frame');
+ if(frame&&!frame.dataset.loaded){frame.dataset.loaded='true';frame.src='calculator.html';}
+}
+</script>
 </main>
 <main class="page" hidden="" id="grow-diary">
 <button class="back" id="grow-diary-back" type="button">← Zurück zur Startseite</button>
@@ -1556,6 +1564,8 @@ $('gd-profile').addEventListener('change',()=>{
     setTimeout(scheduleResize,1000);
   });
   window.addEventListener('resize',scheduleResize,{passive:true});
+  // An early-loaded calculator may have completed before this listener was attached.
+  if(frame.dataset.loaded==='true'){setTimeout(scheduleResize,100);setTimeout(scheduleResize,700);}
 })();
 </script>
 
@@ -1563,6 +1573,7 @@ $('gd-profile').addEventListener('change',()=>{
 <!-- Keimwerk Design V3: Start der integrierten Funktionsansicht. -->
 <script src="integration.js?v=6" defer></script>
 <script src="lexikon-v8.js?v=9" defer></script>
+<script src="keimwerk-v29-pestlinks.js?v=29" defer></script>
 <script src="keimwerk-v22-diary.js?v=22" defer></script>
 <link rel="stylesheet" href="keimwerk-v24-links.css?v=24">
 <script src="keimwerk-v24-links.js?v=24" defer></script>

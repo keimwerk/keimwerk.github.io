@@ -1,9 +1,9 @@
 {
   "name": "Keimwerk eigene Düngerdatenbank – detaillierte Nährstoffwerte",
-  "count": 227,
+  "count": 229,
   "idRange": [
     "KW-DNG-00001",
-    "KW-DNG-00227"
+    "KW-DNG-00229"
   ],
   "records": [
     {
@@ -12230,6 +12230,116 @@
         "Zn",
         "Cu",
         "Mo"
+      ],
+      "knownNForms": false
+    },
+    {
+      "id": "KW-DNG-00228",
+      "originalId": 228,
+      "name": "Green House Feeding Hybrids",
+      "brand": "Green House Feeding",
+      "state": "pulver",
+      "npk": "15-7-22",
+      "declaredNutrients": {
+        "N": 15.0,
+        "P2O5": 7.0,
+        "K2O": 22.0,
+        "MgO": 6.0,
+        "B": 0.03,
+        "Cu": 0.002,
+        "Fe": 0.12,
+        "Mn": 0.05,
+        "Mo": 0.005,
+        "Zn": 0.01
+      },
+      "referencePerUnit": {
+        "N": 150.0,
+        "P": 30.548,
+        "K": 182.644,
+        "Mg": 36.18,
+        "B": 0.3,
+        "Cu": 0.02,
+        "Fe": 1.2,
+        "Mn": 0.5,
+        "Mo": 0.05,
+        "Zn": 0.1
+      },
+      "nitrogenFormsPerUnit": {
+        "no3": 100.0,
+        "nh4": 50.0
+      },
+      "nForms": {
+        "no3": 10.0,
+        "nh4": 5.0
+      },
+      "density": null,
+      "calculatorReady": true,
+      "sourceName": "Green House Feeding – Originaletikett (Nutzerfotos vom 21.10.2026)",
+      "sourceNote": "Vom Nutzer fotografiertes Original-Verpackungsetikett am 21.10.2026. Massenanteile laut Etikett: N, P₂O₅, K₂O, MgO und B/Cu/Fe/Mn/Mo/Zn. Die elementaren Referenzwerte je 1 g/L sind aus den Oxidwerten mit Keimwerk-Faktoren P₂O₅→P 0,4364; K₂O→K 0,8302; MgO→Mg 0,603 umgerechnet. Calcium (Ca) und Schwefel (S) sind nicht deklariert und deshalb unbekannt, nicht als nachgewiesen 0 % zu verstehen. Nitrat-N 10 % und Ammonium-N 5 % laut Etikett.",
+      "variantNotes": {},
+      "knownNutrients": [
+        "N",
+        "P",
+        "K",
+        "Mg",
+        "B",
+        "Cu",
+        "Fe",
+        "Mn",
+        "Mo",
+        "Zn"
+      ],
+      "knownNForms": true
+    },
+    {
+      "id": "KW-DNG-00229",
+      "originalId": 229,
+      "name": "Green House Feeding Booster PK+",
+      "brand": "Green House Feeding",
+      "state": "pulver",
+      "npk": "0-30-27",
+      "declaredNutrients": {
+        "N": 0.0,
+        "P2O5": 30.0,
+        "K2O": 27.0,
+        "MgO": 8.2,
+        "B": 0.03,
+        "Cu": 0.002,
+        "Fe": 0.12,
+        "Mn": 0.05,
+        "Mo": 0.005,
+        "Zn": 0.01
+      },
+      "referencePerUnit": {
+        "N": 0.0,
+        "P": 130.92,
+        "K": 224.154,
+        "Mg": 49.446,
+        "B": 0.3,
+        "Cu": 0.02,
+        "Fe": 1.2,
+        "Mn": 0.5,
+        "Mo": 0.05,
+        "Zn": 0.1
+      },
+      "nitrogenFormsPerUnit": {},
+      "nForms": {},
+      "density": null,
+      "calculatorReady": true,
+      "sourceName": "Green House Feeding – Originaletikett (Nutzerfotos vom 21.10.2026)",
+      "sourceNote": "Vom Nutzer fotografiertes Original-Verpackungsetikett am 21.10.2026. Massenanteile laut Etikett: N, P₂O₅, K₂O, MgO und B/Cu/Fe/Mn/Mo/Zn. Die elementaren Referenzwerte je 1 g/L sind aus den Oxidwerten mit Keimwerk-Faktoren P₂O₅→P 0,4364; K₂O→K 0,8302; MgO→Mg 0,603 umgerechnet. Calcium (Ca) und Schwefel (S) sind nicht deklariert und deshalb unbekannt, nicht als nachgewiesen 0 % zu verstehen. Kein Stickstoff laut NPK-Angabe (0 % N); keine Stickstoffformen ausgewiesen.",
+      "variantNotes": {},
+      "knownNutrients": [
+        "N",
+        "P",
+        "K",
+        "Mg",
+        "B",
+        "Cu",
+        "Fe",
+        "Mn",
+        "Mo",
+        "Zn"
       ],
       "knownNForms": false
     }

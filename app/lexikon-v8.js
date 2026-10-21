@@ -87,8 +87,14 @@
       const cover=el('span','kw-lex-cover');
       if(firstImage){
         const img=el('img');
-        img.src=firstImage.getAttribute('src');
+        // Katalog-Vorschaubilder sind kleiner als die hochauflösenden Detailbilder.
+        // Nur bekannte, hier erzeugte Thumbnail-Dateien verwenden; sonst Original.
+        const originalSrc=firstImage.getAttribute('src');
+        const match=originalSrc?.match(/^\.\/assets\/(.+\.webp)$/);
+        const previewId=match?match[1]:null;
+        img.src=previewId?'./assets/thumbs/'+previewId:originalSrc;
         img.alt=firstImage.getAttribute('alt') || title;
+        img.width=480;img.height=343;
         img.loading=index<=3?'eager':'lazy';
         img.decoding='async';
         cover.append(img);

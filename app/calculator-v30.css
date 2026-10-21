@@ -1,0 +1,23 @@
+/* Keimwerk V30 — Ergänzende Mehrwochenplanung */
+.kw30-plan{margin:18px 0 3px;padding:15px;border:1px solid rgba(164,190,152,.42);border-radius:13px;background:rgba(42,77,48,.28);min-width:0}
+.kw30-plan h4{font-size:1.08rem;margin:0 0 7px}
+.kw30-plan .kw30-description{margin-bottom:12px}
+.kw30-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-bottom:12px}
+.kw30-fields label{display:flex;flex-direction:column;gap:5px;color:var(--light)}
+.kw30-fields input,.kw30-fields select{min-width:0;max-width:100%;width:100%;background:var(--input);border:1px solid var(--line);border-radius:7px;padding:10px 9px;color:var(--light);min-height:42px}
+.kw30-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.kw30-actions button,.kw30-apply{min-height:42px}
+.kw30-status{margin:12px 0 7px;color:var(--sage);font-weight:600}
+.kw30-warning{padding:10px;border-left:3px solid var(--warn);background:rgba(220,170,73,.11)}
+.kw30-week-card{border:1px solid var(--line);border-radius:10px;margin:12px 0;padding:12px;background:var(--panel2);min-width:0}
+.kw30-week-heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 10px;margin-bottom:7px}
+.kw30-week-heading h5{font-size:1rem;margin:0}.kw30-week-heading span{font-size:.85rem;color:var(--muted)}
+.kw30-table{width:100%;min-width:440px;margin:0}
+.kw30-table th,.kw30-table td{white-space:normal;min-width:0;text-align:right;padding:8px 10px}
+.kw30-table th:first-child,.kw30-table td:first-child{text-align:left;min-width:140px}
+.kw30-detail{margin:11px 0}.kw30-detail summary{cursor:pointer;color:var(--sage);font-weight:600;padding:5px 0}
+.kw30-explanation{margin:8px 0}
+.kw30-swipe{display:none;color:var(--muted);font-size:.8rem;margin:5px 0}
+.kw30-apply{white-space:normal;text-align:left;margin:5px 0 0}
+@media(max-width:620px){.kw30-plan{padding:10px}.kw30-swipe{display:block}.kw30-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.kw30-fields label:last-child{grid-column:1/-1}.kw30-actions button{flex:1 1 160px}.kw30-table{font-size:.86rem;min-width:400px}.kw30-week-card{padding:9px}}
+@media print{.kw30-actions,.kw30-apply{display:none!important}.kw30-week-card{break-inside:avoid}.kw30-detail{display:none}}

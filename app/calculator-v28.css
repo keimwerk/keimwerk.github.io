@@ -1,0 +1,36 @@
+/* Keimwerk 2.8: lesendes Diagramm, unabhängig vom chemischen Rechenkern. */
+.kw28-visual{margin:20px 0 12px;padding:18px;background:rgba(125,167,128,.065);border:1px solid #516a56;border-radius:14px;min-width:0}
+.kw28-visual h3{margin:0 0 6px;font-size:17px}
+.kw28-visual-head{display:flex;gap:15px;align-items:end;justify-content:space-between;flex-wrap:wrap}
+.kw28-visual-head>div{flex:1 1 290px;min-width:0}
+.kw28-visual-head .note{margin:0 0 7px;line-height:1.55}
+.kw28-visual-head label{display:grid;gap:5px;min-width:170px;font-weight:650}
+.kw28-visual-head select{padding:9px;min-height:44px;max-width:100%;background:#1b3124;color:#f1f7eb;border:1px solid #719078;border-radius:8px}
+.kw28-svg-frame{overflow:hidden;min-width:0;border:1px solid #36503e;border-radius:10px;background:#19291f;margin-top:10px}
+.kw28-svg-frame svg{display:block;width:100%;height:auto;min-height:185px}
+.kw28-grid{stroke:#3e5547;stroke-width:1}
+.kw28-boundary{stroke:#779080;stroke-width:1.5;stroke-dasharray:4 6}
+.kw28-week-line{stroke:#e3b35f;stroke-width:2;stroke-dasharray:4 6}
+.kw28-target-line{stroke:#a4c89a;stroke-width:3.5;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.kw28-actual-line{stroke:#7ec2da;stroke-width:3;stroke-dasharray:12 7}
+.kw28-target-point{fill:#c8e0af;stroke:#12271b;stroke-width:2}
+.kw28-actual-point{fill:#7ec2da;stroke:#12271b;stroke-width:2}
+.kw28-axis-label{font:15px Arial,sans-serif;fill:#cfdbd1}
+.kw28-legend{display:flex;gap:13px 20px;flex-wrap:wrap;font-size:12px;margin:8px 0 1px}
+.kw28-legend span{display:flex;align-items:center;gap:6px}
+.kw28-legend i{display:inline-block;width:20px;height:3px;background:#a4c89a;border-radius:3px}
+.kw28-legend .kw28-legend-actual{background:#7ec2da}
+.kw28-legend .kw28-legend-week{background:#e3b35f}
+.kw28-scroll-hint{display:none;font-size:11px;line-height:1.4;color:#c6d9c0;margin:6px 0 0}
+.kw28-reading{font-weight:650;font-size:13px;line-height:1.6;margin:9px 0}
+.kw28-contributions{border:1px solid #465e4d;border-radius:9px;padding:10px 12px;background:#213428}
+.kw28-contributions summary{cursor:pointer;font-weight:700;padding:5px 0;min-height:38px}
+.kw28-contributions .note{font-size:12px;line-height:1.6}
+.kw28-contribution-row{display:grid;grid-template-columns:minmax(120px,1.1fr) minmax(70px,2fr) 90px;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid #3a5644;font-size:12px}
+.kw28-contribution-name{overflow-wrap:anywhere}
+.kw28-contribution-track{height:12px;overflow:hidden;border-radius:9px;background:#15271b;border:1px solid #4e6a55}
+.kw28-contribution-fill{height:100%;display:block;background:#95bf8c}
+.kw28-contribution-row strong{text-align:right;font-variant-numeric:tabular-nums}
+.kw28-source{font-size:12px;line-height:1.6;margin:12px 0 0}
+@media(max-width:620px){.kw28-visual{padding:12px;margin:12px 0}.kw28-visual-head label{width:100%}.kw28-svg-frame{overflow-x:auto}.kw28-svg-frame svg{min-width:620px}.kw28-scroll-hint{display:block}.kw28-contribution-row{grid-template-columns:minmax(0,1fr) 85px;gap:5px 8px}.kw28-contribution-track{grid-column:1 / -1;grid-row:2}.kw28-contribution-row strong{grid-column:2;grid-row:1}}
+@media print{.kw28-contributions{display:none}}
