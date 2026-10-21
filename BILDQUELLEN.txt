@@ -1,0 +1,49 @@
+KEIMWERK — FOTOQUELLEN UND LIZENZEN
+=================================
+
+1. „Cannabis leaves.jpg“ (Hero-Foto und Grow-Journal-Hintergrund)
+   Fotograf: Brett Levin / Brett Levin Photography
+   Lizenz: Creative Commons Attribution 2.0 Generic (CC BY 2.0)
+   Quelle: https://commons.wikimedia.org/wiki/File:Cannabis_leaves.jpg
+   Lizenz: https://creativecommons.org/licenses/by/2.0/
+   Anpassungen im Design: Bildausschnitt, Farbton, Helligkeit, Kontrast und
+   darüberliegende Farbverläufe via CSS. Quelldatei nicht verändert.
+
+2. „Marijuana Cannabis leaves.jpg“ (Bild im Wissensbereich)
+   Fotograf: Cannabis Tours
+   Lizenz: Creative Commons Attribution-ShareAlike 4.0 International
+   (CC BY-SA 4.0)
+   Quelle: https://commons.wikimedia.org/wiki/File:Marijuana_Cannabis_leaves.jpg
+   Lizenz: https://creativecommons.org/licenses/by-sa/4.0/
+   Anpassungen im Design: Bildausschnitt, Farbton, Helligkeit, Kontrast und
+   darüberliegende Farbverläufe via CSS. Quelldatei nicht verändert.
+
+Die beiden Fotografien werden von Wikimedia Commons direkt eingebunden,
+nicht neu veröffentlicht, verändert oder mitgeliefert. Internet erforderlich.
+Bitte die Lizenzbedingungen vor einer späteren Veröffentlichung erneut prüfen.
+
+3. Nährstofflexikon – 24 KI-generierte Illustrationen
+   Speicherort: app/assets/naehrstoffe/
+   12 Nährstoffprofile mit je zwei Darstellungen (1400 × 1000 Pixel).
+   Herkunft: Mit generativer KI erzeugtes Bildmaterial, für Keimwerk zugeschnitten und als WebP optimiert.
+   Keine echten Fotos dokumentierter Mangelversuche, keine laborbestätigten Diagnosen.
+   Bildunterschriften und Vorschaubilder sind entsprechend gekennzeichnet.
+
+4. Nützlingslexikon – 22 KI-generierte Illustrationen
+   Speicherort: app/assets/nuetzlinge/
+   Elf Einträge mit je zwei Bildern (1400 × 1000 Pixel, WebP).
+   Herkunft: Mit generativer KI erzeugte und für die Website optimierte Illustrationen.
+   Keine echten entomologischen Fotos, keine dokumentierte oder gesicherte Artbestimmung.
+   Besonders bei Raubmilben ist eine Artidentifikation anhand der Bilder nicht möglich.
+   Die Lexikon-Karten und Bildunterschriften tragen eine sichtbare KI-Kennzeichnung.
+   Steinernema feltiae – Bild 1: schematische mikroskopische Nematodendarstellung.
+   Steinernema feltiae – Bild 2: Trauermückenlarve als Zielorganismus.
+   Bild 2 zeigt ausdrücklich KEINE sichtbare Infektion und KEINE Nematoden.
+   Kein Bild ist ein Maßstabs- oder Artnachweis.
+
+Schädlingslexikon: 36 KI-generierte Illustrationen, 12 x 3 Bildpositionen, 1400 x 1000 Pixel.
+Bild-IDs 01–36 (app/assets/image-01.webp bis image-36.webp): Alle ersetzt durch KI-generierte Illustrationen.
+Bild 25 Hanf-Rostmilbe: stark vergrößerte schematische Illustration; keine echte Mikroskopaufnahme.
+Bilder 06, 17 und 18: unspezifische Pflanzensymptome, keine sichere Diagnose.
+Bild 31 zeigt eine generische Nacktschnecke, keine bestimmte Schnegel-Art.
+Bild 35 zeigt exemplarische Fraßbuchten, kein Artbestimmungsnachweis.
